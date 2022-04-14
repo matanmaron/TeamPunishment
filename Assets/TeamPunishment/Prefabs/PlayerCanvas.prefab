@@ -134,6 +134,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   stateTMP: {fileID: 4113496637647504193}
+  debugPrefab: {fileID: 166880, guid: 391be5df5ef62f345bb76a1051c04da7, type: 3}
   connectionState: 0
 --- !u!1 &3080530415162653650
 GameObject:

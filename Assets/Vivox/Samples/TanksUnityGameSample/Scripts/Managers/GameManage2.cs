@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class GameManager2 : MonoBehaviour
 {
-    static public GameManager s_Instance;
+    static public GameManager2 s_Instance;
     public GameObject localTank;
     public Button BoostButton;
     public Button ShootButton;

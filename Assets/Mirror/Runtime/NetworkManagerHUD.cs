@@ -13,8 +13,8 @@ namespace Mirror
     {
         NetworkManager manager;
 
-        public int offsetX;
-        public int offsetY;
+        private int offsetX = 0;
+        private int offsetY = 0;
 
         void Awake()
         {
