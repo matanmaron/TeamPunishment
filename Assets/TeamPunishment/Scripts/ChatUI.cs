@@ -23,6 +23,7 @@ namespace TeamPunishment
         Dictionary<NetworkConnectionToClient, string> connNames = new Dictionary<NetworkConnectionToClient, string>();
 
         public static ChatUI instance;
+        private bool gamestarted = false;
 
         void Awake()
         {
@@ -90,19 +91,26 @@ namespace TeamPunishment
         #endregion
 
         #region Kick
-        private void OnConnectedToServer()
+        private void Start()
         {
-            Debug.Log("[player] OnConnectedToServer");
+            Debug.Log("[Start]");
+            if (GameObject.FindGameObjectsWithTag("Player").Length > 4)
+            {
+                Debug.LogWarning("[HandleCommandMsg] - over 4 players. bye bye!");
+                Application.Quit();
+                return;
+            }
             CmdSend("@@@LOGIN");
         }
 
         private void FillUpAllPlayersButton()
         {
-            foreach (string player in connNames.Values)
+            Debug.Log("[FillUpAllPlayersButton]");
+            foreach (var player in GameObject.FindGameObjectsWithTag("Player"))
             {
                 var btn = Instantiate(ButtonPrefab, ButtonHolder);
-                btn.GetComponentInChildren<Text>().text = player;
-                btn.onClick.AddListener(delegate { OnPlayerKickClick(player); });
+                btn.GetComponentInChildren<Text>().text = player.GetComponent<Player>().playerName;
+                btn.onClick.AddListener(delegate { OnPlayerKickClick(player.GetComponent<Player>().playerName); });
             }
         }
         private void OnPlayerKickClick(string player)
@@ -114,11 +122,12 @@ namespace TeamPunishment
 
         private bool HandleCommandMsg(string msg)
         {
+            Debug.Log("[HandleCommandMsg]");
             if (msg == "@@@LOGIN")
             {
-                Debug.Log("[HandleCommandMsg] LOGIN");
-                if (connNames.Count == 2)
+                if (!gamestarted && GameObject.FindGameObjectsWithTag("Player").Length == 4)
                 {
+                    gamestarted = true;
                     FillUpAllPlayersButton();
                     return true;
                 }

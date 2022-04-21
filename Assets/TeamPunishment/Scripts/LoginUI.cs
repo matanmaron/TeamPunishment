@@ -10,7 +10,7 @@ namespace TeamPunishment
         public Button hostButton;
         public Button clientButton;
         public Text errorText;
-
+        public GameObject DebugConsole;
         public static LoginUI instance;
 
         void Awake()
@@ -22,6 +22,7 @@ namespace TeamPunishment
         {
             if (!Debug.isDebugBuild)
             {
+                Destroy(DebugConsole);
                 hostButton.gameObject.SetActive(false);
             }
         }
