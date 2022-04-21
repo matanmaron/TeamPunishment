@@ -125,14 +125,21 @@ namespace TeamPunishment
             Debug.Log("[HandleCommandMsg]");
             if (msg == "@@@LOGIN")
             {
-                if (!gamestarted && GameObject.FindGameObjectsWithTag("Player").Length == 4)
+                if (!gamestarted && GameObject.FindGameObjectsWithTag("Player").Length == 2)
                 {
+                    Debug.Log("[HandleCommandMsg] - gamestarted");
                     gamestarted = true;
+                    PlayIntro();
                     FillUpAllPlayersButton();
                     return true;
                 }
             }
             return false;
+        }
+
+        private void PlayIntro()
+        {
+            VideoManager.instance.PlayIntro();
         }
     }
 }
