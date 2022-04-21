@@ -1,3 +1,4 @@
+using Mirror;
 using UnityEngine;
 
 /*
@@ -5,7 +6,7 @@ using UnityEngine;
 	API Reference: https://mirror-networking.com/docs/api/Mirror.NetworkManager.html
 */
 
-namespace Mirror.Examples.Chat
+namespace TeamPunishment
 {
     [AddComponentMenu("")]
     public class ChatNetworkManager : NetworkManager

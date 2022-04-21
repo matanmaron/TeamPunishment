@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Mirror.Examples.Chat
+namespace TeamPunishment
 {
     public class LoginUI : MonoBehaviour
     {
@@ -16,6 +16,14 @@ namespace Mirror.Examples.Chat
         void Awake()
         {
             instance = this;
+        }
+
+        private void Start()
+        {
+            if (!Debug.isDebugBuild)
+            {
+                hostButton.gameObject.SetActive(false);
+            }
         }
 
         // Called by UI element UsernameInput.OnValueChanged

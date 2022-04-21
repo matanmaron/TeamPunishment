@@ -1,6 +1,7 @@
+using Mirror;
 using System.Collections.Generic;
 
-namespace Mirror.Examples.Chat
+namespace TeamPunishment
 {
     public class Player : NetworkBehaviour
     {

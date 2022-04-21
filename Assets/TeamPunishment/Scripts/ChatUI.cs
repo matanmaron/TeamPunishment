@@ -1,16 +1,21 @@
+using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Mirror.Examples.Chat
+namespace TeamPunishment
 {
     public class ChatUI : NetworkBehaviour
     {
-        [Header("UI Elements")]
+        [Header("Chat UI Elements")]
         public InputField chatMessage;
         public Text chatHistory;
         public Scrollbar scrollbar;
+
+        [Header("Kick UI Elements")]
+        public Transform ButtonHolder;
+        public Button ButtonPrefab;
 
         [Header("Diagnostic - Do Not Edit")]
         public string localPlayerName;
@@ -24,6 +29,7 @@ namespace Mirror.Examples.Chat
             instance = this;
         }
 
+        #region Chat
         [Command(requiresAuthority = false)]
         public void CmdSend(string message, NetworkConnectionToClient sender = null)
         {
@@ -37,6 +43,10 @@ namespace Mirror.Examples.Chat
         [ClientRpc]
         public void RpcReceive(string playerName, string message)
         {
+            if (HandleCommandMsg(message))
+            {
+                return;
+            }
             string prettyMessage = playerName == localPlayerName ?
                 $"<color=red>{playerName}:</color> {message}" :
                 $"<color=blue>{playerName}:</color> {message}";
@@ -76,6 +86,44 @@ namespace Mirror.Examples.Chat
 
             // slam the scrollbar down
             scrollbar.value = 0;
+        }
+        #endregion
+
+        #region Kick
+        private void OnConnectedToServer()
+        {
+            Debug.Log("[player] OnConnectedToServer");
+            CmdSend("@@@LOGIN");
+        }
+
+        private void FillUpAllPlayersButton()
+        {
+            foreach (string player in connNames.Values)
+            {
+                var btn = Instantiate(ButtonPrefab, ButtonHolder);
+                btn.GetComponentInChildren<Text>().text = player;
+                btn.onClick.AddListener(delegate { OnPlayerKickClick(player); });
+            }
+        }
+        private void OnPlayerKickClick(string player)
+        {
+            Debug.Log($"[OnPlayerKickClick] - kick {player}");
+        }
+
+        #endregion
+
+        private bool HandleCommandMsg(string msg)
+        {
+            if (msg == "@@@LOGIN")
+            {
+                Debug.Log("[HandleCommandMsg] LOGIN");
+                if (connNames.Count == 2)
+                {
+                    FillUpAllPlayersButton();
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
