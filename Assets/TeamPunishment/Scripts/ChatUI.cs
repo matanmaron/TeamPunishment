@@ -94,6 +94,7 @@ namespace TeamPunishment
         private void Start()
         {
             Debug.Log("[Start]");
+            gamestarted = false;
             if (GameObject.FindGameObjectsWithTag("Player").Length > 4)
             {
                 Debug.LogWarning("[HandleCommandMsg] - over 4 players. bye bye!");
@@ -125,7 +126,7 @@ namespace TeamPunishment
             Debug.Log("[HandleCommandMsg]");
             if (msg == "@@@LOGIN")
             {
-                if (!gamestarted && GameObject.FindGameObjectsWithTag("Player").Length == 2)
+                if (!gamestarted && GameObject.FindGameObjectsWithTag("Player").Length == 4)
                 {
                     Debug.Log("[HandleCommandMsg] - gamestarted");
                     gamestarted = true;

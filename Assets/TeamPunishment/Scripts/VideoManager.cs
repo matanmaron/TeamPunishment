@@ -7,7 +7,8 @@ public class VideoManager : MonoBehaviour
 {
     [SerializeField] GameObject VideoPrefab;
     [SerializeField] VideoClip intro;
-    
+    [SerializeField] GameObject chatCanvas;
+
     public static VideoManager instance;
 
     private GameObject currentVideo;
@@ -30,10 +31,12 @@ public class VideoManager : MonoBehaviour
 
     public void PlayIntro()
     {
+        chatCanvas.SetActive(false);
         Debug.Log($"[PlayIntro]");
         currentVideo = Instantiate(VideoPrefab, transform);
         var vid = currentVideo.GetComponent<VideoPlayer>();
         vid.clip = intro;
+        vid.targetCamera = Camera.main;
         vid.Play();
         vid.loopPointReached += OnVideoEnd;
     }
@@ -44,5 +47,6 @@ public class VideoManager : MonoBehaviour
         vid.loopPointReached -= OnVideoEnd;
         Destroy(currentVideo);
         currentVideo = null;
+        chatCanvas.SetActive(true);
     }
 }
