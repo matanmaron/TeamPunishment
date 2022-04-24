@@ -27,7 +27,11 @@ namespace TeamPunishment
         private bool gamestarted = false;
         private bool chatWindowHidden = true;
 
+#if UNITY_EDITOR
         const int MAX_PLAYERS = 1;
+#else
+        const int MAX_PLAYERS = 4; //NEVER CHANGE!
+#endif
 
         void Awake()
         {
@@ -49,7 +53,7 @@ namespace TeamPunishment
             ToggleChatButton.onClick.AddListener(ToggleChat);
         }
 
-        #region Chat
+#region Chat
         [Command(requiresAuthority = false)]
         public void CmdSend(string message, NetworkConnectionToClient sender = null)
         {
@@ -121,9 +125,9 @@ namespace TeamPunishment
             }
             chatWindowHidden = !chatWindowHidden;
         }
-        #endregion
+#endregion
 
-        #region Kick
+#region Kick
         private void FillUpAllPlayersButton()
         {
             Debug.Log("[FillUpAllPlayersButton]");
@@ -139,7 +143,7 @@ namespace TeamPunishment
             Debug.Log($"[OnPlayerKickClick] - kick {player}");
         }
 
-        #endregion
+#endregion
 
         private bool HandleCommandMsg(string msg)
         {
