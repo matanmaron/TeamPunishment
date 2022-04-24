@@ -12,6 +12,7 @@ namespace TeamPunishment
         public InputField chatMessage;
         public Text chatHistory;
         public Scrollbar scrollbar;
+        public Button ToggleChatButton;
 
         [Header("Kick UI Elements")]
         public Transform ButtonHolder;
@@ -24,10 +25,28 @@ namespace TeamPunishment
 
         public static ChatUI instance;
         private bool gamestarted = false;
+        private bool chatWindowHidden = true;
+
+        const int MAX_PLAYERS = 1;
 
         void Awake()
         {
             instance = this;
+        }
+
+        private void Start()
+        {
+            Debug.Log("[Start]");
+            gamestarted = false;
+            if (GameObject.FindGameObjectsWithTag("Player").Length > MAX_PLAYERS)
+            {
+                Debug.LogWarning("[HandleCommandMsg] - over 4 players. bye bye!");
+                Application.Quit();
+                return;
+            }
+            CmdSend("@@@LOGIN");
+
+            ToggleChatButton.onClick.AddListener(ToggleChat);
         }
 
         #region Chat
@@ -88,22 +107,23 @@ namespace TeamPunishment
             // slam the scrollbar down
             scrollbar.value = 0;
         }
+
+        private void ToggleChat()
+        {
+            if (chatWindowHidden)
+            {
+                GetComponent<Animator>().Play("ChatAnimationShow");
+            }
+            else
+            {
+                GetComponent<Animator>().Play("ChatAnimationHide");
+
+            }
+            chatWindowHidden = !chatWindowHidden;
+        }
         #endregion
 
         #region Kick
-        private void Start()
-        {
-            Debug.Log("[Start]");
-            gamestarted = false;
-            if (GameObject.FindGameObjectsWithTag("Player").Length > 4)
-            {
-                Debug.LogWarning("[HandleCommandMsg] - over 4 players. bye bye!");
-                Application.Quit();
-                return;
-            }
-            CmdSend("@@@LOGIN");
-        }
-
         private void FillUpAllPlayersButton()
         {
             Debug.Log("[FillUpAllPlayersButton]");
@@ -126,7 +146,7 @@ namespace TeamPunishment
             Debug.Log("[HandleCommandMsg]");
             if (msg == "@@@LOGIN")
             {
-                if (!gamestarted && GameObject.FindGameObjectsWithTag("Player").Length == 4)
+                if (!gamestarted && GameObject.FindGameObjectsWithTag("Player").Length == MAX_PLAYERS)
                 {
                     Debug.Log("[HandleCommandMsg] - gamestarted");
                     gamestarted = true;
