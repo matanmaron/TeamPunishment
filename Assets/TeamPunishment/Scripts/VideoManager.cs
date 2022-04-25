@@ -20,7 +20,7 @@ public class VideoManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Space) || Input.touchCount > 1)
+        if (Input.GetKeyUp(KeyCode.Return) || Input.touchCount > 1)
         {
             if (currentVideo != null)
             {

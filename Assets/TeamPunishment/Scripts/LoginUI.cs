@@ -26,6 +26,13 @@ namespace TeamPunishment
                 hostButton.gameObject.SetActive(false);
             }
         }
+        private void Update()
+        {
+            if (Input.GetKeyUp(KeyCode.Escape))
+            {
+                Application.Quit();
+            }
+        }
 
         // Called by UI element UsernameInput.OnValueChanged
         public void ToggleButtons(string username)

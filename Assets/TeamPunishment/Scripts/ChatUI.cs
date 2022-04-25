@@ -17,6 +17,11 @@ namespace TeamPunishment
         [Header("Kick UI Elements")]
         public Transform ButtonHolder;
         public Button ButtonPrefab;
+        public Transform Marker;
+        public Transform Star1;
+        public Transform Star2;
+        public Transform Star3;
+        public Transform Star4;
 
         [Header("Diagnostic - Do Not Edit")]
         public string localPlayerName;
@@ -29,7 +34,7 @@ namespace TeamPunishment
         private int starToKick = 0;
 
 #if UNITY_EDITOR
-        const int MAX_PLAYERS = 1;
+        const int MAX_PLAYERS = 2;
 #else
         const int MAX_PLAYERS = 4; //NEVER CHANGE!
 #endif
@@ -56,8 +61,13 @@ namespace TeamPunishment
 
         private void Update()
         {
-            if (Input.GetKeyUp(KeyCode.Space) || Input.touchCount > 1)
+            if (Input.GetKeyUp(KeyCode.Escape))
             {
+                Application.Quit();
+            }
+            if (Input.GetKeyUp(KeyCode.Return) || Input.touchCount > 1)
+            {
+                //CmdSend($"@@@{starToKick}");
                 Debug.Log($"[*******] - player {localPlayerName} choose to kick {starToKick}");
             }
         }
@@ -136,8 +146,33 @@ namespace TeamPunishment
 
         public void OnPlayerStarClick(int star)
         {
-            starToKick = star;
-            Debug.Log($"[OnPlayerKickClick] - player {localPlayerName} kick {star}");
+            if (star == starToKick)
+            {
+                Marker.gameObject.SetActive(false);
+                starToKick = 0;
+            }
+            else
+            {
+                Marker.gameObject.SetActive(true);
+                var starObject = GetStar(star);
+                Marker.SetParent(starObject);
+                Marker.gameObject.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+                starToKick = star;
+            }
+            Debug.Log($"[OnPlayerKickClick] - player {localPlayerName} kick {starToKick}");
+        }
+
+        private Transform GetStar(int index)
+        {
+            switch (index)
+            {
+                case 1: return Star1;
+                case 2: return Star2;
+                case 3: return Star3;
+                case 4: return Star4;
+                default:
+                    return null;
+            }
         }
 
         private bool HandleCommandMsg(string msg)
