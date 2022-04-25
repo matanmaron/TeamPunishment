@@ -26,6 +26,7 @@ namespace TeamPunishment
         public static ChatUI instance;
         private bool gamestarted = false;
         private bool chatWindowHidden = true;
+        private int starToKick = 0;
 
 #if UNITY_EDITOR
         const int MAX_PLAYERS = 1;
@@ -53,7 +54,14 @@ namespace TeamPunishment
             ToggleChatButton.onClick.AddListener(ToggleChat);
         }
 
-#region Chat
+        private void Update()
+        {
+            if (Input.GetKeyUp(KeyCode.Space) || Input.touchCount > 1)
+            {
+                Debug.Log($"[*******] - player {localPlayerName} choose to kick {starToKick}");
+            }
+        }
+
         [Command(requiresAuthority = false)]
         public void CmdSend(string message, NetworkConnectionToClient sender = null)
         {
@@ -125,25 +133,12 @@ namespace TeamPunishment
             }
             chatWindowHidden = !chatWindowHidden;
         }
-#endregion
 
-#region Kick
-        private void FillUpAllPlayersButton()
+        public void OnPlayerStarClick(int star)
         {
-            Debug.Log("[FillUpAllPlayersButton]");
-            foreach (var player in GameObject.FindGameObjectsWithTag("Player"))
-            {
-                var btn = Instantiate(ButtonPrefab, ButtonHolder);
-                btn.GetComponentInChildren<Text>().text = player.GetComponent<Player>().playerName;
-                btn.onClick.AddListener(delegate { OnPlayerKickClick(player.GetComponent<Player>().playerName); });
-            }
+            starToKick = star;
+            Debug.Log($"[OnPlayerKickClick] - player {localPlayerName} kick {star}");
         }
-        private void OnPlayerKickClick(string player)
-        {
-            Debug.Log($"[OnPlayerKickClick] - kick {player}");
-        }
-
-#endregion
 
         private bool HandleCommandMsg(string msg)
         {
@@ -155,7 +150,6 @@ namespace TeamPunishment
                     Debug.Log("[HandleCommandMsg] - gamestarted");
                     gamestarted = true;
                     PlayIntro();
-                    FillUpAllPlayersButton();
                     return true;
                 }
             }
