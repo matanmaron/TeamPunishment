@@ -12,6 +12,7 @@ namespace TeamPunishment
         public Text errorText;
         public GameObject DebugConsole;
         public static LoginUI instance;
+        public GameObject debugButons;
 
         void Awake()
         {
@@ -24,6 +25,7 @@ namespace TeamPunishment
             {
                 Destroy(DebugConsole);
                 hostButton.gameObject.SetActive(false);
+                debugButons.gameObject.SetActive(false);
             }
         }
         private void Update()
