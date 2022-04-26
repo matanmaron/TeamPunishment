@@ -85,10 +85,9 @@ namespace TeamPunishment
         [ClientRpc]
         public void RpcReceive(string playerName, string message)
         {
-            if (HandleCommandMsg(message))
-            {
-                return;
-            }
+            if (HandleCommandMsg(message)) return;
+            if (message.StartsWith("@@@")) return;
+
             string prettyMessage = playerName == localPlayerName ?
                 $"<color=red>{playerName}:</color> {message}" :
                 $"<color=blue>{playerName}:</color> {message}";
