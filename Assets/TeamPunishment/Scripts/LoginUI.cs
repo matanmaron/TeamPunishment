@@ -21,12 +21,11 @@ namespace TeamPunishment
 
         private void Start()
         {
-            if (!Debug.isDebugBuild)
-            {
-                Destroy(DebugConsole);
-                hostButton.gameObject.SetActive(false);
-                debugButons.gameObject.SetActive(false);
-            }
+#if DEVELOPMENT_BUILD  || UNITY_EDITOR
+            DebugConsole.gameObject.SetActive(true);
+            hostButton.gameObject.SetActive(true);
+            debugButons.gameObject.SetActive(true);
+#endif
         }
         private void Update()
         {

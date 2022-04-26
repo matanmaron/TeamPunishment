@@ -12,14 +12,19 @@ namespace TeamPunishment
     public class ChatNetworkManager : NetworkManager
     {
         // Called by UI element NetworkAddressInput.OnValueChanged
+        private void Start()
+        {
+            SetHostname("35.216.233.202");
+        }
+
         public void SetHostname(string hostname)
         {
-            if (!Debug.isDebugBuild)
-            {
-                networkAddress = "35.216.233.202";
-                return;
-            }
+#if DEVELOPMENT_BUILD || UNITY_EDITOR
             networkAddress = hostname;
+#else
+            networkAddress = "35.216.233.202";
+#endif
+            Debug.Log($"[SetHostname] networkAddress is {networkAddress}");
         }
 
         public override void OnServerDisconnect(NetworkConnectionToClient conn)
