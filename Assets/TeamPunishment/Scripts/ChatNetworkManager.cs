@@ -12,8 +12,9 @@ namespace TeamPunishment
     public class ChatNetworkManager : NetworkManager
     {
         // Called by UI element NetworkAddressInput.OnValueChanged
-        private void Start()
+        public override void Start()
         {
+            base.Start();
             SetHostname("35.216.233.202");
         }
 
