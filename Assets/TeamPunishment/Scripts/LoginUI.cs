@@ -33,7 +33,7 @@ namespace TeamPunishment
                 Application.Quit();
             }
         }
-
+         
         // Called by UI element UsernameInput.OnValueChanged
         public void ToggleButtons(string username)
         {

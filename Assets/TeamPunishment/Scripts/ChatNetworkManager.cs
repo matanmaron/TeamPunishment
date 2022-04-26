@@ -15,11 +15,14 @@ namespace TeamPunishment
         public override void Start()
         {
             base.Start();
-#if UNITY_EDITOR
-            networkAddress = "localhost";
-#else
-            networkAddress = "35.216.233.202";
-#endif
+            if (Debug.isDebugBuild)
+            {
+                networkAddress = "localhost";
+            }
+            else
+            {
+                networkAddress = "35.216.233.202";
+            }
         }
 
         public override void OnServerDisconnect(NetworkConnectionToClient conn)
