@@ -23,6 +23,10 @@ namespace TeamPunishment
         public Transform Star3;
         public Transform Star4;
 
+        [Header("Finish Elements")]
+        public GameObject finishPanel;
+        public Image finishStar;
+
         [Header("Diagnostic - Do Not Edit")]
         public string localPlayerName;
 
@@ -34,7 +38,7 @@ namespace TeamPunishment
         private int starToKick = 0;
 
 #if UNITY_EDITOR
-        const int MAX_PLAYERS = 2;
+        const int MAX_PLAYERS = 1;
 #else
         const int MAX_PLAYERS = 4; //NEVER CHANGE!
 #endif
@@ -69,7 +73,7 @@ namespace TeamPunishment
         {
             if (Input.GetKeyUp(KeyCode.Escape))
             {
-                Application.Quit();
+                Quit();
             }
             if (Input.GetKeyUp(KeyCode.Return))
             {
@@ -77,9 +81,25 @@ namespace TeamPunishment
             }
         }
 
+        public void Quit()
+        {
+            Debug.Log("[Quit]");
+            Application.Quit();
+        }
+
         public void OnEnterClick()
         {
             //CmdSend($"@@@{starToKick}");
+            finishPanel.SetActive(true);
+            if (starToKick == 0)
+            {
+                finishStar.gameObject.SetActive(false);
+            }
+            else
+            {
+                finishStar.sprite = GetStar(starToKick).GetComponent<Image>().sprite;
+                finishStar.SetNativeSize();
+            }
             Debug.Log($"[*******] - player {localPlayerName} choose to kick {starToKick}");
         }
 
