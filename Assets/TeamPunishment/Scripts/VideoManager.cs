@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Video;
 
 public class VideoManager : MonoBehaviour
@@ -22,12 +23,17 @@ public class VideoManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Return) || Input.touchCount > 1)
+        if (Input.GetKeyUp(KeyCode.Return))
         {
-            if (currentVideo != null)
-            {
-                OnVideoEnd(currentVideo.GetComponent<VideoPlayer>());
-            }
+            OnEnterClick();
+        }
+    }
+
+    private void OnEnterClick()
+    {
+        if (currentVideo != null)
+        {
+            OnVideoEnd(currentVideo.GetComponent<VideoPlayer>());
         }
     }
 
@@ -37,6 +43,7 @@ public class VideoManager : MonoBehaviour
         chatCanvas.SetActive(false);
         Debug.Log($"[PlayIntro]");
         currentVideo = Instantiate(VideoPrefab, transform);
+        currentVideo.GetComponentInChildren<Button>().onClick.AddListener(OnEnterClick);
         var vid = currentVideo.GetComponent<VideoPlayer>();
         vid.clip = intro;
         vid.aspectRatio = VideoAspectRatio.FitInside;

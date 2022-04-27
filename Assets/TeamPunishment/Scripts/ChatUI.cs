@@ -71,11 +71,16 @@ namespace TeamPunishment
             {
                 Application.Quit();
             }
-            if (Input.GetKeyUp(KeyCode.Return) || Input.touchCount > 1)
+            if (Input.GetKeyUp(KeyCode.Return))
             {
-                //CmdSend($"@@@{starToKick}");
-                Debug.Log($"[*******] - player {localPlayerName} choose to kick {starToKick}");
+                OnEnterClick();
             }
+        }
+
+        public void OnEnterClick()
+        {
+            //CmdSend($"@@@{starToKick}");
+            Debug.Log($"[*******] - player {localPlayerName} choose to kick {starToKick}");
         }
 
         [Command(requiresAuthority = false)]
@@ -126,6 +131,10 @@ namespace TeamPunishment
         IEnumerator AppendAndScroll(string message)
         {
             chatHistory.text += message + "\n";
+            if (chatWindowHidden)
+            {
+                ToggleChatButton.GetComponent<Image>().color = Color.yellow;
+            }
 
             // it takes 2 frames for the UI to update ?!?!
             yield return null;
@@ -137,6 +146,7 @@ namespace TeamPunishment
 
         private void ToggleChat()
         {
+            ToggleChatButton.GetComponent<Image>().color = Color.white;
             if (chatWindowHidden)
             {
                 GetComponent<Animator>().Play("ChatAnimationShow");
