@@ -39,6 +39,7 @@ public class VideoManager : MonoBehaviour
         currentVideo = Instantiate(VideoPrefab, transform);
         var vid = currentVideo.GetComponent<VideoPlayer>();
         vid.clip = intro;
+        vid.aspectRatio = VideoAspectRatio.FitInside;
         vid.targetCamera = Camera.main;
         vid.Play();
         vid.loopPointReached += OnVideoEnd;
