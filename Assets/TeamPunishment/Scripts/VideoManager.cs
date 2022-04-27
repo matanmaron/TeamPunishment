@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class VideoManager : MonoBehaviour
     public static VideoManager instance;
 
     private GameObject currentVideo;
+    private Action onVideoEndCallback;
 
     void Awake()
     {
@@ -29,8 +31,9 @@ public class VideoManager : MonoBehaviour
         }
     }
 
-    public void PlayIntro()
+    public void PlayIntro(Action callback)
     {
+        onVideoEndCallback = callback;
         chatCanvas.SetActive(false);
         Debug.Log($"[PlayIntro]");
         currentVideo = Instantiate(VideoPrefab, transform);
@@ -48,5 +51,7 @@ public class VideoManager : MonoBehaviour
         Destroy(currentVideo);
         currentVideo = null;
         chatCanvas.SetActive(true);
+        onVideoEndCallback?.Invoke();
+        onVideoEndCallback = null;
     }
 }

@@ -15,7 +15,7 @@ namespace TeamPunishment
         public override void Start()
         {
             base.Start();
-            SetHostname("35.216.233.202");
+            SetHostname("localhost");
         }
 
         public void SetHostname(string hostname)

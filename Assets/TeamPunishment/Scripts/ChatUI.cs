@@ -54,9 +54,15 @@ namespace TeamPunishment
                 Application.Quit();
                 return;
             }
-            CmdSend("@@@LOGIN");
+            StartCoroutine(Login(0.1f));
 
             ToggleChatButton.onClick.AddListener(ToggleChat);
+        }
+
+        IEnumerator Login(float time)
+        {
+            yield return new WaitForSeconds(time);
+            CmdSend("@@@LOGIN");
         }
 
         private void Update()
@@ -192,7 +198,7 @@ namespace TeamPunishment
 
         private void PlayIntro()
         {
-            VideoManager.instance.PlayIntro();
+            VideoManager.instance.PlayIntro(()=> ButtonHolder.gameObject.SetActive(true));
         }
     }
 }
