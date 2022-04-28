@@ -38,7 +38,7 @@ namespace TeamPunishment
         private int starToKick = 0;
 
 #if UNITY_EDITOR
-        const int MAX_PLAYERS = 2;
+        const int MAX_PLAYERS = 1;
 #else
         const int MAX_PLAYERS = 4; //NEVER CHANGE!
 #endif
