@@ -2,6 +2,7 @@ using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace TeamPunishment
@@ -38,7 +39,7 @@ namespace TeamPunishment
         private int starToKick = 0;
 
 #if UNITY_EDITOR
-        const int MAX_PLAYERS = 1;
+        const int MAX_PLAYERS = 2;
 #else
         const int MAX_PLAYERS = 4; //NEVER CHANGE!
 #endif
@@ -84,7 +85,7 @@ namespace TeamPunishment
         public void Quit()
         {
             Debug.Log("[Quit]");
-            Application.Quit();
+            SceneManager.LoadScene(0);
         }
 
         public void OnEnterClick()
@@ -99,6 +100,7 @@ namespace TeamPunishment
             {
                 finishStar.sprite = GetStar(starToKick).GetComponent<Image>().sprite;
                 finishStar.SetNativeSize();
+                finishPanel.GetComponentInChildren<Text>().text = $"player {localPlayerName} choose to kick planet {starToKick}...";
             }
             Debug.Log($"[*******] - player {localPlayerName} choose to kick {starToKick}");
         }
