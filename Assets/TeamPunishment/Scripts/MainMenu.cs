@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,23 +6,35 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] Button btnStart;
     [SerializeField] Button btnOption;
+    [SerializeField] Button btnCredits;
     [SerializeField] Button btnExit;
-    [SerializeField] Button btnBack;
+    [SerializeField] Button btnBackOption;
+    [SerializeField] Button btnBackCredits;
     [SerializeField] GameObject menuPanel;
     [SerializeField] GameObject optionPanel;
+    [SerializeField] GameObject creditsPanel;
 
     private void Start()
     {
         btnStart.onClick.AddListener(OnMenuStart);
         btnOption.onClick.AddListener(OnMenuOption);
+        btnCredits.onClick.AddListener(OnMenuCredits);
         btnExit.onClick.AddListener(OnMenuExit);
-        btnBack.onClick.AddListener(OnOptionBack);
+        btnBackOption.onClick.AddListener(OnBack);
+        btnBackCredits.onClick.AddListener(OnBack);
     }
 
-    private void OnOptionBack()
+    private void OnMenuCredits()
     {
-        menuPanel.SetActive(true);
+        menuPanel.SetActive(false);
+        creditsPanel.SetActive(true);
+    }
+
+    private void OnBack()
+    {
+        creditsPanel.SetActive(false);
         optionPanel.SetActive(false);
+        menuPanel.SetActive(true);
     }
 
     private void OnMenuExit()
@@ -49,7 +58,9 @@ public class MainMenu : MonoBehaviour
         btnStart.onClick.RemoveAllListeners();
         btnOption.onClick.RemoveAllListeners();
         btnExit.onClick.RemoveAllListeners();
-        btnBack.onClick.RemoveAllListeners();
+        btnBackOption.onClick.RemoveAllListeners();
+        btnBackCredits.onClick.RemoveAllListeners();
+        btnCredits.onClick.RemoveAllListeners();
     }
 
 }
