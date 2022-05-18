@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     private Text txt;
     static readonly Color32 on = new Color32(204, 53, 150, 255);
@@ -14,6 +14,7 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     void Start()
     {
         txt = GetComponentInChildren<Text>();
+        txt.color = off;
     }
 
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
@@ -22,6 +23,11 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     }
 
     public void OnPointerExit(PointerEventData eventData)
+    {
+        txt.color = off;
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
     {
         txt.color = off;
     }
