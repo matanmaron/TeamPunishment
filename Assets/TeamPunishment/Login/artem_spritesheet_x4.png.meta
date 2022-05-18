@@ -1,0 +1,864 @@
+fileFormatVersion: 2
+guid: 05a099221f46bb74c9fbf3f4c3bfe9e7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6413760610106708269
+    second: artem_spritesheet_x4_0
+  - first:
+      213: 5280887141448182814
+    second: artem_spritesheet_x4_1
+  - first:
+      213: 8426903710598642815
+    second: artem_spritesheet_x4_2
+  - first:
+      213: 7623825073245705944
+    second: artem_spritesheet_x4_3
+  - first:
+      213: 7835228143512382194
+    second: artem_spritesheet_x4_4
+  - first:
+      213: 2891320887718995446
+    second: artem_spritesheet_x4_5
+  - first:
+      213: 8216769643107423071
+    second: artem_spritesheet_x4_6
+  - first:
+      213: -8620245734426041457
+    second: artem_spritesheet_x4_7
+  - first:
+      213: -525291507783797460
+    second: artem_spritesheet_x4_8
+  - first:
+      213: 2394842181665279112
+    second: artem_spritesheet_x4_9
+  - first:
+      213: 6232464630330161521
+    second: artem_spritesheet_x4_10
+  - first:
+      213: -175495820407891264
+    second: artem_spritesheet_x4_11
+  - first:
+      213: -140758461746239382
+    second: artem_spritesheet_x4_12
+  - first:
+      213: -6457951798114370259
+    second: artem_spritesheet_x4_13
+  - first:
+      213: -5192645728443423355
+    second: artem_spritesheet_x4_14
+  - first:
+      213: 7717033790473706654
+    second: artem_spritesheet_x4_15
+  - first:
+      213: 1841195277571951855
+    second: artem_spritesheet_x4_16
+  - first:
+      213: -5129325656024723899
+    second: artem_spritesheet_x4_17
+  - first:
+      213: -6645113227156442136
+    second: artem_spritesheet_x4_18
+  - first:
+      213: 3478004953644531929
+    second: artem_spritesheet_x4_19
+  - first:
+      213: 9173871207453553554
+    second: artem_spritesheet_x4_20
+  - first:
+      213: -5579930727026604529
+    second: artem_spritesheet_x4_21
+  - first:
+      213: 3854435997199619625
+    second: artem_spritesheet_x4_22
+  - first:
+      213: -6157348647789771482
+    second: artem_spritesheet_x4_23
+  - first:
+      213: 2361187831646832694
+    second: artem_spritesheet_x4_24
+  - first:
+      213: 7932863726331298555
+    second: artem_spritesheet_x4_25
+  - first:
+      213: 4970313557355639888
+    second: artem_spritesheet_x4_26
+  - first:
+      213: 6723580354095290906
+    second: artem_spritesheet_x4_27
+  - first:
+      213: 9220305937310404119
+    second: artem_spritesheet_x4_28
+  - first:
+      213: -4113074966389396675
+    second: artem_spritesheet_x4_29
+  - first:
+      213: 9036040902222871780
+    second: artem_spritesheet_x4_30
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: artem_spritesheet_x4_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1300
+        width: 228
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d219dc71b41420950800000000000000
+      internalID: 6413760610106708269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: artem_spritesheet_x4_1
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 1300
+        width: 228
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1c62f430ea794940800000000000000
+      internalID: 5280887141448182814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: artem_spritesheet_x4_2
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 1300
+        width: 228
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7c37a2f64062f470800000000000000
+      internalID: 8426903710598642815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: artem_spritesheet_x4_3
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 1300
+        width: 228
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d6d688e2844dc960800000000000000
+      internalID: 7623825073245705944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: artem_spritesheet_x4_4
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 1300
+        width: 228
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fae234db725cbc60800000000000000
+      internalID: 7835228143512382194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: artem_spritesheet_x4_5
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 1300
+        width: 228
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f5682c4709002820800000000000000
+      internalID: 2891320887718995446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: artem_spritesheet_x4_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1040
+        width: 228
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5391a2c474d70270800000000000000
+      internalID: 8216769643107423071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: artem_spritesheet_x4_7
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 1040
+        width: 228
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f83a5f23d2cbe5880800000000000000
+      internalID: -8620245734426041457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: artem_spritesheet_x4_8
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 1040
+        width: 228
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c257403282ac5b8f0800000000000000
+      internalID: -525291507783797460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: artem_spritesheet_x4_9
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 1040
+        width: 228
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88cc74b96403c3120800000000000000
+      internalID: 2394842181665279112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: artem_spritesheet_x4_10
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 1040
+        width: 228
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 179f30e6f892e7650800000000000000
+      internalID: 6232464630330161521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: artem_spritesheet_x4_11
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 1040
+        width: 228
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ca950d2b73809df0800000000000000
+      internalID: -175495820407891264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: artem_spritesheet_x4_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 780
+        width: 228
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a682c70cceceb0ef0800000000000000
+      internalID: -140758461746239382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: artem_spritesheet_x4_13
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 780
+        width: 228
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2d3cc82e0fb066a0800000000000000
+      internalID: -6457951798114370259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: artem_spritesheet_x4_14
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 780
+        width: 228
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5852ea7c83400f7b0800000000000000
+      internalID: -5192645728443423355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: artem_spritesheet_x4_15
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 780
+        width: 228
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9c1fd88859681b60800000000000000
+      internalID: 7717033790473706654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: artem_spritesheet_x4_16
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 780
+        width: 228
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fec8dc1995d3d8910800000000000000
+      internalID: 1841195277571951855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: artem_spritesheet_x4_17
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 780
+        width: 228
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54e495ffd79f0d8b0800000000000000
+      internalID: -5129325656024723899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: artem_spritesheet_x4_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 520
+        width: 228
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e3371b2ab0d7c3a0800000000000000
+      internalID: -6645113227156442136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: artem_spritesheet_x4_19
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 520
+        width: 228
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d0080df31b544030800000000000000
+      internalID: 3478004953644531929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: artem_spritesheet_x4_20
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 520
+        width: 228
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 293f3770243205f70800000000000000
+      internalID: 9173871207453553554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: artem_spritesheet_x4_21
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 520
+        width: 228
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f06ca48419a1092b0800000000000000
+      internalID: -5579930727026604529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: artem_spritesheet_x4_22
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 520
+        width: 228
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 926df862e15bd7530800000000000000
+      internalID: 3854435997199619625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: artem_spritesheet_x4_23
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 520
+        width: 228
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62542422704bc8aa0800000000000000
+      internalID: -6157348647789771482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: artem_spritesheet_x4_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 260
+        width: 228
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 638c841a2df94c020800000000000000
+      internalID: 2361187831646832694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: artem_spritesheet_x4_25
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 260
+        width: 228
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf20f8b6781371e60800000000000000
+      internalID: 7932863726331298555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: artem_spritesheet_x4_26
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 260
+        width: 228
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 054bd78b8d91af440800000000000000
+      internalID: 4970313557355639888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: artem_spritesheet_x4_27
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 260
+        width: 228
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1a15a085b4fe4d50800000000000000
+      internalID: 6723580354095290906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: artem_spritesheet_x4_28
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 260
+        width: 228
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71ecfc1166b15ff70800000000000000
+      internalID: 9220305937310404119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: artem_spritesheet_x4_29
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 260
+        width: 228
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3beecd2c1c6be6c0800000000000000
+      internalID: -4113074966389396675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: artem_spritesheet_x4_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 228
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ecf4e85357766d70800000000000000
+      internalID: 9036040902222871780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

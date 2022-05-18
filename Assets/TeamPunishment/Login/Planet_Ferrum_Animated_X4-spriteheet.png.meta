@@ -1,0 +1,1440 @@
+fileFormatVersion: 2
+guid: 936620b5a6eb89c41b621cc278f37ba4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5665082810964259399
+    second: Planet_Ferrum_Animated_X4-spriteheet_0
+  - first:
+      213: 2555063075170637789
+    second: Planet_Ferrum_Animated_X4-spriteheet_1
+  - first:
+      213: 5579775896916243733
+    second: Planet_Ferrum_Animated_X4-spriteheet_2
+  - first:
+      213: -6350019753857524604
+    second: Planet_Ferrum_Animated_X4-spriteheet_3
+  - first:
+      213: 8499923786467850242
+    second: Planet_Ferrum_Animated_X4-spriteheet_4
+  - first:
+      213: -6101893989526464381
+    second: Planet_Ferrum_Animated_X4-spriteheet_5
+  - first:
+      213: -5010327889840593599
+    second: Planet_Ferrum_Animated_X4-spriteheet_6
+  - first:
+      213: -259030665783842467
+    second: Planet_Ferrum_Animated_X4-spriteheet_7
+  - first:
+      213: 8823433842719490221
+    second: Planet_Ferrum_Animated_X4-spriteheet_8
+  - first:
+      213: 1946026219967670672
+    second: Planet_Ferrum_Animated_X4-spriteheet_9
+  - first:
+      213: -3346851688894587730
+    second: Planet_Ferrum_Animated_X4-spriteheet_10
+  - first:
+      213: 4149469644131220192
+    second: Planet_Ferrum_Animated_X4-spriteheet_11
+  - first:
+      213: -8368919477898524182
+    second: Planet_Ferrum_Animated_X4-spriteheet_12
+  - first:
+      213: -1104212559935795058
+    second: Planet_Ferrum_Animated_X4-spriteheet_13
+  - first:
+      213: 8138174986763070276
+    second: Planet_Ferrum_Animated_X4-spriteheet_14
+  - first:
+      213: -2003559287034470588
+    second: Planet_Ferrum_Animated_X4-spriteheet_15
+  - first:
+      213: -2282063822506878552
+    second: Planet_Ferrum_Animated_X4-spriteheet_16
+  - first:
+      213: -4123655178732469355
+    second: Planet_Ferrum_Animated_X4-spriteheet_17
+  - first:
+      213: -5783177078189351915
+    second: Planet_Ferrum_Animated_X4-spriteheet_18
+  - first:
+      213: -2372645430270208141
+    second: Planet_Ferrum_Animated_X4-spriteheet_19
+  - first:
+      213: -4033690828930567675
+    second: Planet_Ferrum_Animated_X4-spriteheet_20
+  - first:
+      213: 4635128519119672436
+    second: Planet_Ferrum_Animated_X4-spriteheet_21
+  - first:
+      213: -2564067320204009740
+    second: Planet_Ferrum_Animated_X4-spriteheet_22
+  - first:
+      213: 6933177422106882158
+    second: Planet_Ferrum_Animated_X4-spriteheet_23
+  - first:
+      213: -6851438304641769332
+    second: Planet_Ferrum_Animated_X4-spriteheet_24
+  - first:
+      213: -4276168760863713230
+    second: Planet_Ferrum_Animated_X4-spriteheet_25
+  - first:
+      213: -1811005838309066361
+    second: Planet_Ferrum_Animated_X4-spriteheet_26
+  - first:
+      213: -8553142317455959053
+    second: Planet_Ferrum_Animated_X4-spriteheet_27
+  - first:
+      213: 428671418343333771
+    second: Planet_Ferrum_Animated_X4-spriteheet_28
+  - first:
+      213: 6332047631384531101
+    second: Planet_Ferrum_Animated_X4-spriteheet_29
+  - first:
+      213: 7561132610276338130
+    second: Planet_Ferrum_Animated_X4-spriteheet_30
+  - first:
+      213: -3737362477612534498
+    second: Planet_Ferrum_Animated_X4-spriteheet_31
+  - first:
+      213: 4164117754674394759
+    second: Planet_Ferrum_Animated_X4-spriteheet_32
+  - first:
+      213: -8898637528934696343
+    second: Planet_Ferrum_Animated_X4-spriteheet_33
+  - first:
+      213: 4533611499803847128
+    second: Planet_Ferrum_Animated_X4-spriteheet_34
+  - first:
+      213: -7165077478216728188
+    second: Planet_Ferrum_Animated_X4-spriteheet_35
+  - first:
+      213: -3028334046083704432
+    second: Planet_Ferrum_Animated_X4-spriteheet_36
+  - first:
+      213: 4803584626958413540
+    second: Planet_Ferrum_Animated_X4-spriteheet_37
+  - first:
+      213: 8549243359190290729
+    second: Planet_Ferrum_Animated_X4-spriteheet_38
+  - first:
+      213: 1692436505093855779
+    second: Planet_Ferrum_Animated_X4-spriteheet_39
+  - first:
+      213: 86238162363221049
+    second: Planet_Ferrum_Animated_X4-spriteheet_40
+  - first:
+      213: -5705623166977080228
+    second: Planet_Ferrum_Animated_X4-spriteheet_41
+  - first:
+      213: 857029685613697697
+    second: Planet_Ferrum_Animated_X4-spriteheet_42
+  - first:
+      213: -5048378916364711449
+    second: Planet_Ferrum_Animated_X4-spriteheet_43
+  - first:
+      213: -4568459434064579354
+    second: Planet_Ferrum_Animated_X4-spriteheet_44
+  - first:
+      213: -533439271403475887
+    second: Planet_Ferrum_Animated_X4-spriteheet_45
+  - first:
+      213: -5561353068813108857
+    second: Planet_Ferrum_Animated_X4-spriteheet_46
+  - first:
+      213: -4291762062751481468
+    second: Planet_Ferrum_Animated_X4-spriteheet_47
+  - first:
+      213: 181220399987346692
+    second: Planet_Ferrum_Animated_X4-spriteheet_48
+  - first:
+      213: -8262151487774688433
+    second: Planet_Ferrum_Animated_X4-spriteheet_49
+  - first:
+      213: -3500200952717183373
+    second: Planet_Ferrum_Animated_X4-spriteheet_50
+  - first:
+      213: -3030625565949747791
+    second: Planet_Ferrum_Animated_X4-spriteheet_51
+  - first:
+      213: -2043809821246650283
+    second: Planet_Ferrum_Animated_X4-spriteheet_52
+  - first:
+      213: -7461175712976850367
+    second: Planet_Ferrum_Animated_X4-spriteheet_53
+  - first:
+      213: -7549209889284965113
+    second: Planet_Ferrum_Animated_X4-spriteheet_54
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2742
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74232ba3dca6e9e40800000000000000
+      internalID: 5665082810964259399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_1
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 2742
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd7534e5458657320800000000000000
+      internalID: 2555063075170637789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_2
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 2742
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 515baf58d985f6d40800000000000000
+      internalID: 5579775896916243733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_3
+      rect:
+        serializedVersion: 2
+        x: 1167
+        y: 2742
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48cdb9e7da230e7a0800000000000000
+      internalID: -6350019753857524604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_4
+      rect:
+        serializedVersion: 2
+        x: 1556
+        y: 2742
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2083f4636abc5f570800000000000000
+      internalID: 8499923786467850242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_5
+      rect:
+        serializedVersion: 2
+        x: 1945
+        y: 2742
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3881f29eeb7b15ba0800000000000000
+      internalID: -6101893989526464381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_6
+      rect:
+        serializedVersion: 2
+        x: 2334
+        y: 2742
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 145a1dd745db77ab0800000000000000
+      internalID: -5010327889840593599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_7
+      rect:
+        serializedVersion: 2
+        x: 2723
+        y: 2742
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d59650c5bfcb76cf0800000000000000
+      internalID: -259030665783842467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2285
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da08476d452237a70800000000000000
+      internalID: 8823433842719490221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_9
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 2285
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 099e4cc598ca10b10800000000000000
+      internalID: 1946026219967670672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_10
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 2285
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eac958f0f189d81d0800000000000000
+      internalID: -3346851688894587730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_11
+      rect:
+        serializedVersion: 2
+        x: 1167
+        y: 2285
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ea35b018a0e59930800000000000000
+      internalID: 4149469644131220192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_12
+      rect:
+        serializedVersion: 2
+        x: 1556
+        y: 2285
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae9c2064310abdb80800000000000000
+      internalID: -8368919477898524182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_13
+      rect:
+        serializedVersion: 2
+        x: 1945
+        y: 2285
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e809080f68c0da0f0800000000000000
+      internalID: -1104212559935795058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_14
+      rect:
+        serializedVersion: 2
+        x: 2334
+        y: 2285
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44b6bf5580b90f070800000000000000
+      internalID: 8138174986763070276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_15
+      rect:
+        serializedVersion: 2
+        x: 2723
+        y: 2285
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44f10e9917de134e0800000000000000
+      internalID: -2003559287034470588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1828
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a915b85b0b7450e0800000000000000
+      internalID: -2282063822506878552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_17
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 1828
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59383778675d5c6c0800000000000000
+      internalID: -4123655178732469355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_18
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 1828
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51c975586170ebfa0800000000000000
+      internalID: -5783177078189351915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_19
+      rect:
+        serializedVersion: 2
+        x: 1167
+        y: 1828
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3775ace4d8ba21fd0800000000000000
+      internalID: -2372645430270208141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_20
+      rect:
+        serializedVersion: 2
+        x: 1556
+        y: 1828
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 502b7dfff837508c0800000000000000
+      internalID: -4033690828930567675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_21
+      rect:
+        serializedVersion: 2
+        x: 1945
+        y: 1828
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 474196684d8435040800000000000000
+      internalID: 4635128519119672436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_22
+      rect:
+        serializedVersion: 2
+        x: 2334
+        y: 1828
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fe5d077b5a9a6cd0800000000000000
+      internalID: -2564067320204009740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_23
+      rect:
+        serializedVersion: 2
+        x: 2723
+        y: 1828
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e607071c128973060800000000000000
+      internalID: 6933177422106882158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1371
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c80a253992dcae0a0800000000000000
+      internalID: -6851438304641769332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_25
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 1371
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23898190b2ff7a4c0800000000000000
+      internalID: -4276168760863713230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_26
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 1371
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 789fd6109c30ed6e0800000000000000
+      internalID: -1811005838309066361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_27
+      rect:
+        serializedVersion: 2
+        x: 1167
+        y: 1371
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fb1da6f0622d4980800000000000000
+      internalID: -8553142317455959053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_28
+      rect:
+        serializedVersion: 2
+        x: 1556
+        y: 1371
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8f97bf3262f2f500800000000000000
+      internalID: 428671418343333771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_29
+      rect:
+        serializedVersion: 2
+        x: 1945
+        y: 1371
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d905789a5c3ffd750800000000000000
+      internalID: 6332047631384531101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_30
+      rect:
+        serializedVersion: 2
+        x: 2334
+        y: 1371
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d9a4276c0a8ee860800000000000000
+      internalID: 7561132610276338130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_31
+      rect:
+        serializedVersion: 2
+        x: 2723
+        y: 1371
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e15f705c0a8322cc0800000000000000
+      internalID: -3737362477612534498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 914
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 786b342190be9c930800000000000000
+      internalID: 4164117754674394759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_33
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 914
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96a33ee7050b18480800000000000000
+      internalID: -8898637528934696343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_34
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 914
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d92f6393af9aee30800000000000000
+      internalID: 4533611499803847128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_35
+      rect:
+        serializedVersion: 2
+        x: 1167
+        y: 914
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4818dbaeef7809c90800000000000000
+      internalID: -7165077478216728188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_36
+      rect:
+        serializedVersion: 2
+        x: 1556
+        y: 914
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09995f9da3239f5d0800000000000000
+      internalID: -3028334046083704432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_37
+      rect:
+        serializedVersion: 2
+        x: 1945
+        y: 914
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ee226a84c2c9a240800000000000000
+      internalID: 4803584626958413540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_38
+      rect:
+        serializedVersion: 2
+        x: 2334
+        y: 914
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92197e21a8305a670800000000000000
+      internalID: 8549243359190290729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_39
+      rect:
+        serializedVersion: 2
+        x: 2723
+        y: 914
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32ad503d80ebc7710800000000000000
+      internalID: 1692436505093855779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 457
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9340eb9d621623100800000000000000
+      internalID: 86238162363221049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_41
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 457
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c54871695fd81d0b0800000000000000
+      internalID: -5705623166977080228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_42
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 457
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aa18f455f7c4eb00800000000000000
+      internalID: 857029685613697697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_43
+      rect:
+        serializedVersion: 2
+        x: 1167
+        y: 457
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e9828e7f1e80f9b0800000000000000
+      internalID: -5048378916364711449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_44
+      rect:
+        serializedVersion: 2
+        x: 1556
+        y: 457
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e47cc579529990c0800000000000000
+      internalID: -4568459434064579354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_45
+      rect:
+        serializedVersion: 2
+        x: 1945
+        y: 457
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15ca0c61fc7d898f0800000000000000
+      internalID: -533439271403475887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_46
+      rect:
+        serializedVersion: 2
+        x: 2334
+        y: 457
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 789bdd669da12d2b0800000000000000
+      internalID: -5561353068813108857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_47
+      rect:
+        serializedVersion: 2
+        x: 2723
+        y: 457
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 481433584299074c0800000000000000
+      internalID: -4291762062751481468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40dcc4f5ef2d38200800000000000000
+      internalID: 181220399987346692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_49
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 0
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4b79b22ff0f65d80800000000000000
+      internalID: -8262151487774688433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_50
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 0
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 376fec247c9cc6fc0800000000000000
+      internalID: -3500200952717183373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_51
+      rect:
+        serializedVersion: 2
+        x: 1167
+        y: 0
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bd195eca1e01f5d0800000000000000
+      internalID: -3030625565949747791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_52
+      rect:
+        serializedVersion: 2
+        x: 1945
+        y: 0
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5588320dbcde2a3e0800000000000000
+      internalID: -2043809821246650283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_53
+      rect:
+        serializedVersion: 2
+        x: 2334
+        y: 0
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1423e355834947890800000000000000
+      internalID: -7461175712976850367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planet_Ferrum_Animated_X4-spriteheet_54
+      rect:
+        serializedVersion: 2
+        x: 2723
+        y: 0
+        width: 389
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70dbd466a91db3790800000000000000
+      internalID: -7549209889284965113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
