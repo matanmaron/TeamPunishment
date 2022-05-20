@@ -1,6 +1,7 @@
 using Mirror;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -14,6 +15,7 @@ namespace TeamPunishment
         public Text chatHistory;
         public Scrollbar scrollbar;
         public Button ToggleChatButton;
+        public Text WaitingText;
 
         [Header("Kick UI Elements")]
         public Transform ButtonHolder;
@@ -37,7 +39,8 @@ namespace TeamPunishment
         private bool gamestarted = false;
         private bool chatWindowHidden = true;
         private int starToKick = 0;
-
+        const string ADMIN = "admin";
+        const string PLAYER_TAG = "Player";
 #if UNITY_EDITOR
         const int MAX_PLAYERS = 2;
 #else
@@ -52,6 +55,13 @@ namespace TeamPunishment
         private void Start()
         {
             Debug.Log("[Start]");
+            if (localPlayerName == ADMIN)
+            {
+                Debug.Log("[ADMIN JOINED]");
+                CmdSend("@@@ADMIN");
+                return;
+            }
+            WaitingText.gameObject.SetActive(true);
             gamestarted = false;
             if (GameObject.FindGameObjectsWithTag("Player").Length > MAX_PLAYERS)
             {
@@ -217,13 +227,22 @@ namespace TeamPunishment
             Debug.Log("[HandleCommandMsg]");
             if (msg == "@@@LOGIN")
             {
-                if (!gamestarted && GameObject.FindGameObjectsWithTag("Player").Length == MAX_PLAYERS)
+                int players = GameObject.FindGameObjectsWithTag(PLAYER_TAG).Length;
+                WaitingText.text = $"{MAX_PLAYERS - players} more!";
+                if (!gamestarted && players == MAX_PLAYERS)
                 {
                     Debug.Log("[HandleCommandMsg] - gamestarted");
+                    WaitingText.gameObject.SetActive(false);
                     gamestarted = true;
                     PlayIntro();
                     return true;
                 }
+            }
+            if (msg == "@@@ADMIN")
+            {
+                Player admin = FindObjectsOfType<Player>().Where(x => x.playerName == ADMIN).FirstOrDefault();
+                admin.name = ADMIN;
+                admin.gameObject.tag = "Untagged";
             }
             return false;
         }
