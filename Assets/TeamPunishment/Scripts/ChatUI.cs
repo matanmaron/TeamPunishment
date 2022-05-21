@@ -237,7 +237,7 @@ namespace TeamPunishment
             {
                 Debug.Log($"{playerName} ha joined !");
                 int players = GameObject.FindGameObjectsWithTag(PLAYER_TAG).Length;
-                WaitingText.text = $"{MAX_PLAYERS - players} more!";
+                WaitingText.text = $"Waiting For {MAX_PLAYERS - players} More Player...!";
                 if (!gamestarted && players == MAX_PLAYERS)
                 {
                     Debug.Log("[HandleCommandMsg] - gamestarted");
