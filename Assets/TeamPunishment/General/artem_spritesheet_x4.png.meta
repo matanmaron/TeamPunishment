@@ -117,6 +117,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -856,6 +857,38 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      artem_spritesheet_x4_24: 2361187831646832694
+      artem_spritesheet_x4_0: 6413760610106708269
+      artem_spritesheet_x4_2: 8426903710598642815
+      artem_spritesheet_x4_15: 7717033790473706654
+      artem_spritesheet_x4_8: -525291507783797460
+      artem_spritesheet_x4_22: 3854435997199619625
+      artem_spritesheet_x4_1: 5280887141448182814
+      artem_spritesheet_x4_29: -4113074966389396675
+      artem_spritesheet_x4_25: 7932863726331298555
+      artem_spritesheet_x4_16: 1841195277571951855
+      artem_spritesheet_x4_19: 3478004953644531929
+      artem_spritesheet_x4_13: -6457951798114370259
+      artem_spritesheet_x4_7: -8620245734426041457
+      artem_spritesheet_x4_3: 7623825073245705944
+      artem_spritesheet_x4_27: 6723580354095290906
+      artem_spritesheet_x4_17: -5129325656024723899
+      artem_spritesheet_x4_30: 9036040902222871780
+      artem_spritesheet_x4_4: 7835228143512382194
+      artem_spritesheet_x4_12: -140758461746239382
+      artem_spritesheet_x4_5: 2891320887718995446
+      artem_spritesheet_x4_18: -6645113227156442136
+      artem_spritesheet_x4_6: 8216769643107423071
+      artem_spritesheet_x4_10: 6232464630330161521
+      artem_spritesheet_x4_14: -5192645728443423355
+      artem_spritesheet_x4_20: 9173871207453553554
+      artem_spritesheet_x4_11: -175495820407891264
+      artem_spritesheet_x4_26: 4970313557355639888
+      artem_spritesheet_x4_9: 2394842181665279112
+      artem_spritesheet_x4_21: -5579930727026604529
+      artem_spritesheet_x4_23: -6157348647789771482
+      artem_spritesheet_x4_28: 9220305937310404119
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

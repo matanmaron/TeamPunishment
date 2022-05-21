@@ -189,6 +189,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -1432,6 +1433,62 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Planet_Ferrum_Animated_X4-spriteheet_34: 4533611499803847128
+      Planet_Ferrum_Animated_X4-spriteheet_6: -5010327889840593599
+      Planet_Ferrum_Animated_X4-spriteheet_37: 4803584626958413540
+      Planet_Ferrum_Animated_X4-spriteheet_30: 7561132610276338130
+      Planet_Ferrum_Animated_X4-spriteheet_8: 8823433842719490221
+      Planet_Ferrum_Animated_X4-spriteheet_28: 428671418343333771
+      Planet_Ferrum_Animated_X4-spriteheet_31: -3737362477612534498
+      Planet_Ferrum_Animated_X4-spriteheet_4: 8499923786467850242
+      Planet_Ferrum_Animated_X4-spriteheet_0: 5665082810964259399
+      Planet_Ferrum_Animated_X4-spriteheet_46: -5561353068813108857
+      Planet_Ferrum_Animated_X4-spriteheet_47: -4291762062751481468
+      Planet_Ferrum_Animated_X4-spriteheet_44: -4568459434064579354
+      Planet_Ferrum_Animated_X4-spriteheet_38: 8549243359190290729
+      Planet_Ferrum_Animated_X4-spriteheet_50: -3500200952717183373
+      Planet_Ferrum_Animated_X4-spriteheet_40: 86238162363221049
+      Planet_Ferrum_Animated_X4-spriteheet_22: -2564067320204009740
+      Planet_Ferrum_Animated_X4-spriteheet_9: 1946026219967670672
+      Planet_Ferrum_Animated_X4-spriteheet_15: -2003559287034470588
+      Planet_Ferrum_Animated_X4-spriteheet_36: -3028334046083704432
+      Planet_Ferrum_Animated_X4-spriteheet_13: -1104212559935795058
+      Planet_Ferrum_Animated_X4-spriteheet_27: -8553142317455959053
+      Planet_Ferrum_Animated_X4-spriteheet_51: -3030625565949747791
+      Planet_Ferrum_Animated_X4-spriteheet_23: 6933177422106882158
+      Planet_Ferrum_Animated_X4-spriteheet_5: -6101893989526464381
+      Planet_Ferrum_Animated_X4-spriteheet_12: -8368919477898524182
+      Planet_Ferrum_Animated_X4-spriteheet_48: 181220399987346692
+      Planet_Ferrum_Animated_X4-spriteheet_45: -533439271403475887
+      Planet_Ferrum_Animated_X4-spriteheet_53: -7461175712976850367
+      Planet_Ferrum_Animated_X4-spriteheet_16: -2282063822506878552
+      Planet_Ferrum_Animated_X4-spriteheet_21: 4635128519119672436
+      Planet_Ferrum_Animated_X4-spriteheet_49: -8262151487774688433
+      Planet_Ferrum_Animated_X4-spriteheet_11: 4149469644131220192
+      Planet_Ferrum_Animated_X4-spriteheet_2: 5579775896916243733
+      Planet_Ferrum_Animated_X4-spriteheet_14: 8138174986763070276
+      Planet_Ferrum_Animated_X4-spriteheet_1: 2555063075170637789
+      Planet_Ferrum_Animated_X4-spriteheet_32: 4164117754674394759
+      Planet_Ferrum_Animated_X4-spriteheet_20: -4033690828930567675
+      Planet_Ferrum_Animated_X4-spriteheet_39: 1692436505093855779
+      Planet_Ferrum_Animated_X4-spriteheet_17: -4123655178732469355
+      Planet_Ferrum_Animated_X4-spriteheet_26: -1811005838309066361
+      Planet_Ferrum_Animated_X4-spriteheet_41: -5705623166977080228
+      Planet_Ferrum_Animated_X4-spriteheet_52: -2043809821246650283
+      Planet_Ferrum_Animated_X4-spriteheet_33: -8898637528934696343
+      Planet_Ferrum_Animated_X4-spriteheet_35: -7165077478216728188
+      Planet_Ferrum_Animated_X4-spriteheet_25: -4276168760863713230
+      Planet_Ferrum_Animated_X4-spriteheet_3: -6350019753857524604
+      Planet_Ferrum_Animated_X4-spriteheet_7: -259030665783842467
+      Planet_Ferrum_Animated_X4-spriteheet_43: -5048378916364711449
+      Planet_Ferrum_Animated_X4-spriteheet_29: 6332047631384531101
+      Planet_Ferrum_Animated_X4-spriteheet_54: -7549209889284965113
+      Planet_Ferrum_Animated_X4-spriteheet_42: 857029685613697697
+      Planet_Ferrum_Animated_X4-spriteheet_19: -2372645430270208141
+      Planet_Ferrum_Animated_X4-spriteheet_18: -5783177078189351915
+      Planet_Ferrum_Animated_X4-spriteheet_10: -3346851688894587730
+      Planet_Ferrum_Animated_X4-spriteheet_24: -6851438304641769332
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

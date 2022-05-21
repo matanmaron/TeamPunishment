@@ -20,11 +20,10 @@ namespace TeamPunishment
         [Header("Kick UI Elements")]
         public Transform ButtonHolder;
         public Button ButtonPrefab;
-        public Transform Marker;
-        public Transform Star1;
-        public Transform Star2;
-        public Transform Star3;
-        public Transform Star4;
+        public Transform StarArtem;
+        public Transform StarCibus;
+        public Transform StarFerrum;
+        public Transform StarOrdo;
 
         [Header("Finish Elements")]
         public GameObject finishPanel;
@@ -38,7 +37,7 @@ namespace TeamPunishment
         public static ChatUI instance;
         private bool gamestarted = false;
         private bool chatWindowHidden = true;
-        private int starToKick = 0;
+        private Stars starToKick = Stars.None;
         const string ADMIN = "admin";
         const string PLAYER_TAG = "Player";
 #if UNITY_EDITOR
@@ -102,16 +101,19 @@ namespace TeamPunishment
         {
             //CmdSend($"@@@{starToKick}");
             finishPanel.SetActive(true);
-            if (starToKick == 0)
+            if (starToKick == Stars.None)
             {
                 finishStar.gameObject.SetActive(false);
+                CmdSend("@@@DILEMA10");
             }
             else
             {
-                finishStar.sprite = GetStar(starToKick).GetComponent<Image>().sprite;
+                finishStar.sprite = GetStar((int)starToKick).GetComponent<Image>().sprite;
                 finishStar.SetNativeSize();
                 finishPanel.GetComponentInChildren<Text>().text = $"player {localPlayerName} choose to kick planet {starToKick}...";
+                CmdSend($"@@@DILEMA1{(int)starToKick}");
             }
+
             Debug.Log($"[*******] - player {localPlayerName} choose to kick {starToKick}");
         }
 
@@ -128,7 +130,7 @@ namespace TeamPunishment
         [ClientRpc]
         public void RpcReceive(string playerName, string message)
         {
-            if (HandleCommandMsg(message)) return;
+            if (HandleCommandMsg(message, playerName)) return;
             if (message.StartsWith("@@@")) return;
 
             string prettyMessage = playerName == localPlayerName ?
@@ -193,40 +195,47 @@ namespace TeamPunishment
 
         public void OnPlayerStarClick(int star)
         {
-            if (star == starToKick)
+            resetStarColor();
+            if (star == (int)starToKick)
             {
-                Marker.gameObject.SetActive(false);
-                starToKick = 0;
+                starToKick = Stars.None;
             }
             else
             {
-                Marker.gameObject.SetActive(true);
-                var starObject = GetStar(star);
-                Marker.SetParent(starObject);
-                Marker.gameObject.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-                starToKick = star;
+                Transform starObject = GetStar((int)star);
+                starObject.GetComponent<Image>().color = Color.yellow;
+                starToKick = (Stars)star;
             }
             Debug.Log($"[OnPlayerKickClick] - player {localPlayerName} kick {starToKick}");
+        }
+
+        private void resetStarColor()
+        {
+            StarArtem.GetComponent<Image>().color = Color.white;
+            StarCibus.GetComponent<Image>().color = Color.white;
+            StarFerrum.GetComponent<Image>().color = Color.white;
+            StarOrdo.GetComponent<Image>().color = Color.white;
         }
 
         private Transform GetStar(int index)
         {
             switch (index)
             {
-                case 1: return Star1;
-                case 2: return Star2;
-                case 3: return Star3;
-                case 4: return Star4;
+                case 1: return StarFerrum;
+                case 2: return StarCibus;
+                case 3: return StarOrdo;
+                case 4: return StarArtem;
                 default:
                     return null;
             }
         }
 
-        private bool HandleCommandMsg(string msg)
+        private bool HandleCommandMsg(string msg, string playerName)
         {
             Debug.Log("[HandleCommandMsg]");
             if (msg == "@@@LOGIN")
             {
+                Debug.Log($"{playerName} ha joined !");
                 int players = GameObject.FindGameObjectsWithTag(PLAYER_TAG).Length;
                 WaitingText.text = $"{MAX_PLAYERS - players} more!";
                 if (!gamestarted && players == MAX_PLAYERS)
@@ -243,6 +252,11 @@ namespace TeamPunishment
                 Player admin = FindObjectsOfType<Player>().Where(x => x.playerName == ADMIN).FirstOrDefault();
                 admin.name = ADMIN;
                 admin.gameObject.tag = "Untagged";
+            }
+            if (msg.StartsWith("@@@DILEMA1"))
+            {
+                int.TryParse(msg[10].ToString(), out int selection);
+                Debug.Log($"player {playerName} kicked out {(Stars)selection}");
             }
             return false;
         }
