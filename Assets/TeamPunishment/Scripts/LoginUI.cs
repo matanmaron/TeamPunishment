@@ -13,6 +13,7 @@ namespace TeamPunishment
         public GameObject DebugConsole;
         public static LoginUI instance;
         public GameObject debugButons;
+        public static string localPlayerName = string.Empty;
 
         void Awake()
         {
@@ -40,6 +41,8 @@ namespace TeamPunishment
         {
             hostButton.interactable = !string.IsNullOrWhiteSpace(username);
             clientButton.interactable = !string.IsNullOrWhiteSpace(username);
+            localPlayerName = username;
+
         }
     }
 }

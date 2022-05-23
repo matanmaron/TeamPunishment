@@ -18,7 +18,7 @@ public class VideoManager : MonoBehaviour
     public static VideoManager instance;
 
     private GameObject currentVideo;
-    private Action onVideoEndCallback;
+    private List<Action> onVideoEndCallback = new List<Action>();
 
     void Awake()
     {
@@ -43,12 +43,12 @@ public class VideoManager : MonoBehaviour
 
     private void PlayVideo(Action callback, VideoClip clip)
     {
-        onVideoEndCallback = callback;
+        onVideoEndCallback.Add(callback);
         chatCanvas.SetActive(false);
         Debug.Log($"[PlayVideo]");
         currentVideo = Instantiate(VideoPrefab, transform);
         currentVideo.GetComponentInChildren<Button>().onClick.AddListener(OnEnterClick);
-        var vid = currentVideo.GetComponent<VideoPlayer>();
+        VideoPlayer vid = currentVideo.GetComponent<VideoPlayer>();
         vid.clip = clip;
         vid.aspectRatio = VideoAspectRatio.FitInside;
         vid.targetCamera = Camera.main;
@@ -69,8 +69,12 @@ public class VideoManager : MonoBehaviour
         Destroy(currentVideo);
         currentVideo = null;
         chatCanvas.SetActive(true);
-        onVideoEndCallback?.Invoke();
-        onVideoEndCallback = null;
+        if (onVideoEndCallback.Count > 0)
+        {
+            Action callback = onVideoEndCallback[0];
+            onVideoEndCallback.RemoveAt(0);
+            callback?.Invoke();
+        }
     }
 
     public void PlayFerrum(Action onStarVideoEnd)

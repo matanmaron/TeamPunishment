@@ -244,25 +244,7 @@ namespace TeamPunishment
                 if (!gamestarted && players == MAX_PLAYERS)
                 {
                     Debug.Log("[HandleCommandMsg] - gamestarted");
-                    WaitingText.gameObject.SetActive(false);
-                    gamestarted = true;
-                    int index = 1;
-                    foreach (GameObject player in GameObject.FindGameObjectsWithTag(PLAYER_TAG).OrderBy(x=>x.name))
-                    {
-                        var p = player.GetComponent<Player>();
-                        p.startName = (Stars.None + index).ToString();
-                        index++;
-                        allPlayers.Add(p);
-                        if (localPlayerName == p.playerName)
-                        {
-                            localStarName = p.startName;
-                        }
-                    }
-                    foreach (Player player in allPlayers)
-                    {
-                        Debug.Log($"player {player.playerName} is planet {player.startName}");
-                    }
-                    PlayIntro();
+                    StartGame();
                     return true;
                 }
             }
@@ -280,6 +262,24 @@ namespace TeamPunishment
             return false;
         }
 
+        private void StartGame()
+        {
+            Debug.Log("[StartGame]");
+            localPlayerName = LoginUI.localPlayerName;
+            WaitingText.gameObject.SetActive(false);
+            gamestarted = true;
+            int index = 1;
+            foreach (GameObject player in GameObject.FindGameObjectsWithTag(PLAYER_TAG).OrderBy(x => x.name))
+            {
+                Player p = player.GetComponent<Player>();
+                allPlayers.Add(p);
+                player.name = (Stars.None + index).ToString();
+                index++;
+            }
+            localStarName = allPlayers.Where(x => x.isLocalPlayer).FirstOrDefault().name;
+            PlayIntro();
+        }
+
         private void PlayIntro()
         {
             VideoManager.instance.PlayIntro(OnIntroEnd);
@@ -290,9 +290,6 @@ namespace TeamPunishment
             Enum.TryParse(localStarName, out Stars myStar);
             switch (myStar)
             {
-                case Stars.None:
-                    Debug.LogError("you cannot have star NONE !");
-                    break;
                 case Stars.Ferrum:
                     VideoManager.instance.PlayFerrum(OnStarVideoEnd);
                     break;
@@ -304,11 +301,11 @@ namespace TeamPunishment
                     break;
                 case Stars.Artem:
                     VideoManager.instance.PlayArtem(OnStarVideoEnd);
-
                     break;
                 default:
+                    Debug.LogError("you cannot have star NONE !");
                     break;
-            }
+        }
         }
 
         private void OnStarVideoEnd()
