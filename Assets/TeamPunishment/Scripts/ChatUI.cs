@@ -1,4 +1,5 @@
 using Mirror;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,8 +32,10 @@ namespace TeamPunishment
 
         [Header("Diagnostic - Do Not Edit")]
         public string localPlayerName;
+        public string localStarName;
 
         Dictionary<NetworkConnectionToClient, string> connNames = new Dictionary<NetworkConnectionToClient, string>();
+        List<Player> allPlayers = new List<Player>();
 
         public static ChatUI instance;
         private bool gamestarted = false;
@@ -243,6 +246,22 @@ namespace TeamPunishment
                     Debug.Log("[HandleCommandMsg] - gamestarted");
                     WaitingText.gameObject.SetActive(false);
                     gamestarted = true;
+                    int index = 1;
+                    foreach (GameObject player in GameObject.FindGameObjectsWithTag(PLAYER_TAG).OrderBy(x=>x.name))
+                    {
+                        var p = player.GetComponent<Player>();
+                        p.startName = (Stars.None + index).ToString();
+                        index++;
+                        allPlayers.Add(p);
+                        if (localPlayerName == p.playerName)
+                        {
+                            localStarName = p.startName;
+                        }
+                    }
+                    foreach (Player player in allPlayers)
+                    {
+                        Debug.Log($"player {player.playerName} is planet {player.startName}");
+                    }
                     PlayIntro();
                     return true;
                 }
@@ -263,7 +282,38 @@ namespace TeamPunishment
 
         private void PlayIntro()
         {
-            VideoManager.instance.PlayIntro(()=> ButtonHolder.gameObject.SetActive(true));
+            VideoManager.instance.PlayIntro(OnIntroEnd);
+        }
+
+        private void OnIntroEnd()
+        {
+            Enum.TryParse(localStarName, out Stars myStar);
+            switch (myStar)
+            {
+                case Stars.None:
+                    Debug.LogError("you cannot have star NONE !");
+                    break;
+                case Stars.Ferrum:
+                    VideoManager.instance.PlayFerrum(OnStarVideoEnd);
+                    break;
+                case Stars.Cibus:
+                    VideoManager.instance.PlayCibus(OnStarVideoEnd);
+                    break;
+                case Stars.Ordo:
+                    VideoManager.instance.PlayOrdo(OnStarVideoEnd);
+                    break;
+                case Stars.Artem:
+                    VideoManager.instance.PlayArtem(OnStarVideoEnd);
+
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void OnStarVideoEnd()
+        {
+            ButtonHolder.gameObject.SetActive(true);
         }
     }
 }

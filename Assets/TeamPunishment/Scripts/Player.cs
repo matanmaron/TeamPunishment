@@ -10,6 +10,8 @@ namespace TeamPunishment
         [SyncVar(hook = nameof(OnPlayerNameChanged))]
         public string playerName;
 
+        [SyncVar(hook = nameof(OnStarNameChanged))]
+        public string startName;
         // RuntimeInitializeOnLoadMethod -> fast playmode without domain reload
         [UnityEngine.RuntimeInitializeOnLoadMethod]
         static void ResetStatics()
@@ -20,6 +22,11 @@ namespace TeamPunishment
         void OnPlayerNameChanged(string _, string newName)
         {
             ChatUI.instance.localPlayerName = playerName;
+        }
+
+        void OnStarNameChanged(string _, string newName)
+        {
+            ChatUI.instance.localStarName = startName;
         }
 
         public override void OnStartServer()

@@ -8,7 +8,11 @@ using UnityEngine.Video;
 public class VideoManager : MonoBehaviour
 {
     [SerializeField] GameObject VideoPrefab;
-    [SerializeField] VideoClip intro;
+    [SerializeField] VideoClip Intro;
+    [SerializeField] VideoClip Ferrum;
+    [SerializeField] VideoClip Cibus;
+    [SerializeField] VideoClip Ordo;
+    [SerializeField] VideoClip Artem;
     [SerializeField] GameObject chatCanvas;
 
     public static VideoManager instance;
@@ -37,19 +41,25 @@ public class VideoManager : MonoBehaviour
         }
     }
 
-    public void PlayIntro(Action callback)
+    private void PlayVideo(Action callback, VideoClip clip)
     {
         onVideoEndCallback = callback;
         chatCanvas.SetActive(false);
-        Debug.Log($"[PlayIntro]");
+        Debug.Log($"[PlayVideo]");
         currentVideo = Instantiate(VideoPrefab, transform);
         currentVideo.GetComponentInChildren<Button>().onClick.AddListener(OnEnterClick);
         var vid = currentVideo.GetComponent<VideoPlayer>();
-        vid.clip = intro;
+        vid.clip = clip;
         vid.aspectRatio = VideoAspectRatio.FitInside;
         vid.targetCamera = Camera.main;
         vid.Play();
         vid.loopPointReached += OnVideoEnd;
+    }
+
+    public void PlayIntro(Action callback)
+    {
+        Debug.Log($"[PlayIntro]");
+        PlayVideo(callback, Intro);
     }
 
     private void OnVideoEnd(VideoPlayer vid)
@@ -61,5 +71,29 @@ public class VideoManager : MonoBehaviour
         chatCanvas.SetActive(true);
         onVideoEndCallback?.Invoke();
         onVideoEndCallback = null;
+    }
+
+    public void PlayFerrum(Action onStarVideoEnd)
+    {
+        Debug.Log($"[PlayFerrum]");
+        PlayVideo(onStarVideoEnd, Ferrum);
+    }
+
+    public void PlayCibus(Action onStarVideoEnd)
+    {
+        Debug.Log($"[PlayCibus]");
+        PlayVideo(onStarVideoEnd, Cibus);
+    }
+
+    public void PlayOrdo(Action onStarVideoEnd)
+    {
+        Debug.Log($"[PlayOrdo]");
+        PlayVideo(onStarVideoEnd, Ordo);
+    }
+
+    public void PlayArtem(Action onStarVideoEnd)
+    {
+        Debug.Log($"[PlayArtem]");
+        PlayVideo(onStarVideoEnd, Artem);
     }
 }

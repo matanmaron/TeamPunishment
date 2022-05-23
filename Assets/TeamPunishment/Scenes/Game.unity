@@ -2915,6 +2915,7 @@ MonoBehaviour:
   finishPanel: {fileID: 814074912}
   finishStar: {fileID: 1015162481}
   localPlayerName: 
+  localStarName: 
 --- !u!114 &719572999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7827,7 +7828,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VideoPrefab: {fileID: 8533934566756748601, guid: b09d6be72906b21499dcf8d735197544, type: 3}
-  intro: {fileID: 32900000, guid: 91821f83aa543a44a98497ae30743d24, type: 3}
+  Intro: {fileID: 32900000, guid: 91821f83aa543a44a98497ae30743d24, type: 3}
+  Ferrum: {fileID: 32900000, guid: 21144ad3a33b26c4baa1a6ec5e9d7a62, type: 3}
+  Cibus: {fileID: 32900000, guid: 958cbb6c8cf2df142834121b5b2f6d1f, type: 3}
+  Ordo: {fileID: 32900000, guid: 94cd683032aeb404cb6d597ab324b449, type: 3}
+  Artem: {fileID: 32900000, guid: a8cb29cfc0543af44b5edd377d545bc1, type: 3}
   chatCanvas: {fileID: 719572997}
 --- !u!114 &1542631124
 MonoBehaviour:
