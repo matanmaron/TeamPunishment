@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace TeamPunishment
+﻿namespace TeamPunishment
 {
     public enum Stars
     {

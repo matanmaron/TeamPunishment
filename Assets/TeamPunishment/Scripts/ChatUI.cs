@@ -18,17 +18,17 @@ namespace TeamPunishment
         public Button ToggleChatButton;
         public Text WaitingText;
 
-        [Header("Kick UI Elements")]
+        [Header("Dilema Elements")]
         public Transform ButtonHolder;
         public Button ButtonPrefab;
         public Transform StarArtem;
         public Transform StarCibus;
         public Transform StarFerrum;
         public Transform StarOrdo;
-
-        [Header("Finish Elements")]
-        public GameObject finishPanel;
-        public Image finishStar;
+        public Text Textbox;
+        public GameObject EndPanel;
+        Stars starToKick = Stars.None;
+        GameState gameState = GameState.None;
 
         [Header("Diagnostic - Do Not Edit")]
         public string localPlayerName;
@@ -40,7 +40,6 @@ namespace TeamPunishment
         public static ChatUI instance;
         private bool gamestarted = false;
         private bool chatWindowHidden = true;
-        private Stars starToKick = Stars.None;
         const string ADMIN = "admin";
         const string PLAYER_TAG = "Player";
 #if UNITY_EDITOR
@@ -88,10 +87,6 @@ namespace TeamPunishment
             {
                 Quit();
             }
-            if (gamestarted && Input.GetKeyUp(KeyCode.Return))
-            {
-                OnEnterClick();
-            }
         }
 
         public void Quit()
@@ -100,29 +95,10 @@ namespace TeamPunishment
             SceneManager.LoadScene(0);
         }
 
-        public void OnEnterClick()
-        {
-            //CmdSend($"@@@{starToKick}");
-            finishPanel.SetActive(true);
-            if (starToKick == Stars.None)
-            {
-                finishStar.gameObject.SetActive(false);
-                CmdSend("@@@DILEMA10");
-            }
-            else
-            {
-                finishStar.sprite = GetStar((int)starToKick).GetComponent<Image>().sprite;
-                finishStar.SetNativeSize();
-                finishPanel.GetComponentInChildren<Text>().text = $"player {localPlayerName} choose to kick planet {starToKick}...";
-                CmdSend($"@@@DILEMA1{(int)starToKick}");
-            }
-
-            Debug.Log($"[*******] - player {localPlayerName} choose to kick {starToKick}");
-        }
-
         [Command(requiresAuthority = false)]
         public void CmdSend(string message, NetworkConnectionToClient sender = null)
         {
+            Debug.Log($"[CmdSend] {sender} - {message}");
             if (!connNames.ContainsKey(sender))
                 connNames.Add(sender, sender.identity.GetComponent<Player>().playerName);
 
@@ -198,26 +174,95 @@ namespace TeamPunishment
 
         public void OnPlayerStarClick(int star)
         {
-            resetStarColor();
-            if (star == (int)starToKick)
+            ShowEnd(star);
+        }
+
+        private void EndDilema2b()
+        {
+            gameState = GameState.End;
+            if (starToKick == Stars.None)
             {
-                starToKick = Stars.None;
+                CmdSend("@@@DILEMA10");
             }
             else
             {
-                Transform starObject = GetStar((int)star);
-                starObject.GetComponent<Image>().color = Color.yellow;
-                starToKick = (Stars)star;
+                CmdSend($"@@@DILEMA1{(int)starToKick}");
             }
-            Debug.Log($"[OnPlayerKickClick] - player {localPlayerName} kick {starToKick}");
         }
 
-        private void resetStarColor()
+        private void EndDilema2a()
         {
-            StarArtem.GetComponent<Image>().color = Color.white;
-            StarCibus.GetComponent<Image>().color = Color.white;
-            StarFerrum.GetComponent<Image>().color = Color.white;
-            StarOrdo.GetComponent<Image>().color = Color.white;
+            gameState = GameState.End;
+            if (starToKick == Stars.None)
+            {
+                CmdSend("@@@DILEMA10");
+            }
+            else
+            {
+                CmdSend($"@@@DILEMA1{(int)starToKick}");
+            }
+        }
+
+        public void OnEndClick()
+        {
+            EndPanel.SetActive(false);
+            switch (gameState)
+            {
+                case GameState.Dilema_A:
+                    EndDilema1();
+                    break;
+                case GameState.Dilema_B_A:
+                    EndDilema2a();
+                    Quit();
+                    break;
+                case GameState.Dilema_B_B:
+                    EndDilema2b();
+                    Quit();
+                    break;
+                case GameState.End:
+                    Quit();
+                    break;
+                default:
+                    Debug.LogError($"[OnEndClick] -{gameState}- How did you get here??");
+                    break;
+            }
+        }
+        private void ShowEnd(int star)
+        {
+            starToKick = (Stars)star;
+            EndPanel.SetActive(true);
+            EndPanel.GetComponentInChildren<Text>().text = $"[OnPlayerKickClick] - player {localPlayerName} kick {(Stars)star}";
+        }
+
+        private void EndDilema1()
+        {
+            Debug.Log($"[OnPlayerKickClick] - player {localPlayerName} kick {starToKick}");
+            if (starToKick == Stars.None)
+            {
+                CmdSend("@@@DILEMA10");
+                MoveToDilema2a();
+            }
+            else
+            {
+                CmdSend($"@@@DILEMA1{(int)starToKick}");
+                MoveToDilema2b();
+            }
+        }
+
+        /// <summary>
+        /// if choose none
+        /// </summary>
+        private void MoveToDilema2a()
+        {
+            SetupSecondDilemaA();
+        }
+
+        /// <summary>
+        /// if choose some star
+        /// </summary>
+        private void MoveToDilema2b()
+        {
+            SetupSecondDilemaB();
         }
 
         private Transform GetStar(int index)
@@ -235,7 +280,7 @@ namespace TeamPunishment
 
         private bool HandleCommandMsg(string msg, string playerName)
         {
-            Debug.Log("[HandleCommandMsg]");
+            Debug.Log($"[HandleCommandMsg] {playerName} - {msg}");
             if (msg == "@@@LOGIN")
             {
                 Debug.Log($"{playerName} ha joined !");
@@ -265,6 +310,8 @@ namespace TeamPunishment
         private void StartGame()
         {
             Debug.Log("[StartGame]");
+            gameState = GameState.Dilema_A;
+            SetupFirstDilema();
             localPlayerName = LoginUI.localPlayerName;
             WaitingText.gameObject.SetActive(false);
             gamestarted = true;
@@ -279,6 +326,42 @@ namespace TeamPunishment
             localStarName = allPlayers.Where(x => x.isLocalPlayer).FirstOrDefault().name;
             PlayIntro();
         }
+
+        private void SetupSecondDilemaB()
+        {
+            gameState = GameState.Dilema_B_B;
+            Stars _starToKick = starToKick;
+            InitDilema();
+            GetStar((int)_starToKick).gameObject.SetActive(false);
+        }
+
+        private void SetupSecondDilemaA()
+        {
+            gameState = GameState.Dilema_B_A;
+            InitDilema();
+            Textbox.text = @"Yonos pose an imminent threat. There have been many deaths and planets lost already. The vaccine supply is depleted, and we don't have enough space to bury all of our loved ones. Is it better to dismiss one planet or to fight this through together?";
+        }
+
+        private void SetupFirstDilema()
+        {
+            gameState = GameState.Dilema_A;
+            InitDilema();
+            Textbox.text = @"The FDA is ready for the 1st trial of the vaccine (raven’s blood and an owl’s feather). There are not enough vaccines for all the residents. Eliminating one of the planets will be sufficient for surviving this trial, however all of the planet’s resources will be forever lost and the ability to face the additional trials. What will you choose to do ?";
+        }
+
+        private void InitDilema()
+        {
+            StarArtem.gameObject.SetActive(true);
+            StarCibus.gameObject.SetActive(true);
+            StarFerrum.gameObject.SetActive(true);
+            StarOrdo.gameObject.SetActive(true);
+            StarArtem.GetComponent<OnStarClick>().Init();
+            StarCibus.GetComponent<OnStarClick>().Init();
+            StarFerrum.GetComponent<OnStarClick>().Init();
+            StarOrdo.GetComponent<OnStarClick>().Init();
+            starToKick = Stars.None;
+        }
+
 
         private void PlayIntro()
         {
