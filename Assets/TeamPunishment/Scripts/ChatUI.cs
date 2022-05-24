@@ -36,7 +36,7 @@ namespace TeamPunishment
 
         Dictionary<NetworkConnectionToClient, string> connNames = new Dictionary<NetworkConnectionToClient, string>();
         List<Player> allPlayers = new List<Player>();
-
+        List<Stars> dilemaResults = new List<Stars>();
         public static ChatUI instance;
         private bool gamestarted = false;
         private bool chatWindowHidden = true;
@@ -62,7 +62,6 @@ namespace TeamPunishment
                 CmdSend("@@@ADMIN");
                 return;
             }
-            WaitingText.gameObject.SetActive(true);
             gamestarted = false;
             if (GameObject.FindGameObjectsWithTag("Player").Length > MAX_PLAYERS)
             {
@@ -174,12 +173,8 @@ namespace TeamPunishment
 
         public void OnPlayerStarClick(int star)
         {
-            ShowEnd(star);
-        }
-
-        private void EndDilema2b()
-        {
-            gameState = GameState.End;
+            starToKick = (Stars)star;
+            ButtonHolder.gameObject.SetActive(false);
             if (starToKick == Stars.None)
             {
                 CmdSend("@@@DILEMA10");
@@ -188,19 +183,44 @@ namespace TeamPunishment
             {
                 CmdSend($"@@@DILEMA1{(int)starToKick}");
             }
+            CheckIfSelectionEnded();
         }
 
-        private void EndDilema2a()
+        private void CheckIfSelectionEnded()
         {
-            gameState = GameState.End;
-            if (starToKick == Stars.None)
+            int ps = GameObject.FindGameObjectsWithTag(PLAYER_TAG).Length;
+            if (dilemaResults.Count == ps)
             {
-                CmdSend("@@@DILEMA10");
+                WaitingText.text = string.Empty;
+                CalcStar();
+                ShowEnd();
             }
             else
             {
-                CmdSend($"@@@DILEMA1{(int)starToKick}");
+                WaitingText.text = $"Waiting For {ps - dilemaResults.Count} Player to choose...";
             }
+        }
+
+        private void CalcStar()
+        {
+            Dictionary<Stars, float> votes = new Dictionary<Stars, float>
+            {       
+                {Stars.None, 0 },
+                {Stars.Ferrum, 0 },
+                {Stars.Cibus, 0 },
+                {Stars.Ordo, 0 },
+                { Stars.Artem, 0 }
+            };
+            for (int i = 0; i < dilemaResults.Count; i++)
+            {
+                votes[dilemaResults[i]] = 1 - (i / 100);
+            }
+            starToKick = votes.Aggregate((x, y) => x.Value > y.Value ? x : y).Key;
+        }
+
+        private void EndDilema2()
+        {
+            gameState = GameState.End;
         }
 
         public void OnEndClick()
@@ -212,11 +232,8 @@ namespace TeamPunishment
                     EndDilema1();
                     break;
                 case GameState.Dilema_B_A:
-                    EndDilema2a();
-                    Quit();
-                    break;
                 case GameState.Dilema_B_B:
-                    EndDilema2b();
+                    EndDilema2();
                     Quit();
                     break;
                 case GameState.End:
@@ -227,24 +244,23 @@ namespace TeamPunishment
                     break;
             }
         }
-        private void ShowEnd(int star)
+
+        private void ShowEnd()
         {
-            starToKick = (Stars)star;
+            dilemaResults = new List<Stars>();
+            ButtonHolder.gameObject.SetActive(true);
             EndPanel.SetActive(true);
-            EndPanel.GetComponentInChildren<Text>().text = $"[OnPlayerKickClick] - player {localPlayerName} kick {(Stars)star}";
+            EndPanel.GetComponentInChildren<Text>().text = $"{starToKick} has been voted !";
         }
 
         private void EndDilema1()
         {
-            Debug.Log($"[OnPlayerKickClick] - player {localPlayerName} kick {starToKick}");
             if (starToKick == Stars.None)
             {
-                CmdSend("@@@DILEMA10");
                 MoveToDilema2a();
             }
             else
             {
-                CmdSend($"@@@DILEMA1{(int)starToKick}");
                 MoveToDilema2b();
             }
         }
@@ -303,6 +319,8 @@ namespace TeamPunishment
             {
                 int.TryParse(msg[10].ToString(), out int selection);
                 Debug.Log($"player {playerName} kicked out {(Stars)selection}");
+                dilemaResults.Add((Stars)selection);
+                CheckIfSelectionEnded();
             }
             return false;
         }
@@ -311,9 +329,8 @@ namespace TeamPunishment
         {
             Debug.Log("[StartGame]");
             gameState = GameState.Dilema_A;
-            SetupFirstDilema();
             localPlayerName = LoginUI.localPlayerName;
-            WaitingText.gameObject.SetActive(false);
+            WaitingText.text = string.Empty;
             gamestarted = true;
             int index = 1;
             foreach (GameObject player in GameObject.FindGameObjectsWithTag(PLAYER_TAG).OrderBy(x => x.name))
@@ -324,6 +341,7 @@ namespace TeamPunishment
                 index++;
             }
             localStarName = allPlayers.Where(x => x.isLocalPlayer).FirstOrDefault().name;
+            SetupFirstDilema();
             PlayIntro();
         }
 
@@ -360,6 +378,8 @@ namespace TeamPunishment
             StarFerrum.GetComponent<OnStarClick>().Init();
             StarOrdo.GetComponent<OnStarClick>().Init();
             starToKick = Stars.None;
+            Enum.TryParse(localStarName, out Stars localStar);
+            GetStar((int)localStar).GetComponent<Button>().interactable = false;
         }
 
 
