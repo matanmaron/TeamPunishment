@@ -25,6 +25,7 @@ namespace TeamPunishment
         public Transform StarCibus;
         public Transform StarFerrum;
         public Transform StarOrdo;
+        public Transform StarNone;
         public Text Textbox;
         public GameObject EndPanel;
         Stars starToKick = Stars.None;
@@ -197,7 +198,7 @@ namespace TeamPunishment
             }
             else
             {
-                WaitingText.text = $"Waiting For {ps - dilemaResults.Count} Player to choose...";
+                WaitingText.text = $"Waiting for {ps - dilemaResults.Count} more players to choose...";
             }
         }
 
@@ -386,13 +387,16 @@ namespace TeamPunishment
             StarCibus.gameObject.SetActive(true);
             StarFerrum.gameObject.SetActive(true);
             StarOrdo.gameObject.SetActive(true);
+            StarNone.gameObject.SetActive(true);
             StarArtem.GetComponent<OnStarClick>().Init();
             StarCibus.GetComponent<OnStarClick>().Init();
             StarFerrum.GetComponent<OnStarClick>().Init();
             StarOrdo.GetComponent<OnStarClick>().Init();
+            StarNone.GetComponent<OnStarClick>().Init();
             starToKick = Stars.None;
             Enum.TryParse(localStarName, out Stars localStar);
             GetStar((int)localStar).GetComponent<Button>().interactable = false;
+            StarNone.gameObject.SetActive(true);
         }
 
 
