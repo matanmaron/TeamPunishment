@@ -40,9 +40,7 @@ namespace TeamPunishment
         public override void OnClientDisconnect()
         {
             base.OnClientDisconnect();
-            LoginUI.instance.gameObject.SetActive(true);
-            LoginUI.instance.usernameInput.text = "";
-            LoginUI.instance.usernameInput.ActivateInputField();
+            Debug.Log("disconnected");
         }
     }
 }

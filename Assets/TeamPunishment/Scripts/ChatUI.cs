@@ -205,15 +205,27 @@ namespace TeamPunishment
         {
             Dictionary<Stars, float> votes = new Dictionary<Stars, float>
             {       
-                {Stars.None, 0 },
-                {Stars.Ferrum, 0 },
-                {Stars.Cibus, 0 },
-                {Stars.Ordo, 0 },
-                { Stars.Artem, 0 }
+                {Stars.None, 0f },
+                {Stars.Ferrum, 0f },
+                {Stars.Cibus, 0f },
+                {Stars.Ordo, 0f },
+                { Stars.Artem, 0f }
             };
             for (int i = 0; i < dilemaResults.Count; i++)
             {
-                votes[dilemaResults[i]] = 1 - (i / 100);
+                if (i==0)
+                {
+                    votes[dilemaResults[i]] += 1;
+                }
+                else
+                {
+                    votes[dilemaResults[i]] += (1 - ((float)i / 100));
+                }
+            }
+            Debug.Log($"VOTES:");
+            foreach (var v in votes)
+            {
+                Debug.Log($"{v.Key} -> {v.Value}");
             }
             starToKick = votes.Aggregate((x, y) => x.Value > y.Value ? x : y).Key;
         }
