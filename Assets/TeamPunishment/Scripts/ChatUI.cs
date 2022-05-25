@@ -193,8 +193,8 @@ namespace TeamPunishment
             if (dilemaResults.Count == ps)
             {
                 WaitingText.text = string.Empty;
-                CalcStar();
-                ShowEnd();
+                var votes = CalcStar();
+                ShowEnd(votes);
             }
             else
             {
@@ -202,7 +202,7 @@ namespace TeamPunishment
             }
         }
 
-        private void CalcStar()
+        private int CalcStar()
         {
             Dictionary<Stars, float> votes = new Dictionary<Stars, float>
             {       
@@ -229,6 +229,7 @@ namespace TeamPunishment
                 Debug.Log($"{v.Key} -> {v.Value}");
             }
             starToKick = votes.Aggregate((x, y) => x.Value > y.Value ? x : y).Key;
+            return Mathf.RoundToInt(votes.Aggregate((x, y) => x.Value > y.Value ? x : y).Value);
         }
 
         private void EndDilema2()
@@ -258,12 +259,12 @@ namespace TeamPunishment
             }
         }
 
-        private void ShowEnd()
+        private void ShowEnd(int votes)
         {
             dilemaResults = new List<Stars>();
             ButtonHolder.gameObject.SetActive(true);
             EndPanel.SetActive(true);
-            EndPanel.GetComponentInChildren<Text>().text = $"{starToKick} has been voted !";
+            EndPanel.GetComponentInChildren<Text>().text = $"{starToKick} has been voted with {votes} Votes!";
         }
 
         private void EndDilema1()
