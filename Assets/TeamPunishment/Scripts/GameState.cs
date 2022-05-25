@@ -4,8 +4,8 @@ namespace TeamPunishment
     {
         None,
         Dilema_A,
-        Dilema_B_A,
-        Dilema_B_B,
+        Dilema_NoKicked,
+        Dilema_Kicked,
         End,
     }
 }

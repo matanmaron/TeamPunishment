@@ -243,8 +243,8 @@ namespace TeamPunishment
                 case GameState.Dilema_A:
                     EndDilema1();
                     break;
-                case GameState.Dilema_B_A:
-                case GameState.Dilema_B_B:
+                case GameState.Dilema_NoKicked:
+                case GameState.Dilema_Kicked:
                     EndDilema2();
                     Quit();
                     break;
@@ -282,7 +282,7 @@ namespace TeamPunishment
         /// </summary>
         private void MoveToDilema2a()
         {
-            SetupSecondDilemaA();
+            SetupSecondDilemaNoKicked();
         }
 
         /// <summary>
@@ -290,7 +290,7 @@ namespace TeamPunishment
         /// </summary>
         private void MoveToDilema2b()
         {
-            SetupSecondDilemaB();
+            SetupSecondDilemaKicked();
         }
 
         private Transform GetStar(int index)
@@ -357,19 +357,20 @@ namespace TeamPunishment
             PlayIntro();
         }
 
-        private void SetupSecondDilemaB()
+        private void SetupSecondDilemaKicked()
         {
-            gameState = GameState.Dilema_B_B;
+            gameState = GameState.Dilema_Kicked;
             Stars _starToKick = starToKick;
             InitDilema();
+            Textbox.text = @"Yonos pose an imminent threat. There have been many deaths and planets lost already. The vaccine supply is depleted, and we don't have enough space to bury all of our loved ones. Is it better to dismiss one planet or to fight this through together?";
             GetStar((int)_starToKick).gameObject.SetActive(false);
         }
 
-        private void SetupSecondDilemaA()
+        private void SetupSecondDilemaNoKicked()
         {
-            gameState = GameState.Dilema_B_A;
+            gameState = GameState.Dilema_NoKicked;
             InitDilema();
-            Textbox.text = @"Yonos pose an imminent threat. There have been many deaths and planets lost already. The vaccine supply is depleted, and we don't have enough space to bury all of our loved ones. Is it better to dismiss one planet or to fight this through together?";
+            Textbox.text = @"You will have to decide together on the number of residents you are willing to relinquish, and every single of the planets will have to decide on the minimal number of residents they wish to eliminate.";
         }
 
         private void SetupFirstDilema()
