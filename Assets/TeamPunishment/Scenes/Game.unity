@@ -284,7 +284,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: df7bf6ffc6dcec34f88091c5d9a5137b, type: 3}
     m_FontSize: 24
     m_FontStyle: 2
     m_BestFit: 0
@@ -296,7 +296,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter text...
+  m_Text: Enter your name
 --- !u!222 &20782998
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -364,7 +364,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: df7bf6ffc6dcec34f88091c5d9a5137b, type: 3}
     m_FontSize: 55
     m_FontStyle: 0
     m_BestFit: 0
@@ -1579,6 +1579,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a436be11a38443649ad85e8fd40f3c4e, type: 3}
   - {fileID: 21300000, guid: 02b8baf5f4c23ed4e88212f459ede82c, type: 3}
   - {fileID: 21300000, guid: a436be11a38443649ad85e8fd40f3c4e, type: 3}
+  residents: 000000000000000000000000000000000000000000000000
+  info: {fileID: 1469678809}
+  TextForInfo: Choose NONE
 --- !u!114 &271751651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2643,7 +2646,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: df7bf6ffc6dcec34f88091c5d9a5137b, type: 3}
     m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
@@ -2952,6 +2955,9 @@ MonoBehaviour:
   - {fileID: -1813880953, guid: f3f2b00c3d5ac5f4094ab5622a6f8810, type: 3}
   - {fileID: 1145489742, guid: f3f2b00c3d5ac5f4094ab5622a6f8810, type: 3}
   - {fileID: -713026631, guid: f3f2b00c3d5ac5f4094ab5622a6f8810, type: 3}
+  residents: 640000000500000004000000030000000200000001000000
+  info: {fileID: 2078524700}
+  TextForInfo: Planet Ordo - Cap. George Wiseman - Residents XXk
 --- !u!1001 &660128541
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6704,6 +6710,9 @@ MonoBehaviour:
   - {fileID: -1200186263, guid: ee0ea35f2d2e9c44494fb2f8c081ad5e, type: 3}
   - {fileID: 1911581388, guid: ee0ea35f2d2e9c44494fb2f8c081ad5e, type: 3}
   - {fileID: -1802235778, guid: ee0ea35f2d2e9c44494fb2f8c081ad5e, type: 3}
+  residents: c80000000500000004000000030000000200000001000000
+  info: {fileID: 1135167250}
+  TextForInfo: Planet Ferrum - Mike Bowers - Residents XXk
 --- !u!1001 &1322943966
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7811,6 +7820,9 @@ MonoBehaviour:
   - {fileID: -418678922, guid: 660e90805ec74384a894c6444af8a112, type: 3}
   - {fileID: 1397482108, guid: 660e90805ec74384a894c6444af8a112, type: 3}
   - {fileID: 1409649660, guid: 660e90805ec74384a894c6444af8a112, type: 3}
+  residents: fa0000000500000004000000030000000200000001000000
+  info: {fileID: 1012395451}
+  TextForInfo: Planet Cibus - John Angus - Residents XXk
 --- !u!1 &1469678807
 GameObject:
   m_ObjectHideFlags: 0
@@ -9551,7 +9563,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: df7bf6ffc6dcec34f88091c5d9a5137b, type: 3}
     m_FontSize: 55
     m_FontStyle: 0
     m_BestFit: 0
@@ -10308,6 +10320,9 @@ MonoBehaviour:
   - {fileID: -1122521819, guid: 07c1f42d27095f94294b4ed426d98c6b, type: 3}
   - {fileID: 1877646524, guid: 07c1f42d27095f94294b4ed426d98c6b, type: 3}
   - {fileID: 1120931232, guid: 07c1f42d27095f94294b4ed426d98c6b, type: 3}
+  residents: fa0000000500000004000000030000000200000001000000
+  info: {fileID: 1802518259}
+  TextForInfo: Planet Artem - Prof. Felicia Wilkens - Residents XXk
 --- !u!1 &1923358029
 GameObject:
   m_ObjectHideFlags: 0

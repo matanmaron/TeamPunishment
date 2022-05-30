@@ -7,6 +7,9 @@ public class OnStarClick : MonoBehaviour
 {
     [SerializeField] ButtonClickedEvent OnButtonClickEnd;
     [SerializeField] List<Sprite> planetStates = new List<Sprite>();
+    [SerializeField] List<int> residents = new List<int>();
+    [SerializeField] Text info;
+    [SerializeField] string TextForInfo;
     Image planetImage;
     int counter = 0;
 
@@ -27,6 +30,7 @@ public class OnStarClick : MonoBehaviour
         counter = 0;
         planetImage.sprite = planetStates[counter];
         planetImage.SetNativeSize();
+        info.text = TextForInfo.Replace("XX", residents[counter].ToString());
     }
 
     private void OnStar()
@@ -39,5 +43,6 @@ public class OnStarClick : MonoBehaviour
         }
         planetImage.sprite = planetStates[counter];
         planetImage.SetNativeSize();
+        info.text = TextForInfo.Replace("XX", residents[counter].ToString());
     }
 }
