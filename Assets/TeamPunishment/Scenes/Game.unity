@@ -1903,14 +1903,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   texts:
-  - In the next episode you will be presented with a subject of which you will decide
-    whether you will banish one of the your of the other leaders or staying as a
-    cohesive unit?
   - "The FDA is ready for the 1st trial of the vaccine (raven\u2019s blood and an
-    owl\u2019s feather). There are not enough vaccines for all the residents. Eliminating
-    one of the planets will be sufficient for surviving this trial, however all of
-    the planet\u2019s resources will be forever lost and the ability to face the
-    additional trials. What will you choose to do ?"
+    owl\u2019s feather). There are not enough vaccines for all the residents."
+  - "Eliminating one of the planets will be sufficient for surviving this trial,
+    however all of the planet\u2019s resources will be forever lost and the ability
+    to face the additional trials."
+  - What will you choose to do ? <b>If you choose to dismiss one of the planets please
+    click on it until it will explode, if you wish to stay together and fight press
+    Enter</b>
 --- !u!114 &289501916
 MonoBehaviour:
   m_ObjectHideFlags: 0
