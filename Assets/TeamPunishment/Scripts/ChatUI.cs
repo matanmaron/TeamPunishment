@@ -28,6 +28,7 @@ namespace TeamPunishment
         public Transform StarNone;
         public Text Textbox;
         public GameObject EndPanel;
+        public Text TimerText;
         Stars starToKick = Stars.None;
         GameState gameState = GameState.None;
 
@@ -43,6 +44,8 @@ namespace TeamPunishment
         private bool chatWindowHidden = true;
         const string ADMIN = "admin";
         const string PLAYER_TAG = "Player";
+        bool canActivateTimer = false;
+        Coroutine TimerCoroutine = null;
 #if UNITY_EDITOR
         const int MAX_PLAYERS = 2;
 #else
@@ -192,6 +195,13 @@ namespace TeamPunishment
             int ps = GameObject.FindGameObjectsWithTag(PLAYER_TAG).Length;
             if (dilemaResults.Count == ps)
             {
+                Debug.Log("Dilema END");
+                if (TimerCoroutine != null)
+                {
+                    StopCoroutine(TimerCoroutine);
+                    TimerCoroutine = null;
+                    TimerText.text = string.Empty;
+                }
                 WaitingText.text = string.Empty;
                 var votes = CalcStar();
                 ShowEnd(votes);
@@ -331,12 +341,29 @@ namespace TeamPunishment
             }
             if (msg.StartsWith("@@@DILEMA1"))
             {
+                if (TimerCoroutine == null && canActivateTimer)
+                {
+                    TimerCoroutine = StartCoroutine(StartTimer());
+                }
                 int.TryParse(msg[10].ToString(), out int selection);
                 Debug.Log($"player {playerName} kicked out {(Stars)selection}");
                 dilemaResults.Add((Stars)selection);
                 CheckIfSelectionEnded();
             }
             return false;
+        }
+
+        IEnumerator StartTimer()
+        {
+            canActivateTimer = false;
+            Debug.Log("Start Timer");
+            for (int i = 0; i < 30; i++)
+            {
+                TimerText.text = (30 - i).ToString();
+                yield return new WaitForSeconds(1);
+            }
+            Debug.Log("End Timer");
+            OnPlayerStarClick(0);
         }
 
         private void StartGame()
@@ -361,6 +388,7 @@ namespace TeamPunishment
 
         private void SetupSecondDilemaKicked()
         {
+            canActivateTimer = true;
             gameState = GameState.Dilema_Kicked;
             Stars _starToKick = starToKick;
             InitDilema();
@@ -370,6 +398,7 @@ namespace TeamPunishment
 
         private void SetupSecondDilemaNoKicked()
         {
+            canActivateTimer = true;
             gameState = GameState.Dilema_NoKicked;
             InitDilema();
             Textbox.text = @"You will have to decide together on the number of residents you are willing to relinquish, and every single of the planets will have to decide on the minimal number of residents they wish to eliminate.";
@@ -377,6 +406,7 @@ namespace TeamPunishment
 
         private void SetupFirstDilema()
         {
+            canActivateTimer = true;
             gameState = GameState.Dilema_A;
             InitDilema();
             Textbox.text = @"The FDA is ready for the 1st trial of the vaccine (raven’s blood and an owl’s feather). There are not enough vaccines for all the residents. Eliminating one of the planets will be sufficient for surviving this trial, however all of the planet’s resources will be forever lost and the ability to face the additional trials. What will you choose to do ?";
