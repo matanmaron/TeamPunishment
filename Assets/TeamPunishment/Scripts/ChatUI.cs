@@ -25,7 +25,7 @@ namespace TeamPunishment
         public Transform StarCibus;
         public Transform StarFerrum;
         public Transform StarOrdo;
-        public Transform StarNone;
+        public Text TextStarNone;
         public Text Textbox;
         public GameObject EndPanel;
         public Text TimerText;
@@ -89,6 +89,11 @@ namespace TeamPunishment
             if (Input.GetKeyUp(KeyCode.Escape))
             {
                 Quit();
+            }
+            if (Input.GetKeyUp(KeyCode.Space) && (gameState == GameState.Dilema_A ||
+               gameState == GameState.Dilema_Kicked || gameState == GameState.Dilema_NoKicked))
+            {
+                OnPlayerStarClick(0);
             }
         }
 
@@ -177,6 +182,7 @@ namespace TeamPunishment
 
         public void OnPlayerStarClick(int star)
         {
+            TextStarNone.gameObject.SetActive(false);
             starToKick = (Stars)star;
             ButtonHolder.gameObject.SetActive(false);
             if (starToKick == Stars.None)
@@ -369,6 +375,7 @@ namespace TeamPunishment
         private void StartGame()
         {
             Debug.Log("[StartGame]");
+            AudioManager.instance.PlayMusic();
             gameState = GameState.Dilema_A;
             localPlayerName = LoginUI.localPlayerName;
             WaitingText.text = string.Empty;
@@ -418,16 +425,14 @@ namespace TeamPunishment
             StarCibus.gameObject.SetActive(true);
             StarFerrum.gameObject.SetActive(true);
             StarOrdo.gameObject.SetActive(true);
-            StarNone.gameObject.SetActive(true);
+            TextStarNone.gameObject.SetActive(true);
             StarArtem.GetComponent<OnStarClick>().Init();
             StarCibus.GetComponent<OnStarClick>().Init();
             StarFerrum.GetComponent<OnStarClick>().Init();
             StarOrdo.GetComponent<OnStarClick>().Init();
-            StarNone.GetComponent<OnStarClick>().Init();
             starToKick = Stars.None;
             Enum.TryParse(localStarName, out Stars localStar);
             GetStar((int)localStar).GetComponent<Button>().interactable = false;
-            StarNone.gameObject.SetActive(true);
         }
 
 

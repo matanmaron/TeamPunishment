@@ -43,6 +43,13 @@ public class VideoManager : MonoBehaviour
 
     private void PlayVideo(Action callback, VideoClip clip)
     {
+        StartCoroutine(PlayVideoDelayed(callback, clip));
+    }
+
+    IEnumerator PlayVideoDelayed(Action callback, VideoClip clip)
+    {
+        yield return new WaitForSeconds(0.01f);
+        AudioManager.instance.StopMusic();
         onVideoEndCallback.Add(callback);
         chatCanvas.SetActive(false);
         Debug.Log($"[PlayVideo]");
@@ -75,6 +82,7 @@ public class VideoManager : MonoBehaviour
             onVideoEndCallback.RemoveAt(0);
             callback?.Invoke();
         }
+        AudioManager.instance.PlayMusic();
     }
 
     public void PlayFerrum(Action onStarVideoEnd)
