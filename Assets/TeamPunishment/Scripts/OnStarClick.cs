@@ -10,6 +10,7 @@ public class OnStarClick : MonoBehaviour
     [SerializeField] List<int> residents = new List<int>();
     [SerializeField] Text info;
     [SerializeField] string TextForInfo;
+
     Image planetImage;
     int counter = 0;
 
@@ -35,6 +36,7 @@ public class OnStarClick : MonoBehaviour
 
     private void OnStar()
     {
+        AudioManager.instance.PlayStarsExsplosion();
         counter++;
         if (counter == 6)
         {

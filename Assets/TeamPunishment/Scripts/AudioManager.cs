@@ -7,8 +7,10 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource Music;
     [SerializeField] AudioSource SFX1;
 
-    public static AudioManager instance;
+    [SerializeField] List<AudioClip> StarsExsplosion;
+    int currentExsplosion = 0;
 
+    public static AudioManager instance;
     void Awake()
     {
         instance = this;
@@ -30,5 +32,21 @@ public class AudioManager : MonoBehaviour
     {
         Debug.Log("[AudioManager] - StopMusic");
         Music.Pause();
+    }
+
+    private void PlaySFX(AudioClip clip, AudioSource sfxChannel)
+    {
+        sfxChannel.clip = clip;
+        sfxChannel.Play();
+    }
+
+    public void PlayStarsExsplosion()
+    {
+        PlaySFX(StarsExsplosion[currentExsplosion], SFX1);
+        currentExsplosion++;
+        if (currentExsplosion > StarsExsplosion.Count -1)
+        {
+            currentExsplosion = 0;
+        }
     }
 }
