@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class MoveUp : MonoBehaviour
 {
-    float speed = 32;
+    float speed = 44;
 
     public void Init(int number)
     {
@@ -12,6 +12,7 @@ public class MoveUp : MonoBehaviour
 
     private void Start()
     {
+        transform.SetPositionAndRotation(transform.position, Quaternion.identity);
         Destroy(gameObject, 3f);
     }
 
