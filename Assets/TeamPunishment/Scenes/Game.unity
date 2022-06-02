@@ -341,7 +341,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 113.56116}
-  m_SizeDelta: {x: 0, y: 227.1223}
+  m_SizeDelta: {x: 0, y: 227.12231}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &26165852
 MonoBehaviour:
@@ -365,11 +365,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: df7bf6ffc6dcec34f88091c5d9a5137b, type: 3}
-    m_FontSize: 55
-    m_FontStyle: 0
+    m_FontSize: 85
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 5
-    m_MaxSize: 55
+    m_MaxSize: 85
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -2812,6 +2812,7 @@ MonoBehaviour:
   residents: 640000005f0000005a000000500000004100000001000000
   info: {fileID: 2078524700}
   TextForInfo: Planet Ordo - Cap. George Wiseman - Residents XXk
+  deathTextPrefab: {fileID: 596386309, guid: c67869ca0f4be9c458f8d8c5cf3ae42d, type: 3}
 --- !u!1001 &660128541
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6695,6 +6696,7 @@ MonoBehaviour:
   residents: c80000000500000004000000030000000200000001000000
   info: {fileID: 1135167250}
   TextForInfo: Planet Ferrum - Mike Bowers - Residents XXk
+  deathTextPrefab: {fileID: 596386309, guid: c67869ca0f4be9c458f8d8c5cf3ae42d, type: 3}
 --- !u!1001 &1322943966
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7933,6 +7935,7 @@ MonoBehaviour:
   residents: fa0000000500000004000000030000000200000001000000
   info: {fileID: 1012395451}
   TextForInfo: Planet Cibus - John Angus - Residents XXk
+  deathTextPrefab: {fileID: 596386309, guid: c67869ca0f4be9c458f8d8c5cf3ae42d, type: 3}
 --- !u!850595691 &1479933182
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -10359,9 +10362,10 @@ MonoBehaviour:
   - {fileID: -1122521819, guid: 07c1f42d27095f94294b4ed426d98c6b, type: 3}
   - {fileID: 1877646524, guid: 07c1f42d27095f94294b4ed426d98c6b, type: 3}
   - {fileID: 1120931232, guid: 07c1f42d27095f94294b4ed426d98c6b, type: 3}
-  residents: fa0000000500000004000000030000000200000001000000
+  residents: fa000000f1fffffff1ffffffe2fffffffbfffffff6ffffff
   info: {fileID: 1802518259}
   TextForInfo: Planet Artem - Prof. Felicia Wilkens - Residents XXk
+  deathTextPrefab: {fileID: 596386309, guid: c67869ca0f4be9c458f8d8c5cf3ae42d, type: 3}
 --- !u!1 &1923358029
 GameObject:
   m_ObjectHideFlags: 0

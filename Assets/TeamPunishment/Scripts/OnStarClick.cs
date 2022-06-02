@@ -10,9 +10,10 @@ public class OnStarClick : MonoBehaviour
     [SerializeField] List<int> residents = new List<int>();
     [SerializeField] Text info;
     [SerializeField] string TextForInfo;
-
+    [SerializeField] MoveUp deathTextPrefab;
     Image planetImage;
     int counter = 0;
+    int currentResidents = 0;
 
     private void Start()
     {
@@ -28,6 +29,7 @@ public class OnStarClick : MonoBehaviour
         {
             return;
         }
+        currentResidents = residents[counter];
         counter = 0;
         planetImage.sprite = planetStates[counter];
         planetImage.SetNativeSize();
@@ -45,6 +47,9 @@ public class OnStarClick : MonoBehaviour
         }
         planetImage.sprite = planetStates[counter];
         planetImage.SetNativeSize();
-        info.text = TextForInfo.Replace("XX", residents[counter].ToString());
+        currentResidents += residents[counter];
+        info.text = TextForInfo.Replace("XX", currentResidents.ToString());
+        MoveUp go = Instantiate(deathTextPrefab, transform);
+        go.Init(residents[counter]);
     }
 }
