@@ -7,7 +7,7 @@ public class MoveUp : MonoBehaviour
 
     public void Init(int number)
     {
-        GetComponent<Text>().text = number.ToString();
+        GetComponent<Text>().text = number.ToString() + "K";
     }
 
     private void Start()
