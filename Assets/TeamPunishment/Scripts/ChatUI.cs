@@ -17,6 +17,7 @@ namespace TeamPunishment
         public Scrollbar scrollbar;
         public Button ToggleChatButton;
         public Text WaitingText;
+        public Text ShameAreaText;
 
         [Header("Dilema Elements")]
         public Transform ButtonHolder;
@@ -211,7 +212,7 @@ namespace TeamPunishment
                 }
                 WaitingText.text = string.Empty;
                 var votes = CalcStar();
-                ShowScores(votes, Mathf.RoundToInt(votes.Aggregate((x, y) => x.Value > y.Value ? x : y).Value));
+                StartCoroutine(ShowScores(votes, Mathf.RoundToInt(votes.Aggregate((x, y) => x.Value > y.Value ? x : y).Value)));
             }
             else
             {
@@ -284,12 +285,14 @@ namespace TeamPunishment
             }
         }
 
-        private void ShowScores(Dictionary<Stars, float> votes, int winner)
+        IEnumerator ShowScores(Dictionary<Stars, float> votes, int winner)
         {
+            yield return new WaitForSeconds(3);
             dilemaResults = new List<Stars>();
             ButtonHolder.gameObject.SetActive(true);
             ScoresPanel.gameObject.SetActive(true);
             ScoresPanel.Init(votes, winner);
+            ShameAreaText.text = string.Empty;
         }
 
         private void EndDilema1()
@@ -361,7 +364,7 @@ namespace TeamPunishment
                     TimerCoroutine = StartCoroutine(StartTimer());
                 }
                 int.TryParse(msg[10].ToString(), out int selection);
-                Debug.Log($"player {playerName} kicked out {(Stars)selection}");
+                ShowShameScreen(playerName, (Stars)selection);
                 dilemaResults.Add((Stars)selection);
                 CheckIfSelectionEnded();
             }
@@ -371,6 +374,22 @@ namespace TeamPunishment
                 return true;
             }
             return false;
+        }
+
+        private void ShowShameScreen(string playerName, Stars selection)
+        {
+            GameObject[] allp = GameObject.FindGameObjectsWithTag(PLAYER_TAG);
+            var planet = string.Empty;
+            foreach (var p in allp)
+            {
+                if (p.GetComponent<Player>().playerName == playerName)
+                {
+                    planet = p.name;
+                    break;
+                }
+            }
+            Debug.Log($"player {playerName} ({planet}) kicked out {selection}");
+            ShameAreaText.text += $"player {playerName} ({planet}) kicked out {selection}\n";
         }
 
         IEnumerator StartTimer()
