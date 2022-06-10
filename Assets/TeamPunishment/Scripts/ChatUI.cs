@@ -287,7 +287,7 @@ namespace TeamPunishment
 
         IEnumerator ShowScores(Dictionary<Stars, float> votes, int winner)
         {
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(5);
             dilemaResults = new List<Stars>();
             ButtonHolder.gameObject.SetActive(true);
             ScoresPanel.gameObject.SetActive(true);
