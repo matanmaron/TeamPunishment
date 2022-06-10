@@ -5,107 +5,110 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
-public class VideoManager : MonoBehaviour
+namespace TeamPunishment
 {
-    [SerializeField] GameObject VideoPrefab;
-    [SerializeField] VideoClip Intro;
-    [SerializeField] VideoClip Ferrum;
-    [SerializeField] VideoClip Cibus;
-    [SerializeField] VideoClip Ordo;
-    [SerializeField] VideoClip Artem;
-    [SerializeField] GameObject chatCanvas;
-
-    public static VideoManager instance;
-
-    private GameObject currentVideo;
-    private List<Action> onVideoEndCallback = new List<Action>();
-
-    void Awake()
+    public class VideoManager : MonoBehaviour
     {
-        instance = this;
-    }
+        [SerializeField] GameObject VideoPrefab;
+        [SerializeField] VideoClip Intro;
+        [SerializeField] VideoClip Ferrum;
+        [SerializeField] VideoClip Cibus;
+        [SerializeField] VideoClip Ordo;
+        [SerializeField] VideoClip Artem;
+        [SerializeField] GameObject chatCanvas;
 
-    private void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.Return))
+        public static VideoManager instance;
+
+        private GameObject currentVideo;
+        private List<Action> onVideoEndCallback = new List<Action>();
+
+        void Awake()
         {
-            OnEnterClick();
+            instance = this;
         }
-    }
 
-    private void OnEnterClick()
-    {
-        if (currentVideo != null)
+        private void Update()
         {
-            OnVideoEnd(currentVideo.GetComponent<VideoPlayer>());
+            if (Input.GetKeyUp(KeyCode.Return))
+            {
+                OnEnterClick();
+            }
         }
-    }
 
-    private void PlayVideo(Action callback, VideoClip clip)
-    {
-        StartCoroutine(PlayVideoDelayed(callback, clip));
-    }
-
-    IEnumerator PlayVideoDelayed(Action callback, VideoClip clip)
-    {
-        yield return new WaitForSeconds(0.01f);
-        AudioManager.instance.StopMusic();
-        onVideoEndCallback.Add(callback);
-        chatCanvas.SetActive(false);
-        Debug.Log($"[PlayVideo]");
-        currentVideo = Instantiate(VideoPrefab, transform);
-        currentVideo.GetComponentInChildren<Button>().onClick.AddListener(OnEnterClick);
-        VideoPlayer vid = currentVideo.GetComponent<VideoPlayer>();
-        vid.clip = clip;
-        vid.aspectRatio = VideoAspectRatio.FitInside;
-        vid.targetCamera = Camera.main;
-        vid.Play();
-        vid.loopPointReached += OnVideoEnd;
-    }
-
-    public void PlayIntro(Action callback)
-    {
-        Debug.Log($"[PlayIntro]");
-        PlayVideo(callback, Intro);
-    }
-
-    private void OnVideoEnd(VideoPlayer vid)
-    {
-        Debug.Log($"[OnVideoEnd]");
-        vid.loopPointReached -= OnVideoEnd;
-        Destroy(currentVideo);
-        currentVideo = null;
-        chatCanvas.SetActive(true);
-        if (onVideoEndCallback.Count > 0)
+        private void OnEnterClick()
         {
-            Action callback = onVideoEndCallback[0];
-            onVideoEndCallback.RemoveAt(0);
-            callback?.Invoke();
+            if (currentVideo != null)
+            {
+                OnVideoEnd(currentVideo.GetComponent<VideoPlayer>());
+            }
         }
-        AudioManager.instance.PlayMusic();
-    }
 
-    public void PlayFerrum(Action onStarVideoEnd)
-    {
-        Debug.Log($"[PlayFerrum]");
-        PlayVideo(onStarVideoEnd, Ferrum);
-    }
+        private void PlayVideo(Action callback, VideoClip clip)
+        {
+            StartCoroutine(PlayVideoDelayed(callback, clip));
+        }
 
-    public void PlayCibus(Action onStarVideoEnd)
-    {
-        Debug.Log($"[PlayCibus]");
-        PlayVideo(onStarVideoEnd, Cibus);
-    }
+        IEnumerator PlayVideoDelayed(Action callback, VideoClip clip)
+        {
+            yield return new WaitForSeconds(0.01f);
+            AudioManager.instance.StopMusic();
+            onVideoEndCallback.Add(callback);
+            chatCanvas.SetActive(false);
+            Debug.Log($"[PlayVideo]");
+            currentVideo = Instantiate(VideoPrefab, transform);
+            currentVideo.GetComponentInChildren<Button>().onClick.AddListener(OnEnterClick);
+            VideoPlayer vid = currentVideo.GetComponent<VideoPlayer>();
+            vid.clip = clip;
+            vid.aspectRatio = VideoAspectRatio.FitInside;
+            vid.targetCamera = Camera.main;
+            vid.Play();
+            vid.loopPointReached += OnVideoEnd;
+        }
 
-    public void PlayOrdo(Action onStarVideoEnd)
-    {
-        Debug.Log($"[PlayOrdo]");
-        PlayVideo(onStarVideoEnd, Ordo);
-    }
+        public void PlayIntro(Action callback)
+        {
+            Debug.Log($"[PlayIntro]");
+            PlayVideo(callback, Intro);
+        }
 
-    public void PlayArtem(Action onStarVideoEnd)
-    {
-        Debug.Log($"[PlayArtem]");
-        PlayVideo(onStarVideoEnd, Artem);
+        private void OnVideoEnd(VideoPlayer vid)
+        {
+            Debug.Log($"[OnVideoEnd]");
+            vid.loopPointReached -= OnVideoEnd;
+            Destroy(currentVideo);
+            currentVideo = null;
+            chatCanvas.SetActive(true);
+            if (onVideoEndCallback.Count > 0)
+            {
+                Action callback = onVideoEndCallback[0];
+                onVideoEndCallback.RemoveAt(0);
+                callback?.Invoke();
+            }
+            AudioManager.instance.PlayMusic();
+        }
+
+        public void PlayFerrum(Action onStarVideoEnd)
+        {
+            Debug.Log($"[PlayFerrum]");
+            PlayVideo(onStarVideoEnd, Ferrum);
+        }
+
+        public void PlayCibus(Action onStarVideoEnd)
+        {
+            Debug.Log($"[PlayCibus]");
+            PlayVideo(onStarVideoEnd, Cibus);
+        }
+
+        public void PlayOrdo(Action onStarVideoEnd)
+        {
+            Debug.Log($"[PlayOrdo]");
+            PlayVideo(onStarVideoEnd, Ordo);
+        }
+
+        public void PlayArtem(Action onStarVideoEnd)
+        {
+            Debug.Log($"[PlayArtem]");
+            PlayVideo(onStarVideoEnd, Artem);
+        }
     }
 }

@@ -28,6 +28,7 @@ namespace TeamPunishment
         public Text TextStarNone;
         public Text Textbox;
         public GameObject EndPanel;
+        public ScoresPanel ScoresPanel;
         public Text TimerText;
         Stars starToKick = Stars.None;
         GameState gameState = GameState.None;
@@ -89,11 +90,6 @@ namespace TeamPunishment
             if (Input.GetKeyUp(KeyCode.Escape))
             {
                 Quit();
-            }
-            if (Input.GetKeyUp(KeyCode.Space) && (gameState == GameState.Dilema_A ||
-               gameState == GameState.Dilema_Kicked || gameState == GameState.Dilema_NoKicked))
-            {
-                OnPlayerStarClick(0);
             }
         }
 
@@ -210,7 +206,7 @@ namespace TeamPunishment
                 }
                 WaitingText.text = string.Empty;
                 var votes = CalcStar();
-                ShowEnd(votes);
+                ShowScores(votes, Mathf.RoundToInt(votes.Aggregate((x, y) => x.Value > y.Value ? x : y).Value));
             }
             else
             {
@@ -218,7 +214,7 @@ namespace TeamPunishment
             }
         }
 
-        private int CalcStar()
+        private Dictionary<Stars, float> CalcStar()
         {
             Dictionary<Stars, float> votes = new Dictionary<Stars, float>
             {       
@@ -245,7 +241,7 @@ namespace TeamPunishment
                 Debug.Log($"{v.Key} -> {v.Value}");
             }
             starToKick = votes.Aggregate((x, y) => x.Value > y.Value ? x : y).Key;
-            return Mathf.RoundToInt(votes.Aggregate((x, y) => x.Value > y.Value ? x : y).Value);
+            return votes;
         }
 
         private void EndDilema2()
@@ -253,9 +249,9 @@ namespace TeamPunishment
             gameState = GameState.End;
         }
 
-        public void OnEndClick()
+        public void OnScoresClick()
         {
-            EndPanel.SetActive(false);
+            ScoresPanel.gameObject.SetActive(false);
             switch (gameState)
             {
                 case GameState.Dilema_A:
@@ -270,17 +266,17 @@ namespace TeamPunishment
                     Quit();
                     break;
                 default:
-                    Debug.LogError($"[OnEndClick] -{gameState}- How did you get here??");
+                    Debug.LogError($"[OnScoresClick] -{gameState}- How did you get here??");
                     break;
             }
         }
 
-        private void ShowEnd(int votes)
+        private void ShowScores(Dictionary<Stars, float> votes, int winner)
         {
             dilemaResults = new List<Stars>();
             ButtonHolder.gameObject.SetActive(true);
-            EndPanel.SetActive(true);
-            EndPanel.GetComponentInChildren<Text>().text = $"{starToKick} has been voted with {votes} Votes!";
+            ScoresPanel.gameObject.SetActive(true);
+            ScoresPanel.Init(votes, winner);
         }
 
         private void EndDilema1()

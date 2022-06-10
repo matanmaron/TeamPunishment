@@ -2,51 +2,54 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
+namespace TeamPunishment
 {
-    [SerializeField] AudioSource Music;
-    [SerializeField] AudioSource SFX1;
-
-    [SerializeField] List<AudioClip> StarsExsplosion;
-    int currentExsplosion = 0;
-
-    public static AudioManager instance;
-    void Awake()
+    public class AudioManager : MonoBehaviour
     {
-        instance = this;
-    }
+        [SerializeField] AudioSource Music;
+        [SerializeField] AudioSource SFX1;
 
-    private void Start()
-    {
-        Music.Play();
-        Music.Pause();
-    }
+        [SerializeField] List<AudioClip> StarsExsplosion;
+        int currentExsplosion = 0;
 
-    public void PlayMusic()
-    {
-        Debug.Log("[AudioManager] - PlayMusic");
-        Music.UnPause();
-    }
-
-    public void StopMusic()
-    {
-        Debug.Log("[AudioManager] - StopMusic");
-        Music.Pause();
-    }
-
-    private void PlaySFX(AudioClip clip, AudioSource sfxChannel)
-    {
-        sfxChannel.clip = clip;
-        sfxChannel.Play();
-    }
-
-    public void PlayStarsExsplosion()
-    {
-        PlaySFX(StarsExsplosion[currentExsplosion], SFX1);
-        currentExsplosion++;
-        if (currentExsplosion > StarsExsplosion.Count -1)
+        public static AudioManager instance;
+        void Awake()
         {
-            currentExsplosion = 0;
+            instance = this;
+        }
+
+        private void Start()
+        {
+            Music.Play();
+            Music.Pause();
+        }
+
+        public void PlayMusic()
+        {
+            Debug.Log("[AudioManager] - PlayMusic");
+            Music.UnPause();
+        }
+
+        public void StopMusic()
+        {
+            Debug.Log("[AudioManager] - StopMusic");
+            Music.Pause();
+        }
+
+        private void PlaySFX(AudioClip clip, AudioSource sfxChannel)
+        {
+            sfxChannel.clip = clip;
+            sfxChannel.Play();
+        }
+
+        public void PlayStarsExsplosion()
+        {
+            PlaySFX(StarsExsplosion[currentExsplosion], SFX1);
+            currentExsplosion++;
+            if (currentExsplosion > StarsExsplosion.Count - 1)
+            {
+                currentExsplosion = 0;
+            }
         }
     }
 }

@@ -1,23 +1,26 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MoveUp : MonoBehaviour
+namespace TeamPunishment
 {
-    float speed = 44;
-
-    public void Init(int number)
+    public class MoveUp : MonoBehaviour
     {
-        GetComponent<Text>().text = number.ToString() + "K";
-    }
+        float speed = 44;
 
-    private void Start()
-    {
-        transform.SetPositionAndRotation(transform.position, Quaternion.identity);
-        Destroy(gameObject, 3f);
-    }
+        public void Init(int number)
+        {
+            GetComponent<Text>().text = number.ToString() + "K";
+        }
 
-    void Update()
-    {
-        transform.Translate(Vector3.up * Time.deltaTime * speed, Space.World);
+        private void Start()
+        {
+            transform.SetPositionAndRotation(transform.position, Quaternion.identity);
+            Destroy(gameObject, 3f);
+        }
+
+        void Update()
+        {
+            transform.Translate(Vector3.up * Time.deltaTime * speed, Space.World);
+        }
     }
 }
