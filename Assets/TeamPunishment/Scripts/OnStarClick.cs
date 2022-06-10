@@ -10,7 +10,7 @@ namespace TeamPunishment
     {
         [SerializeField] ButtonClickedEvent OnButtonClickEnd;
         [SerializeField] List<Sprite> planetStates = new List<Sprite>();
-        [SerializeField] List<int> residents = new List<int>();
+        List<int> residents = new List<int>();
         [SerializeField] Text info;
         [SerializeField] string TextForInfo;
         [SerializeField] MoveUp deathTextPrefab;
@@ -20,26 +20,26 @@ namespace TeamPunishment
         int currentResidents = 0;
         bool canClick;
 
-        private void Start()
+        private void Awake()
         {
             planetImage = GetComponent<Image>();
             var btn = GetComponent<Button>();
-            Init();
             btn.onClick.AddListener(OnStar);
         }
 
-        public void Init()
+        public void Init(List<int> _residents)
         {
+            residents = _residents;
             canClick = true;
+            counter = 0;
+            currentResidents = _residents[counter];
+            info.text = TextForInfo.Replace("XX", _residents[counter].ToString());
             if (planetImage == null)
             {
                 return;
             }
-            counter = 0;
-            currentResidents = residents[counter];
             planetImage.sprite = planetStates[counter];
             planetImage.SetNativeSize();
-            info.text = TextForInfo.Replace("XX", residents[counter].ToString());
         }
 
         private void OnStar()

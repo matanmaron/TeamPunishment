@@ -35,7 +35,7 @@ namespace TeamPunishment
         public GameState gameState
         {
             get { return _gameState; }
-            set { _gameState = value; Debug.Log($"gameState is {_gameState}");}
+            set { _gameState = value; Debug.Log($"gameState is {_gameState}"); }
         }
         [Header("Diagnostic - Do Not Edit")]
         public string localPlayerName;
@@ -222,7 +222,7 @@ namespace TeamPunishment
         private Dictionary<Stars, float> CalcStar()
         {
             Dictionary<Stars, float> votes = new Dictionary<Stars, float>
-            {       
+            {
                 {Stars.None, 0f },
                 {Stars.Ferrum, 0f },
                 {Stars.Cibus, 0f },
@@ -231,7 +231,7 @@ namespace TeamPunishment
             };
             for (int i = 0; i < dilemaResults.Count; i++)
             {
-                if (i==0)
+                if (i == 0)
                 {
                     votes[dilemaResults[i]] += 1;
                 }
@@ -413,6 +413,10 @@ namespace TeamPunishment
             gameState = GameState.Dilema_Kicked;
             Stars _starToKick = starToKick;
             InitDilema();
+            StarArtem.GetComponent<OnStarClick>().Init(new List<int> { 180, -10, -20, -40 - 50, -60 });
+            StarCibus.GetComponent<OnStarClick>().Init(new List<int> { 180, -10, -20, -40 - 50, -60 });
+            StarFerrum.GetComponent<OnStarClick>().Init(new List<int> { 120, -10, -15, -20, -30, -45 });
+            StarOrdo.GetComponent<OnStarClick>().Init(new List<int> { 70, -5, -5, -10, -20, -30 });
             textboxElement.texts = new List<string>();
             textboxElement.texts.Add(@"Yonos pose an imminent threat. There have been many deaths and planets lost already. The vaccine supply is depleted, and we don't have enough space to bury all of our loved ones. Is it better to dismiss one planet or to fight this through together?");
             textboxElement.Init();
@@ -424,6 +428,10 @@ namespace TeamPunishment
             canActivateTimer = true;
             gameState = GameState.Dilema_NoKicked;
             InitDilema();
+            StarArtem.GetComponent<OnStarClick>().Init(new List<int> { 250, -20, -40, -60, -60, -70 });
+            StarCibus.GetComponent<OnStarClick>().Init(new List<int> { 250, -20, -40, -60, -60, -70 });
+            StarFerrum.GetComponent<OnStarClick>().Init(new List<int> { 200, -10, -20, -30, -50, -90 });
+            StarOrdo.GetComponent<OnStarClick>().Init(new List<int> { 100, -10, -20, -25, -20, -25 });
             textboxElement.texts = new List<string>();
             textboxElement.texts.Add(@"If you decide not to eliminate one of the planets and to keep the order as it is. You will have to decide together on the number of residents you are willing to relinquish...");
             textboxElement.texts.Add(@"and every one of the planets will have to decide on the minimal number of residents they wish to eliminate from their own planet. You may converse to reach the optimal amount.");
@@ -435,6 +443,10 @@ namespace TeamPunishment
             canActivateTimer = true;
             gameState = GameState.Dilema_A;
             InitDilema();
+            StarArtem.GetComponent<OnStarClick>().Init(new List<int> { 250, -20, -40, -60, -60, -70 });
+            StarCibus.GetComponent<OnStarClick>().Init(new List<int> { 250, -20, -40, -60, -60, -70 });
+            StarFerrum.GetComponent<OnStarClick>().Init(new List<int> { 200, -10, -20, -30, -50, -90 });
+            StarOrdo.GetComponent<OnStarClick>().Init(new List<int> { 100, -10, -20, -25, -20, -25 });
             textboxElement.texts = new List<string>();
             textboxElement.texts.Add(@"The FDA is ready for the 1st trial of the vaccine (raven’s blood and an owl’s feather). There are not enough vaccines for all the residents...");
             textboxElement.texts.Add(@"Eliminating one of the planets will be sufficient for surviving this trial, however all of the planet’s resources will be forever lost and the ability to face the additional trials....");
@@ -448,10 +460,6 @@ namespace TeamPunishment
             StarFerrum.gameObject.SetActive(true);
             StarOrdo.gameObject.SetActive(true);
             TextStarNone.gameObject.SetActive(true);
-            StarArtem.GetComponent<OnStarClick>().Init();
-            StarCibus.GetComponent<OnStarClick>().Init();
-            StarFerrum.GetComponent<OnStarClick>().Init();
-            StarOrdo.GetComponent<OnStarClick>().Init();
             starToKick = Stars.None;
             Enum.TryParse(localStarName, out Stars localStar);
             GetStar((int)localStar).GetComponent<Button>().interactable = false;
