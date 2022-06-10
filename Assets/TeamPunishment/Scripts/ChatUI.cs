@@ -26,13 +26,17 @@ namespace TeamPunishment
         public Transform StarFerrum;
         public Transform StarOrdo;
         public Text TextStarNone;
-        public Text Textbox;
+        public TextboxElement textboxElement;
         public GameObject EndPanel;
         public ScoresPanel ScoresPanel;
         public Text TimerText;
         Stars starToKick = Stars.None;
-        GameState gameState = GameState.None;
-
+        private GameState _gameState;
+        public GameState gameState
+        {
+            get { return _gameState; }
+            set { _gameState = value; Debug.Log($"gameState is {_gameState}");}
+        }
         [Header("Diagnostic - Do Not Edit")]
         public string localPlayerName;
         public string localStarName;
@@ -395,7 +399,9 @@ namespace TeamPunishment
             gameState = GameState.Dilema_Kicked;
             Stars _starToKick = starToKick;
             InitDilema();
-            Textbox.text = @"Yonos pose an imminent threat. There have been many deaths and planets lost already. The vaccine supply is depleted, and we don't have enough space to bury all of our loved ones. Is it better to dismiss one planet or to fight this through together?";
+            textboxElement.texts = new List<string>();
+            textboxElement.texts.Add(@"Yonos pose an imminent threat. There have been many deaths and planets lost already. The vaccine supply is depleted, and we don't have enough space to bury all of our loved ones. Is it better to dismiss one planet or to fight this through together?");
+            textboxElement.Init();
             GetStar((int)_starToKick).gameObject.SetActive(false);
         }
 
@@ -404,7 +410,10 @@ namespace TeamPunishment
             canActivateTimer = true;
             gameState = GameState.Dilema_NoKicked;
             InitDilema();
-            Textbox.text = @"You will have to decide together on the number of residents you are willing to relinquish, and every single of the planets will have to decide on the minimal number of residents they wish to eliminate.";
+            textboxElement.texts = new List<string>();
+            textboxElement.texts.Add(@"If you decide not to eliminate one of the planets and to keep the order as it is. You will have to decide together on the number of residents you are willing to relinquish...");
+            textboxElement.texts.Add(@"and every one of the planets will have to decide on the minimal number of residents they wish to eliminate from their own planet. You may converse to reach the optimal amount.");
+            textboxElement.Init();
         }
 
         private void SetupFirstDilema()
@@ -412,7 +421,10 @@ namespace TeamPunishment
             canActivateTimer = true;
             gameState = GameState.Dilema_A;
             InitDilema();
-            Textbox.text = @"The FDA is ready for the 1st trial of the vaccine (raven’s blood and an owl’s feather). There are not enough vaccines for all the residents. Eliminating one of the planets will be sufficient for surviving this trial, however all of the planet’s resources will be forever lost and the ability to face the additional trials. What will you choose to do ?";
+            textboxElement.texts = new List<string>();
+            textboxElement.texts.Add(@"The FDA is ready for the 1st trial of the vaccine (raven’s blood and an owl’s feather). There are not enough vaccines for all the residents...");
+            textboxElement.texts.Add(@"Eliminating one of the planets will be sufficient for surviving this trial, however all of the planet’s resources will be forever lost and the ability to face the additional trials....");
+            textboxElement.texts.Add(@"What will you choose to do ? <size=55>If you choose to dismiss one of the planets please click on it until it will explode, if you wish to stay together and fight press Enter</size>");
         }
 
         private void InitDilema()

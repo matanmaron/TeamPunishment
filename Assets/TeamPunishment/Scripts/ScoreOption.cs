@@ -9,13 +9,13 @@ namespace TeamPunishment
 {
     public class ScoreOption : MonoBehaviour
     {
+        [SerializeField] Image number0;
         [SerializeField] Image number;
         [SerializeField] Image number100;
         [SerializeField] Image bar4;
         [SerializeField] Image bar3;
         [SerializeField] Image bar2;
         [SerializeField] Image bar1;
-        [SerializeField] Sprite num0;
         [SerializeField] Sprite num25;
         [SerializeField] Sprite num50;
         [SerializeField] Sprite num75;
@@ -27,11 +27,12 @@ namespace TeamPunishment
             SetAll();
             if (vote == 0)
             {
-                number.sprite = num0;
                 return;
             }
             if (vote > 0)
             {
+                number0.gameObject.SetActive(false);
+                number.gameObject.SetActive(true);
                 number.sprite = num25;
                 bar1.sprite = barEnabled;
             }
@@ -55,7 +56,8 @@ namespace TeamPunishment
 
         private void SetAll()
         {
-            number.gameObject.SetActive(true);
+            number0.gameObject.SetActive(true);
+            number.gameObject.SetActive(false);
             number100.gameObject.SetActive(false);
             bar1.sprite = barDisabled;
             bar2.sprite = barDisabled;

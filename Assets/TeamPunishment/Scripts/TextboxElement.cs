@@ -7,7 +7,7 @@ namespace TeamPunishment
 {
     public class TextboxElement : MonoBehaviour
     {
-        public List<string> texts;
+        [HideInInspector] public List<string> texts;
         Text textElement;
         Button button;
         int index = 0;
@@ -17,6 +17,12 @@ namespace TeamPunishment
             button = GetComponent<Button>();
             textElement = GetComponentInChildren<Text>();
             button.onClick.AddListener(OnButton);
+            textElement.text = texts[index];
+        }
+
+        public void Init()
+        {
+            index = 0;
             textElement.text = texts[index];
         }
 

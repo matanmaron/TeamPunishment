@@ -27,14 +27,6 @@ namespace TeamPunishment
             instance = this;
         }
 
-        private void Update()
-        {
-            if (Input.GetKeyUp(KeyCode.Return))
-            {
-                OnEnterClick();
-            }
-        }
-
         private void OnEnterClick()
         {
             if (currentVideo != null)

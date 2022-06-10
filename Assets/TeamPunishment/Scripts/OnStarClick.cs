@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,6 +18,7 @@ namespace TeamPunishment
         Image planetImage;
         int counter = 0;
         int currentResidents = 0;
+        bool canClick;
 
         private void Start()
         {
@@ -28,6 +30,7 @@ namespace TeamPunishment
 
         public void Init()
         {
+            canClick = true;
             if (planetImage == null)
             {
                 return;
@@ -41,6 +44,11 @@ namespace TeamPunishment
 
         private void OnStar()
         {
+            if (!canClick)
+            {
+                return;
+            }
+            StartCoroutine(clickTimer());
             AudioManager.instance.PlayStarsExsplosion();
             counter++;
             if (counter == 6)
@@ -54,6 +62,13 @@ namespace TeamPunishment
             info.text = TextForInfo.Replace("XX", currentResidents.ToString());
             MoveUp go = Instantiate(deathTextPrefab, DeathPosition);
             go.Init(residents[counter]);
+        }
+
+        IEnumerator clickTimer()
+        {
+            canClick = false;
+            yield return new WaitForSeconds(0.5f);
+            canClick = true;
         }
     }
 }
