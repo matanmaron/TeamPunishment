@@ -40,7 +40,8 @@ namespace TeamPunishment
         [Header("Diagnostic - Do Not Edit")]
         public string localPlayerName;
         public string localStarName;
-
+        int needToWait = 0;
+        Action waitCallback = null;
         Dictionary<NetworkConnectionToClient, string> connNames = new Dictionary<NetworkConnectionToClient, string>();
         List<Player> allPlayers = new List<Player>();
         List<Stars> dilemaResults = new List<Stars>();
@@ -256,6 +257,14 @@ namespace TeamPunishment
         public void OnScoresClick()
         {
             ScoresPanel.gameObject.SetActive(false);
+            ButtonHolder.gameObject.SetActive(false);
+            waitCallback = AfterScores;
+            CmdSend("@@@WAIT");
+        }
+
+        private void AfterScores()
+        {
+            ButtonHolder.gameObject.SetActive(true);
             switch (gameState)
             {
                 case GameState.Dilema_A:
@@ -355,6 +364,11 @@ namespace TeamPunishment
                 Debug.Log($"player {playerName} kicked out {(Stars)selection}");
                 dilemaResults.Add((Stars)selection);
                 CheckIfSelectionEnded();
+            }
+            if (msg.StartsWith("@@@WAIT"))
+            {
+                OnWaitCMD();
+                return true;
             }
             return false;
         }
@@ -469,12 +483,27 @@ namespace TeamPunishment
                 default:
                     Debug.LogError("you cannot have star NONE !");
                     break;
-        }
+            }
         }
 
         private void OnStarVideoEnd()
         {
-            ButtonHolder.gameObject.SetActive(true);
+            waitCallback = () => ButtonHolder.gameObject.SetActive(true);
+            CmdSend("@@@WAIT");
+        }
+
+        private void OnWaitCMD()
+        {
+
+            needToWait++;
+            int ps = GameObject.FindGameObjectsWithTag(PLAYER_TAG).Length;
+            WaitingText.text = $"Waiting For {ps - needToWait} More Player...!";
+            if (needToWait >= ps)
+            {
+                waitCallback?.Invoke();
+                waitCallback = null;
+                needToWait = 0;
+            }
         }
     }
 }
