@@ -14,6 +14,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject optionPanel;
     [SerializeField] GameObject creditsPanel;
 
+    int demoCounter = 0;
+
     private void Start()
     {
         btnStart.onClick.AddListener(OnMenuStart);
@@ -50,7 +52,14 @@ public class MainMenu : MonoBehaviour
 
     private void OnMenuStart()
     {
-        SceneManager.LoadScene(1);
+        if (GameManager.instance.isAndroid)
+        {
+            SceneManager.LoadScene(2);
+        }
+        else
+        {
+            SceneManager.LoadScene(1);
+        }
     }
 
     private void OnDestroy()
@@ -63,4 +72,14 @@ public class MainMenu : MonoBehaviour
         btnCredits.onClick.RemoveAllListeners();
     }
 
+    public void OnStarDemo()
+    {
+        if (!GameManager.instance.isDemoMode && demoCounter >= 3)
+        {
+            GameManager.instance.isDemoMode = true;
+            btnExit.gameObject.SetActive(false);
+            Debug.Log("DEMO ON");
+        }
+        demoCounter++;
+    }
 }

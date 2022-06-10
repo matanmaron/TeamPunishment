@@ -4,10 +4,28 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
     public Texture2D crosshair;
+    public bool isAndroid = false;
+    public bool isDemoMode = false;
+    bool d = false;
+    bool e = false;
+    bool m = false;
+
+    public static GameManager instance;
+    void Awake()
+    {
+        instance = this;
+    }
+
     void Start()
     {
-        Vector2 cursorOffset = new Vector2(crosshair.width / 2, crosshair.height / 2);
-        Cursor.SetCursor(crosshair, cursorOffset, CursorMode.Auto);
+#if UNITY_EDITOR
+        isAndroid = false;
+#endif
+#if UNITY_IOS || UNITY_ANDROID
+        isAndroid = true; //NEVER CHANGE!
+#endif
+        Cursor.SetCursor(crosshair, Vector2.zero, CursorMode.Auto);
     }
 }
