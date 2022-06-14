@@ -8,6 +8,7 @@ namespace TeamPunishment
     {
         [SerializeField] AudioSource Music;
         [SerializeField] AudioSource SFX1;
+        [SerializeField] AudioSource SFX2;
 
         [SerializeField] List<AudioClip> StarsExsplosion;
         int currentExsplosion = 0;
@@ -50,6 +51,16 @@ namespace TeamPunishment
             {
                 currentExsplosion = 0;
             }
+        }
+
+        public void PlayVoiceOver(AudioClip clip)
+        {
+            PlaySFX(clip, SFX2);
+        }
+
+        public void StopVoiceOver()
+        {
+            SFX2.Stop();
         }
     }
 }
