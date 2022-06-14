@@ -389,7 +389,14 @@ namespace TeamPunishment
                 }
             }
             Debug.Log($"player {playerName} ({planet}) kicked out {selection}");
-            ShameAreaText.text += $"player {playerName} ({planet}) kicked out {selection}\n";
+            if (selection == Stars.None)
+            {
+                ShameAreaText.text += $"Player {playerName} chose not to eliminate any Planet\n";
+            }
+            else
+            {
+                ShameAreaText.text += $"Player {playerName} ({planet}) chose to eliminate Planet {selection}\n";
+            }
         }
 
         IEnumerator StartTimer()

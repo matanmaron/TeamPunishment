@@ -123,9 +123,9 @@ MonoBehaviour:
   PixelMaskBrightness: 1.25
   IQOffset: {x: 0, y: 0}
   IQScale: {x: 1, y: 1}
-  RFNoise: 0.15
+  RFNoise: 0.3
   LumaSharpen: 1
-  QuantizeRGB: 1
+  QuantizeRGB: 0
   RBits: 3
   GBits: 3
   BBits: 3

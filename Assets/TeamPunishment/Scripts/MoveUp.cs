@@ -5,7 +5,7 @@ namespace TeamPunishment
 {
     public class MoveUp : MonoBehaviour
     {
-        float speed = 100;
+        float speed = 15;
 
         public void Init(int number)
         {
