@@ -18,6 +18,7 @@ namespace TeamPunishment
         public Button ToggleChatButton;
         public Text WaitingText;
         public Text ShameAreaText;
+        public GameObject Loader;
 
         [Header("Dilema Elements")]
         public Transform ButtonHolder;
@@ -223,11 +224,13 @@ namespace TeamPunishment
                     TimerText.text = string.Empty;
                 }
                 WaitingText.text = string.Empty;
+                Loader.SetActive(false);
                 var votes = CalcStar();
                 StartCoroutine(ShowScores(votes, Mathf.RoundToInt(votes.Aggregate((x, y) => x.Value > y.Value ? x : y).Value)));
             }
             else
             {
+                Loader.SetActive(true);
                 WaitingText.text = $"Waiting for {ps - dilemaResults.Count} more players to choose...";
             }
         }
@@ -355,6 +358,7 @@ namespace TeamPunishment
             {
                 Debug.Log($"{playerName} ha joined !");
                 int players = GameObject.FindGameObjectsWithTag(PLAYER_TAG).Length;
+                Loader.SetActive(true);
                 WaitingText.text = $"Waiting For {MAX_PLAYERS - players} More Player...!";
                 if (!gamestarted && players == MAX_PLAYERS)
                 {
@@ -431,6 +435,7 @@ namespace TeamPunishment
             gameState = GameState.Dilema_A;
             localPlayerName = LoginUI.localPlayerName;
             WaitingText.text = string.Empty;
+            Loader.SetActive(false);
             gamestarted = true;
             int index = 1;
             foreach (GameObject player in GameObject.FindGameObjectsWithTag(PLAYER_TAG).OrderBy(x => x.name))
@@ -547,6 +552,7 @@ namespace TeamPunishment
 
             needToWait++;
             int ps = GameObject.FindGameObjectsWithTag(PLAYER_TAG).Length;
+            Loader.SetActive(true);
             WaitingText.text = $"Waiting For {ps - needToWait} More Player...!";
             if (needToWait >= ps)
             {
