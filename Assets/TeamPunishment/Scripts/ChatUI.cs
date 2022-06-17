@@ -310,6 +310,12 @@ namespace TeamPunishment
 
         private void AfterScores()
         {
+            if (starToKick.ToString() == localStarName)
+            {
+                Debug.Log("sorry, youre out !");
+                SceneManager.LoadScene(0);
+                return;
+            }
             ButtonHolder.gameObject.SetActive(true);
             switch (gameState)
             {

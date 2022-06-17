@@ -15,6 +15,7 @@ namespace TeamPunishment
         [SerializeField] VideoClip Cibus;
         [SerializeField] VideoClip Ordo;
         [SerializeField] VideoClip Artem;
+        [SerializeField] VideoClip Demo;
         [SerializeField] GameObject chatCanvas;
 
         public static VideoManager instance;
@@ -101,6 +102,12 @@ namespace TeamPunishment
         {
             Debug.Log($"[PlayArtem]");
             PlayVideo(onStarVideoEnd, Artem);
+        }
+
+        public void PlayDemo(Action onDemoVideoEnd)
+        {
+            Debug.Log($"[PlayDemo]");
+            PlayVideo(onDemoVideoEnd, Demo);
         }
     }
 }
