@@ -15,10 +15,15 @@ namespace TeamPunishment
         [SerializeField] string TextForInfo;
         [SerializeField] MoveUp deathTextPrefab;
         [SerializeField] Transform DeathPosition;
+        [SerializeField] GameObject popup;
+        [SerializeField] Button popupOK;
+        [SerializeField] Text popupText;
+        [SerializeField] string popupTextString;
         Image planetImage;
         int counter = 0;
         int currentResidents = 0;
         bool canClick;
+        bool firstClick;
 
         private void Awake()
         {
@@ -29,6 +34,7 @@ namespace TeamPunishment
 
         public void Init(List<int> _residents)
         {
+            firstClick = true;
             residents = _residents;
             canClick = true;
             counter = 0;
@@ -49,6 +55,23 @@ namespace TeamPunishment
                 return;
             }
             StartCoroutine(clickTimer());
+            if (firstClick)
+            {
+                popupOK.onClick.RemoveAllListeners();
+                popupText.text = popupTextString;
+                popupOK.onClick.AddListener(() =>
+                {
+                    firstClick  = false;
+                    TakeDown();
+                });
+                popup.SetActive(true);
+                return;
+            }
+            TakeDown();
+        }
+
+        private void TakeDown()
+        {
             AudioManager.instance.PlayStarsExsplosion();
             counter++;
             if (counter == 6)
