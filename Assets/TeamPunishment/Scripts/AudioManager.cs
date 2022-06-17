@@ -60,7 +60,7 @@ namespace TeamPunishment
 
         public void StopVoiceOver()
         {
-            SFX2.Stop();
+            SFX2?.Stop();
         }
     }
 }

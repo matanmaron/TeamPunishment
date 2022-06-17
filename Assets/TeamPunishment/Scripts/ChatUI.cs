@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -568,7 +569,7 @@ namespace TeamPunishment
         }
     
         private void InitDilemaNOKICK()
-        {
+        { 
             StarArtem.gameObject.SetActive(true);
             StarCibus.gameObject.SetActive(true);
             StarFerrum.gameObject.SetActive(true);
@@ -577,6 +578,10 @@ namespace TeamPunishment
             StarCibus.GetComponent<Button>().interactable = false;
             StarFerrum.GetComponent<Button>().interactable = false;
             StarOrdo.GetComponent<Button>().interactable = false;
+            Destroy(StarArtem.GetComponent<EventTrigger>());
+            Destroy(StarCibus.GetComponent<EventTrigger>());
+            Destroy(StarFerrum.GetComponent<EventTrigger>());
+            Destroy(StarOrdo.GetComponent<EventTrigger>());
             TextStarNone.gameObject.SetActive(false);
             starToKick = Stars.None;
             NoKickPopupPanel.SetActive(true);
