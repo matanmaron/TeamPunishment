@@ -297,7 +297,9 @@ namespace TeamPunishment
 
         private void EndDilema2()
         {
+            ButtonHolder.gameObject.SetActive(false);
             gameState = GameState.End;
+            VideoManager.instance.PlayEnd(Quit);
         }
 
         public void OnScoresClick()
@@ -325,11 +327,8 @@ namespace TeamPunishment
                 case GameState.Dilema_NoKicked:
                 case GameState.Dilema_Kicked:
                     EndDilema2();
-                    Quit();
                     break;
                 case GameState.End:
-                    Quit();
-                    break;
                 default:
                     Debug.LogError($"[OnScoresClick] -{gameState}- How did you get here??");
                     break;

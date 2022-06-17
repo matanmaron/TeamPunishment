@@ -2,84 +2,88 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MainMenu : MonoBehaviour
+
+namespace TeamPunishment
 {
-    [SerializeField] Button btnStart;
-    [SerializeField] Button btnOption;
-    [SerializeField] Button btnCredits;
-    [SerializeField] Button btnExit;
-    [SerializeField] Button btnBackOption;
-    [SerializeField] Button btnBackCredits;
-    [SerializeField] GameObject menuPanel;
-    [SerializeField] GameObject optionPanel;
-    [SerializeField] GameObject creditsPanel;
-
-    int demoCounter = 0;
-
-    private void Start()
+    public class MainMenu : MonoBehaviour
     {
-        btnStart.onClick.AddListener(OnMenuStart);
-        btnOption.onClick.AddListener(OnMenuOption);
-        btnCredits.onClick.AddListener(OnMenuCredits);
-        btnExit.onClick.AddListener(OnMenuExit);
-        btnBackOption.onClick.AddListener(OnBack);
-        btnBackCredits.onClick.AddListener(OnBack);
-    }
+        [SerializeField] Button btnStart;
+        [SerializeField] Button btnOption;
+        [SerializeField] Button btnCredits;
+        [SerializeField] Button btnExit;
+        [SerializeField] Button btnBackOption;
+        [SerializeField] Button btnBackCredits;
+        [SerializeField] GameObject menuPanel;
+        [SerializeField] GameObject optionPanel;
+        [SerializeField] GameObject creditsPanel;
 
-    private void OnMenuCredits()
-    {
-        menuPanel.SetActive(false);
-        creditsPanel.SetActive(true);
-    }
+        int demoCounter = 0;
 
-    private void OnBack()
-    {
-        creditsPanel.SetActive(false);
-        optionPanel.SetActive(false);
-        menuPanel.SetActive(true);
-    }
-
-    private void OnMenuExit()
-    {
-        Application.Quit();
-    }
-
-    private void OnMenuOption()
-    {
-        menuPanel.SetActive(false);
-        optionPanel.SetActive(true);
-    }
-
-    private void OnMenuStart()
-    {
-        if (GameManager.instance.isAndroid)
+        private void Start()
         {
-            SceneManager.LoadScene(2);
+            btnStart.onClick.AddListener(OnMenuStart);
+            btnOption.onClick.AddListener(OnMenuOption);
+            btnCredits.onClick.AddListener(OnMenuCredits);
+            btnExit.onClick.AddListener(OnMenuExit);
+            btnBackOption.onClick.AddListener(OnBack);
+            btnBackCredits.onClick.AddListener(OnBack);
         }
-        else
-        {
-            SceneManager.LoadScene(1);
-        }
-    }
 
-    private void OnDestroy()
-    {
-        btnStart.onClick.RemoveAllListeners();
-        btnOption.onClick.RemoveAllListeners();
-        btnExit.onClick.RemoveAllListeners();
-        btnBackOption.onClick.RemoveAllListeners();
-        btnBackCredits.onClick.RemoveAllListeners();
-        btnCredits.onClick.RemoveAllListeners();
-    }
-
-    public void OnStarDemo()
-    {
-        if (!GameManager.instance.isDemoMode && demoCounter >= 3)
+        private void OnMenuCredits()
         {
-            GameManager.instance.isDemoMode = true;
-            btnExit.gameObject.SetActive(false);
-            Debug.Log("DEMO ON");
+            menuPanel.SetActive(false);
+            creditsPanel.SetActive(true);
         }
-        demoCounter++;
+
+        private void OnBack()
+        {
+            creditsPanel.SetActive(false);
+            optionPanel.SetActive(false);
+            menuPanel.SetActive(true);
+        }
+
+        private void OnMenuExit()
+        {
+            Application.Quit();
+        }
+
+        private void OnMenuOption()
+        {
+            menuPanel.SetActive(false);
+            optionPanel.SetActive(true);
+        }
+
+        private void OnMenuStart()
+        {
+            if (GameManager.instance.isAndroid)
+            {
+                SceneManager.LoadScene(2);
+            }
+            else
+            {
+                SceneManager.LoadScene(1);
+            }
+        }
+
+        private void OnDestroy()
+        {
+            btnStart.onClick.RemoveAllListeners();
+            btnOption.onClick.RemoveAllListeners();
+            btnExit.onClick.RemoveAllListeners();
+            btnBackOption.onClick.RemoveAllListeners();
+            btnBackCredits.onClick.RemoveAllListeners();
+            btnCredits.onClick.RemoveAllListeners();
+        }
+
+        public void OnStarDemo()
+        {
+            if (!GameManager.instance.isDemoMode && demoCounter >= 3)
+            {
+                GameManager.instance.isDemoMode = true;
+                btnExit.gameObject.SetActive(false);
+                Debug.Log("DEMO ON");
+            }
+            demoCounter++;
+        }
     }
 }

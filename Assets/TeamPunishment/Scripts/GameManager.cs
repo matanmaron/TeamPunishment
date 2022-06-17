@@ -14,9 +14,6 @@ namespace TeamPunishment
         public bool isAndroid = false;
         public bool isDemoMode = false;
         public bool isDemoRunning = false;
-        bool d = false;
-        bool e = false;
-        bool m = false;
         DateTime lastClick = DateTime.Now;
         int MINUETS_TO_SHOW_DEMO = 3;
         public static GameManager instance;
@@ -33,7 +30,7 @@ namespace TeamPunishment
             isAndroid = false;
 #endif
 #if UNITY_IOS || UNITY_ANDROID
-        isAndroid = true; //NEVER CHANGE!
+            isAndroid = true; //NEVER CHANGE!
 #endif
             Cursor.SetCursor(crosshair, Vector2.zero, CursorMode.Auto);
         }
