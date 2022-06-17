@@ -45,6 +45,11 @@ namespace TeamPunishment
         public List<AudioClip> VoiceDilemaKick;
         public List<AudioClip> VoiceDilemaNoKick;
 
+        [Header("NoKickPopup")]
+        public GameObject NoKickPopupPanel;
+        public Button OnNoKickPopupOK;
+        public InputField NoKickPopupInput;
+
         [Header("Diagnostic - Do Not Edit")]
         public string localPlayerName;
         public string localStarName;
@@ -211,6 +216,30 @@ namespace TeamPunishment
             CheckIfSelectionEnded();
         }
 
+        private IEnumerator CheckIfSelectionEndedNOKICK()
+        {
+            int ps = GameObject.FindGameObjectsWithTag(PLAYER_TAG).Length;
+            if (dilemaResults.Count == ps)
+            {
+                Debug.Log("Dilema END");
+                if (TimerCoroutine != null)
+                {
+                    StopCoroutine(TimerCoroutine);
+                    TimerCoroutine = null;
+                    TimerText.text = string.Empty;
+                }
+                WaitingText.text = string.Empty;
+                Loader.SetActive(false);
+                yield return new WaitForSeconds(5);
+                AfterScores();
+            }
+            else
+            {
+                Loader.SetActive(true);
+                WaitingText.text = $"Waiting for {ps - dilemaResults.Count} more players to choose...";
+            }
+        }
+
         private void CheckIfSelectionEnded()
         {
             int ps = GameObject.FindGameObjectsWithTag(PLAYER_TAG).Length;
@@ -304,7 +333,7 @@ namespace TeamPunishment
         {
             yield return new WaitForSeconds(5);
             dilemaResults = new List<Stars>();
-            ButtonHolder.gameObject.SetActive(true);
+            ButtonHolder.gameObject.SetActive(false);
             ScoresPanel.gameObject.SetActive(true);
             ScoresPanel.Init(votes, winner);
             ShameAreaText.text = string.Empty;
@@ -372,6 +401,7 @@ namespace TeamPunishment
                 Player admin = FindObjectsOfType<Player>().Where(x => x.playerName == ADMIN).FirstOrDefault();
                 admin.name = ADMIN;
                 admin.gameObject.tag = "Untagged";
+                return true;
             }
             if (msg.StartsWith("@@@DILEMA1"))
             {
@@ -383,6 +413,16 @@ namespace TeamPunishment
                 ShowShameScreen(playerName, (Stars)selection);
                 dilemaResults.Add((Stars)selection);
                 CheckIfSelectionEnded();
+                return true;
+            }
+            if (msg.StartsWith("@@@NOKICK"))
+            {
+                dilemaResults.Add(Stars.None);
+                msg = msg.Remove(0, 9);
+                int.TryParse(msg.ToString(), out int selection);
+                ShowShameScreenNOKICK(playerName, selection);
+                StartCoroutine(CheckIfSelectionEndedNOKICK());
+                return true;
             }
             if (msg.StartsWith("@@@WAIT"))
             {
@@ -390,6 +430,22 @@ namespace TeamPunishment
                 return true;
             }
             return false;
+        }
+
+        private void ShowShameScreenNOKICK(string playerName, int selection)
+        {
+            GameObject[] allp = GameObject.FindGameObjectsWithTag(PLAYER_TAG);
+            var planet = string.Empty;
+            foreach (var p in allp)
+            {
+                if (p.GetComponent<Player>().playerName == playerName)
+                {
+                    planet = p.name;
+                    break;
+                }
+            }
+            Debug.Log($"Player {playerName} ({planet}) eliminate {selection} residents");
+            ShameAreaText.text += $"Player {playerName} ({planet}) chose to eliminate {selection} residents\n";
         }
 
         private void ShowShameScreen(string playerName, Stars selection)
@@ -470,7 +526,7 @@ namespace TeamPunishment
         {
             canActivateTimer = true;
             gameState = GameState.Dilema_NoKicked;
-            InitDilema();
+            InitDilemaNOKICK();
             StarArtem.GetComponent<OnStarClick>().Init(new List<int> { 250, -20, -40, -60, -60, -70 });
             StarCibus.GetComponent<OnStarClick>().Init(new List<int> { 250, -20, -40, -60, -60, -70 });
             StarFerrum.GetComponent<OnStarClick>().Init(new List<int> { 200, -10, -20, -30, -50, -90 });
@@ -510,7 +566,34 @@ namespace TeamPunishment
             Enum.TryParse(localStarName, out Stars localStar);
             GetStar((int)localStar).GetComponent<Button>().interactable = false;
         }
-
+    
+        private void InitDilemaNOKICK()
+        {
+            StarArtem.gameObject.SetActive(true);
+            StarCibus.gameObject.SetActive(true);
+            StarFerrum.gameObject.SetActive(true);
+            StarOrdo.gameObject.SetActive(true);
+            StarArtem.GetComponent<Button>().interactable = false;
+            StarCibus.GetComponent<Button>().interactable = false;
+            StarFerrum.GetComponent<Button>().interactable = false;
+            StarOrdo.GetComponent<Button>().interactable = false;
+            TextStarNone.gameObject.SetActive(false);
+            starToKick = Stars.None;
+            NoKickPopupPanel.SetActive(true);
+            OnNoKickPopupOK.onClick.AddListener(() =>
+            {
+                int.TryParse(NoKickPopupInput.text, out int res);
+                if (res < 0)
+                {
+                    return;
+                }
+                NoKickPopupPanel.SetActive(false);
+                CmdSend($"@@@NOKICK{res}");
+                OnPlayerStarMiniClick();
+                TextStarNone.gameObject.SetActive(false);
+                ButtonHolder.gameObject.SetActive(false);
+            });
+        }
 
         private void PlayIntro()
         {
