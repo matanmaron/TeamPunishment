@@ -116,7 +116,7 @@ namespace TeamPunishment
         public void Quit()
         {
             Debug.Log("[Quit]");
-            SceneManager.LoadScene(0);
+            Scenes.LoadMenu();
         }
 
         [Command(requiresAuthority = false)]
@@ -257,7 +257,7 @@ namespace TeamPunishment
                 WaitingText.text = string.Empty;
                 Loader.SetActive(false);
                 var votes = CalcStar();
-                StartCoroutine(ShowScores(votes, Mathf.RoundToInt(votes.Aggregate((x, y) => x.Value > y.Value ? x : y).Value)));
+                StartCoroutine(ShowScores(votes, starToKick));
             }
             else
             {
@@ -316,7 +316,7 @@ namespace TeamPunishment
             if (starToKick.ToString() == localStarName)
             {
                 Debug.Log("sorry, youre out !");
-                SceneManager.LoadScene(0);
+                Scenes.LoadKickedOut();
                 return;
             }
             ButtonHolder.gameObject.SetActive(true);
@@ -336,7 +336,7 @@ namespace TeamPunishment
             }
         }
 
-        IEnumerator ShowScores(Dictionary<Stars, float> votes, int winner)
+        IEnumerator ShowScores(Dictionary<Stars, float> votes, Stars winner)
         {
             yield return new WaitForSeconds(5);
             dilemaResults = new List<Stars>();

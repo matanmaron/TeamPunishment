@@ -57,11 +57,11 @@ namespace TeamPunishment
         {
             if (GameManager.instance.isAndroid)
             {
-                SceneManager.LoadScene(2);
+                Scenes.LoadMobileInfo();
             }
             else
             {
-                SceneManager.LoadScene(1);
+                Scenes.LoadStandartGame();
             }
         }
 

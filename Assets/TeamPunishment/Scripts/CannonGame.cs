@@ -26,7 +26,7 @@ namespace TeamPunishment
         {
             if (Input.GetKeyUp(KeyCode.Escape))
             {
-                SceneManager.LoadScene(0);
+                Scenes.LoadMenu();
             }
         }
         

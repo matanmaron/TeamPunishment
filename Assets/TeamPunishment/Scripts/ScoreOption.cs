@@ -21,6 +21,7 @@ namespace TeamPunishment
         [SerializeField] Sprite num75;
         [SerializeField] Sprite barEnabled;
         [SerializeField] Sprite barDisabled;
+        [SerializeField] Image StarImage;
 
         public void Init(int vote)
         {
@@ -63,6 +64,11 @@ namespace TeamPunishment
             bar2.sprite = barDisabled;
             bar3.sprite = barDisabled;
             bar4.sprite = barDisabled;
+        }
+
+        public Image GetImage()
+        {
+            return StarImage;
         }
 
     }

@@ -61,12 +61,12 @@ namespace TeamPunishment
 
         private void OnAttack()
         {
-            SceneManager.LoadScene(3);
+            Scenes.LoadMobileGame();
         }
 
         private void OnNegotiate()
         {
-            VideoManager.instance.PlayEnd(() => SceneManager.LoadScene(0));
+            VideoManager.instance.PlayEnd(() => Scenes.LoadMenu());
         }
 
         private void OnDestroy()

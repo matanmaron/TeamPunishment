@@ -548,6 +548,7 @@ MonoBehaviour:
   num75: {fileID: 21300000, guid: e43fa6992eb13d3439aaac319e9951c0, type: 3}
   barEnabled: {fileID: 21300000, guid: bdd5eddd75ef54b4e84bb55eac45b8a1, type: 3}
   barDisabled: {fileID: 21300000, guid: d20efd0b09bbf7742ba4b1eb1e281cec, type: 3}
+  StarImage: {fileID: 6925396017335066874}
 --- !u!1 &5649198659279205372
 GameObject:
   m_ObjectHideFlags: 0

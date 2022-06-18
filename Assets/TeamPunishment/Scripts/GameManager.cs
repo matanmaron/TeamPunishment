@@ -59,7 +59,7 @@ namespace TeamPunishment
         {
             isDemoRunning = false;
             lastClick = DateTime.Now;
-            SceneManager.LoadScene(0);
+            Scenes.LoadMenu();
         }
     }
 
