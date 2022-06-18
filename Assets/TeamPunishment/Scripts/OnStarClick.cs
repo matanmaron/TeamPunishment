@@ -19,6 +19,8 @@ namespace TeamPunishment
         [SerializeField] Button popupOK;
         [SerializeField] Text popupText;
         [SerializeField] string popupTextString;
+        [SerializeField] Stars planetToHurt;
+        bool hurt = true;
         Image planetImage;
         int counter = 0;
         int currentResidents = 0;
@@ -70,9 +72,17 @@ namespace TeamPunishment
             TakeDown();
         }
 
-        private void TakeDown()
+        public void TakeDown(bool fromPlanet = false)
         {
-            AudioManager.instance.PlayStarsExsplosion();
+            if (!fromPlanet)
+            {
+                if (hurt)
+                {
+                    ChatUI.instance.HurtPlanet(planetToHurt);
+                }
+                hurt = !hurt;
+                AudioManager.instance.PlayStarsExsplosion();
+            }
             counter++;
             if (counter == 6)
             {
@@ -85,6 +95,7 @@ namespace TeamPunishment
             info.text = TextForInfo.Replace("XX", currentResidents.ToString());
             MoveUp go = Instantiate(deathTextPrefab, DeathPosition);
             go.Init(residents[counter]);
+
         }
 
         IEnumerator clickTimer()

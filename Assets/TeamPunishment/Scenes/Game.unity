@@ -7266,6 +7266,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 719572998}
     - target: {fileID: 385425304050174311, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
+      propertyPath: planetToHurt
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 385425304050174311, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
+      propertyPath: popupTextString
+      value: Do you really want to destroy planet Artem?  Even the great thinkers
+        must eat (Cibus)
+      objectReference: {fileID: 0}
+    - target: {fileID: 385425304050174311, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
       propertyPath: OnButtonClickEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 719572998}
@@ -7274,9 +7283,31 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 719572998}
     - target: {fileID: 385425304067179305, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
+      propertyPath: planetToHurt
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 385425304067179305, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
+      propertyPath: popupTextString
+      value: Do you really want to destroy planet Ferrum?  It is impossible to create
+        metal without the mind (Artem)
+      objectReference: {fileID: 0}
+    - target: {fileID: 385425304067179305, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
       propertyPath: OnButtonClickEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 719572998}
+    - target: {fileID: 385425304309455171, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 385425304486653188, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
+      propertyPath: planetToHurt
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 385425304486653188, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
+      propertyPath: popupTextString
+      value: Do you really want to destroy planet Cibus?  The fishermen in Cibus
+        need the technologies to produce
+      objectReference: {fileID: 0}
     - target: {fileID: 385425304486653188, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
       propertyPath: OnButtonClickEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -7302,6 +7333,15 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 385425304793771152, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
+      propertyPath: planetToHurt
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 385425304793771152, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
+      propertyPath: popupTextString
+      value: Do you really want to destroy planet Ordo?  Without metal (Ferrum) there
+        will be no technology
+      objectReference: {fileID: 0}
+    - target: {fileID: 385425304793771152, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
       propertyPath: OnButtonClickEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 719572998}
@@ -7317,6 +7357,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 719572998}
+    - target: {fileID: 385425305391883561, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 431.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 385425305391883561, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 127.156
+      objectReference: {fileID: 0}
+    - target: {fileID: 385425305391883561, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 7.267
+      objectReference: {fileID: 0}
+    - target: {fileID: 385425305391883561, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.713
+      objectReference: {fileID: 0}
+    - target: {fileID: 385425305391883566, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
 --- !u!1001 &1030710250745811038

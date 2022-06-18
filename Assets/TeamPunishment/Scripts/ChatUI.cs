@@ -602,6 +602,12 @@ namespace TeamPunishment
             });
         }
 
+        public void HurtPlanet(Stars planetToHurt)
+        {
+            var star = GetStar((int)planetToHurt);
+            star.GetComponent<OnStarClick>().TakeDown(true);
+        }
+
         private int GetMaxResidents()
         {
             Enum.TryParse(localStarName, out Stars localStar);
