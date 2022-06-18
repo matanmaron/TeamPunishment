@@ -16,10 +16,12 @@ namespace TeamPunishment
         public Text TextStarNone;
 
         public GameObject KickUIPanel;
+
         void Start()
         {
             localStarName = Stars.Ordo.ToString();
             VideoManager.instance.PlayIntro(OnIntroEnd);
+            
         }
 
         private void OnIntroEnd()
@@ -44,6 +46,9 @@ namespace TeamPunishment
             textboxElement.texts = new List<string>();
             textboxElement.texts.Add(@"The star in front of you is dealing with you in a long conflict. Several times he hit your convoy that brought the vaccines and destroyed a number of vaccines.");
             textboxElement.texts.Add(@"There will be two choices. One choice to bomb the planet (go to war) and another choice to avoid and continue to be moderate");
+            textboxElement.texts.Add(@"* If both planets choose to fight, The vehicles will be destroyed and both will lose 75% of their population");
+            textboxElement.texts.Add(@"* If only one planet chooses to fight, this planet will possess all the vaccines, while the other one will lose all of its citizens");
+            textboxElement.texts.Add(@"* If both planets choose to negotiate, the vaccine amount will split equally and each of them will lose 50% of their population");
             textboxElement.voiceOvers = new List<AudioClip>();
             textboxElement.Init();
         }
@@ -56,12 +61,12 @@ namespace TeamPunishment
 
         private void OnAttack()
         {
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene(3);
         }
 
         private void OnNegotiate()
         {
-
+            VideoManager.instance.PlayEnd(() => SceneManager.LoadScene(0));
         }
 
         private void OnDestroy()

@@ -50,6 +50,7 @@ namespace TeamPunishment
         public GameObject NoKickPopupPanel;
         public Button OnNoKickPopupOK;
         public InputField NoKickPopupInput;
+        public Text NoKickInfo;
 
         [Header("Diagnostic - Do Not Edit")]
         public string localPlayerName;
@@ -538,8 +539,7 @@ namespace TeamPunishment
             StarFerrum.GetComponent<OnStarClick>().Init(new List<int> { 200, -10, -20, -30, -50, -90 });
             StarOrdo.GetComponent<OnStarClick>().Init(new List<int> { 100, -10, -20, -25, -20, -25 });
             textboxElement.texts = new List<string>();
-            textboxElement.texts.Add(@"If you decide not to eliminate one of the planets and to keep the order as it is. You will have to decide together on the number of residents you are willing to relinquish...");
-            textboxElement.texts.Add(@"and every one of the planets will have to decide on the minimal number of residents they wish to eliminate from their own planet. You may converse to reach the optimal amount.");
+            textboxElement.texts.Add(@"You will have to decide together on the number of residents you are willing to relinquish and every one of the planets will have to decide on the minimal number of residents they wish to eliminate from their own planet. You may converse to reach the optimal amount.");
             textboxElement.voiceOvers = VoiceDilemaNoKick;
             textboxElement.Init();
         }
@@ -586,10 +586,11 @@ namespace TeamPunishment
             TextStarNone.gameObject.SetActive(false);
             starToKick = Stars.None;
             NoKickPopupPanel.SetActive(true);
+            NoKickInfo.text = $"(1 - {GetMaxResidents()})";
             OnNoKickPopupOK.onClick.AddListener(() =>
             {
                 int.TryParse(NoKickPopupInput.text, out int res);
-                if (res < 0)
+                if (res <= 0 || res > GetMaxResidents())
                 {
                     return;
                 }
@@ -599,6 +600,27 @@ namespace TeamPunishment
                 TextStarNone.gameObject.SetActive(false);
                 ButtonHolder.gameObject.SetActive(false);
             });
+        }
+
+        private int GetMaxResidents()
+        {
+            Enum.TryParse(localStarName, out Stars localStar);
+            switch (localStar)
+            {
+                case Stars.Ferrum:
+                    return 200;
+                case Stars.Cibus:
+                    return 250;
+                case Stars.Ordo:
+                    return 100;
+                case Stars.Artem:
+                    return 250;
+                case Stars.None:
+                default:
+                    Debug.LogError("WAIT... WHAT ?!");
+                    break;
+            }
+            return 0;
         }
 
         private void PlayIntro()

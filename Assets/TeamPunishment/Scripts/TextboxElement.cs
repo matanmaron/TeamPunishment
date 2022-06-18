@@ -9,20 +9,21 @@ namespace TeamPunishment
     {
         [HideInInspector] public List<string> texts;
         [HideInInspector] public List<AudioClip> voiceOvers;
-        Text textElement;
+        public Text textElement;
+        public Text textNumber;
         Button button;
         int index = 0;
 
         private void Awake()
         {
             button = GetComponent<Button>();
-            textElement = GetComponentInChildren<Text>();
         }
 
         void Start()
         {
             button.onClick.AddListener(OnButton);
             textElement.text = texts[index];
+            textNumber.text = $"({index+1}/{texts.Count})";
         }
 
         public void Init()
@@ -31,6 +32,7 @@ namespace TeamPunishment
             if (textElement != null && texts != null)
             {
                 textElement.text = texts[index];
+                textNumber.text = $"({index + 1}/{texts.Count})";
             }
             if (voiceOvers.Count > index)
             {
@@ -55,6 +57,7 @@ namespace TeamPunishment
                 index = 0;
             }
             textElement.text = texts[index];
+            textNumber.text = $"({index + 1}/{texts.Count})";
             if (voiceOvers.Count > index)
             {
                 AudioManager.instance.PlayVoiceOver(voiceOvers[index]);

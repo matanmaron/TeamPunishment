@@ -497,7 +497,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &418086854
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1462,7 +1462,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 385425303908847406, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 385425303908847407, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
       propertyPath: m_Pivot.x
@@ -1682,16 +1682,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &1028999781 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 385425304793771151, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
-  m_PrefabInstance: {fileID: 1028999778}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &1028999782 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 385425304067179300, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
-  m_PrefabInstance: {fileID: 1028999778}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1028999783 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 385425305663675545, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
@@ -2030,8 +2020,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localStarName: 
   textboxElement: {fileID: 1028999783}
-  StarFerrum: {fileID: 1028999782}
-  StarOrdo: {fileID: 1028999781}
+  StarFerrum: {fileID: 1588064007}
+  StarOrdo: {fileID: 1426575015}
   TextStarNone: {fileID: 1028999780}
   KickUIPanel: {fileID: 622725900}
 --- !u!222 &1191794114
@@ -2262,6 +2252,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6840536096011299940, guid: be94f551078edce4e8100e540c9347c5, type: 3}
   m_PrefabInstance: {fileID: 1332292583}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1426575015 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 385425304793771155, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
+  m_PrefabInstance: {fileID: 1028999778}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1572333007
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2364,6 +2365,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6840536096011299940, guid: be94f551078edce4e8100e540c9347c5, type: 3}
   m_PrefabInstance: {fileID: 1572333007}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1588064007 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 385425304067179304, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
+  m_PrefabInstance: {fileID: 1028999778}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1700155066
 GameObject:
   m_ObjectHideFlags: 0
@@ -2713,6 +2725,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8120560478187334546, guid: 0e075e4d3b2fc3b43aa83f3c2b0ff39a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8120560478187334548, guid: 0e075e4d3b2fc3b43aa83f3c2b0ff39a, type: 3}
       propertyPath: m_Name
       value: MainCam
@@ -2720,6 +2736,10 @@ PrefabInstance:
     - target: {fileID: 8120560478187334548, guid: 0e075e4d3b2fc3b43aa83f3c2b0ff39a, type: 3}
       propertyPath: m_TagString
       value: MainCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8120560478187334549, guid: 0e075e4d3b2fc3b43aa83f3c2b0ff39a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e075e4d3b2fc3b43aa83f3c2b0ff39a, type: 3}
