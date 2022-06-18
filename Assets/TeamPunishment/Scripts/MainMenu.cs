@@ -27,6 +27,7 @@ namespace TeamPunishment
             btnExit.onClick.AddListener(OnMenuExit);
             btnBackOption.onClick.AddListener(OnBack);
             btnBackCredits.onClick.AddListener(OnBack);
+            AudioManager.instance.PlayMusic();
         }
 
         private void OnMenuCredits()

@@ -17,6 +17,10 @@ namespace TeamPunishment
         DateTime lastClick = DateTime.Now;
         int MINUETS_TO_SHOW_DEMO = 3;
         public static GameManager instance;
+        public bool LogRecords = true;
+
+        const string ON = "on";
+        const string OFF = "off";
 
         void Awake()
         {
@@ -33,10 +37,16 @@ namespace TeamPunishment
             isAndroid = true; //NEVER CHANGE!
 #endif
             Cursor.SetCursor(crosshair, Vector2.zero, CursorMode.Auto);
+            if (PlayerPrefs.GetInt("logRecords", 1) == 0)
+                LogRecords = false;
         }
 
         private void Update()
         {
+            if (Input.GetKeyUp(KeyCode.Escape))
+            {
+                Scenes.LoadMenu();
+            }
             if (isDemoMode)
             {
                 if (!isDemoRunning)
@@ -60,6 +70,12 @@ namespace TeamPunishment
             isDemoRunning = false;
             lastClick = DateTime.Now;
             Scenes.LoadMenu();
+        }
+
+        public void MuteLogRecords(bool isOn)
+        {
+            Debug.Log($"log mute is {(isOn ? OFF : ON)}");
+            LogRecords = !isOn;
         }
     }
 

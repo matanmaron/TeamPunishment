@@ -17,6 +17,18 @@ public class OptionButton : MonoBehaviour, IPointerClickHandler
 
     private bool currentState = false;
 
+    public event Action<bool> OnStateChanged;
+
+    internal void SetStartState(int value)
+    {
+        bool isOn = value == 0 ? false : true;
+        if (!isOn)
+        {
+            return;
+        }
+        ChangeState();
+    }
+
     public void OnPointerClick(PointerEventData eventData)
     {
         ChangeState();
@@ -35,5 +47,6 @@ public class OptionButton : MonoBehaviour, IPointerClickHandler
             indicator.sprite = IndicatorOff;
             state.sprite = StateOff;
         }
+        OnStateChanged?.Invoke(currentState);
     }
 }
