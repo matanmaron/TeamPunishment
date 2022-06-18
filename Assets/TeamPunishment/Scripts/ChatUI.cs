@@ -451,7 +451,7 @@ namespace TeamPunishment
                 }
             }
             Debug.Log($"Player {playerName} ({planet}) eliminate {selection} residents");
-            ShameAreaText.text += $"Player {playerName} ({planet}) chose to eliminate {selection} residents\n";
+            ShameAreaText.text += $"Player {playerName} ({planet}) chose to eliminate {selection}K residents\n";
         }
 
         private void ShowShameScreen(string playerName, Stars selection)

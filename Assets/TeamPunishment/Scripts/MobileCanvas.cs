@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace TeamPunishment
@@ -10,8 +11,8 @@ namespace TeamPunishment
         public string localStarName;
         public TextboxElement textboxElement;
 
-        public Transform StarFerrum;
-        public Transform StarOrdo;
+        public Button StarFerrum;
+        public Button StarOrdo;
         public Text TextStarNone;
 
         public GameObject KickUIPanel;
@@ -49,8 +50,24 @@ namespace TeamPunishment
 
         private void SetPlanets()
         {
-            StarFerrum.GetComponent<OnStarClick>().Init(new List<int> { 200, -10, -20, -30, -50, -90 });
-            StarOrdo.GetComponent<OnStarClick>().Init(new List<int> { 100, -10, -20, -25, -20, -25 });
+            StarFerrum.onClick.AddListener(OnAttack);
+            StarOrdo.onClick.AddListener(OnNegotiate);
+        }
+
+        private void OnAttack()
+        {
+            SceneManager.LoadScene(4);
+        }
+
+        private void OnNegotiate()
+        {
+
+        }
+
+        private void OnDestroy()
+        {
+            StarFerrum.onClick.RemoveAllListeners();
+            StarOrdo.onClick.RemoveAllListeners();
         }
     }
 }

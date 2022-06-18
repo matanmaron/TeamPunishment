@@ -6,11 +6,12 @@ TagManager:
   tags:
   - ChatWindow
   - INFO
+  - BULLET
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enemy
   - Water
   - UI
   - 
