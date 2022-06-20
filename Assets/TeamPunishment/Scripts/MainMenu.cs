@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -16,8 +18,10 @@ namespace TeamPunishment
         [SerializeField] GameObject menuPanel;
         [SerializeField] GameObject optionPanel;
         [SerializeField] GameObject creditsPanel;
+        [SerializeField] Image qrCodeImage;
 
         int demoCounter = 0;
+        const string URL = @"https://drive.google.com/uc?export=download&id=18ftMMDTJjuZI4K8E3mmd55yXqCx7sV_-";
 
         private void Start()
         {
@@ -58,10 +62,12 @@ namespace TeamPunishment
         {
             if (GameManager.instance.isAndroid)
             {
+                GameManager.instance.SendAnalyticsEvent("start mobile");
                 Scenes.LoadMobileInfo();
             }
             else
             {
+                GameManager.instance.SendAnalyticsEvent("start");
                 Scenes.LoadStandartGame();
             }
         }
@@ -82,9 +88,33 @@ namespace TeamPunishment
             {
                 GameManager.instance.isDemoMode = true;
                 btnExit.gameObject.SetActive(false);
+                qrCodeImage.gameObject.SetActive(true);
+                StartCoroutine(GetImage(qrCodeImage));
                 Debug.Log("DEMO ON");
             }
             demoCounter++;
+        }
+
+        IEnumerator GetImage(Image img)
+        {
+            Debug.Log("GetImage");
+            using (UnityWebRequest uwr = UnityWebRequestTexture.GetTexture(URL))
+            {
+                yield return uwr.SendWebRequest();
+                if (uwr.result == UnityWebRequest.Result.ConnectionError || uwr.result == UnityWebRequest.Result.ProtocolError)
+                {
+                    Debug.Log("GetImage ERROR");
+                    qrCodeImage.gameObject.SetActive(false);
+                }
+                else
+                {
+                    Texture2D texture = DownloadHandlerTexture.GetContent(uwr);
+                    var bytes = texture.EncodeToPNG();
+                    Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(texture.width / 2, texture.height / 2));
+                    img.overrideSprite = sprite;
+                    Debug.Log("GetImage OK");
+                }
+            }
         }
     }
 }

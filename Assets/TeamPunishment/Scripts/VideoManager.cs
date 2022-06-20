@@ -22,6 +22,7 @@ namespace TeamPunishment
         public static VideoManager instance;
 
         private GameObject currentVideo;
+        private string videoName;
         private List<Action> onVideoEndCallback = new List<Action>();
 
         void Awake()
@@ -33,6 +34,10 @@ namespace TeamPunishment
         {
             if (currentVideo != null)
             {
+                if (videoName != "demo")
+                {
+                    GameManager.instance.SendAnalyticsEvent($"video-skip-{videoName}");
+                }
                 OnVideoEnd(currentVideo.GetComponent<VideoPlayer>());
             }
         }
@@ -62,6 +67,7 @@ namespace TeamPunishment
         public void PlayIntro(Action callback)
         {
             Debug.Log($"[PlayIntro]");
+            videoName = "intro";
             PlayVideo(callback, Intro);
         }
 
@@ -71,6 +77,7 @@ namespace TeamPunishment
             vid.loopPointReached -= OnVideoEnd;
             Destroy(currentVideo);
             currentVideo = null;
+            videoName = string.Empty;
             chatCanvas.SetActive(true);
             if (onVideoEndCallback.Count > 0)
             {
@@ -84,36 +91,42 @@ namespace TeamPunishment
         public void PlayFerrum(Action onStarVideoEnd)
         {
             Debug.Log($"[PlayFerrum]");
+            videoName = "ferrum";
             PlayVideo(onStarVideoEnd, Ferrum);
         }
 
         public void PlayCibus(Action onStarVideoEnd)
         {
             Debug.Log($"[PlayCibus]");
+            videoName = "cibus";
             PlayVideo(onStarVideoEnd, Cibus);
         }
 
         public void PlayOrdo(Action onStarVideoEnd)
         {
             Debug.Log($"[PlayOrdo]");
+            videoName = "ordo";
             PlayVideo(onStarVideoEnd, Ordo);
         }
 
         public void PlayArtem(Action onStarVideoEnd)
         {
             Debug.Log($"[PlayArtem]");
+            videoName = "artem";
             PlayVideo(onStarVideoEnd, Artem);
         }
 
         public void PlayEnd(Action onEndVideoEnd)
         {
             Debug.Log($"[PlayEnd]");
+            videoName = "end";
             PlayVideo(onEndVideoEnd, End);
         }
 
         public void PlayDemo(Action onDemoVideoEnd)
         {
             Debug.Log($"[PlayDemo]");
+            videoName = "demo";
             PlayVideo(onDemoVideoEnd, Demo);
         }
     }

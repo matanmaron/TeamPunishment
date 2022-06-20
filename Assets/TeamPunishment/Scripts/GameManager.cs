@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.Analytics;
 
 namespace TeamPunishment
 {
@@ -76,6 +76,22 @@ namespace TeamPunishment
         {
             Debug.Log($"log mute is {(isOn ? OFF : ON)}");
             LogRecords = !isOn;
+        }
+
+        public void SendAnalyticsEvent(string eName, string pKey, object pValue)
+        {
+            AnalyticsResult res = Analytics.CustomEvent(eName, 
+                new Dictionary<string, object>
+                {
+                    { pKey, pValue }
+                }) ;
+            Debug.Log($"[SendAnalyticsEvent] - {res} ({eName})");
+        }
+
+        public void SendAnalyticsEvent(string eName)
+        {
+            AnalyticsResult res = Analytics.CustomEvent(eName);
+            Debug.Log($"[SendAnalyticsEvent] - {res} ({eName})");
         }
     }
 

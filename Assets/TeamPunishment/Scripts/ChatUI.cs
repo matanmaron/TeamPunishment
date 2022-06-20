@@ -452,6 +452,7 @@ namespace TeamPunishment
                 }
             }
             Debug.Log($"Player {playerName} ({planet}) eliminate {selection} residents");
+            GameManager.instance.SendAnalyticsEvent("nokick", planet, selection);
             ShameAreaText.text += $"Player {playerName} ({planet}) chose to eliminate {selection}K residents\n";
         }
 
@@ -468,6 +469,7 @@ namespace TeamPunishment
                 }
             }
             Debug.Log($"player {playerName} ({planet}) kicked out {selection}");
+            GameManager.instance.SendAnalyticsEvent($"kick-{selection}");
             if (selection == Stars.None)
             {
                 ShameAreaText.text += $"Player {playerName} chose not to eliminate any Planet\n";
@@ -488,6 +490,7 @@ namespace TeamPunishment
                 yield return new WaitForSeconds(1);
             }
             Debug.Log("End Timer");
+            GameManager.instance.SendAnalyticsEvent($"end-timer");
             OnPlayerStarClick(0);
         }
 
