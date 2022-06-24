@@ -327,6 +327,14 @@ namespace TeamPunishment
             {
                 Debug.Log("sorry, youre out !");
                 GameManager.instance.SendAnalyticsEvent($"kicked-out");
+                if (isServer)
+                {
+                    NetworkManager.singleton.StopServer();
+                }
+                if (isClient)
+                {
+                    NetworkManager.singleton.StopClient();
+                }
                 Scenes.LoadKickedOut();
                 return;
             }
