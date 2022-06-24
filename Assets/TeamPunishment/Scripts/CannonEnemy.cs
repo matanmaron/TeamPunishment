@@ -6,18 +6,10 @@ namespace TeamPunishment
 {
     public class CannonEnemy : MonoBehaviour
     {
-        float speed = 1;
-
-        private void Start()
-        {
-            speed = Random.Range(0.2f, 1.5f);
-            transform.SetPositionAndRotation(transform.position, Quaternion.identity);
-        }
-
-        void Update()
-        {
-            transform.Translate(Vector3.down * Time.deltaTime * speed, Space.World);
-        }
+        [SerializeField] List<Sprite> planetStates = new List<Sprite>();
+        [SerializeField] SpriteRenderer planetImage;
+        [SerializeField] CannonPlayer player;
+        int counter = 0;
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
@@ -31,7 +23,13 @@ namespace TeamPunishment
 
         public void Hit()
         {
-            Destroy(gameObject);
+            counter++;
+            planetImage.sprite = planetStates[counter];
+            if (counter>4)
+            {
+                player.ShowEnd();
+                Destroy(gameObject);
+            }
         }
     }
 }

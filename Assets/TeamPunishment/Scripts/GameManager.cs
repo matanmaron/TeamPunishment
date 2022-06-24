@@ -14,7 +14,12 @@ namespace TeamPunishment
         public bool isDemoMode = false;
         public bool isDemoRunning = false;
         DateTime lastClick = DateTime.Now;
-        int MINUETS_TO_SHOW_DEMO = 3;
+#if UNITY_EDITOR
+        double MINUETS_TO_SHOW_DEMO = 0.2;
+#else
+        double MINUETS_TO_SHOW_DEMO = 3;
+#endif
+
         public static GameManager instance;
         public bool LogRecords = true;
 

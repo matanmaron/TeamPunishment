@@ -21,6 +21,7 @@ namespace TeamPunishment
         [SerializeField] Image qrCodeImage;
 
         int demoCounter = 0;
+        int imgTry = 0;
         const string URL = @"https://drive.google.com/uc?export=download&id=18ftMMDTJjuZI4K8E3mmd55yXqCx7sV_-";
 
         private void Start()
@@ -117,8 +118,15 @@ namespace TeamPunishment
                 yield return uwr.SendWebRequest();
                 if (uwr.result == UnityWebRequest.Result.ConnectionError || uwr.result == UnityWebRequest.Result.ProtocolError)
                 {
-                    Debug.Log("GetImage ERROR");
-                    qrCodeImage.gameObject.SetActive(false);
+                    Debug.Log($"GetImage ERROR {imgTry}");
+                    imgTry++;
+                    if (imgTry > 3)
+                    {
+                        Debug.Log("GetImage FINAL ERROR");
+                        qrCodeImage.gameObject.SetActive(false);
+                        yield break;
+                    }
+                    StartCoroutine(GetImage(qrCodeImage));
                 }
                 else
                 {

@@ -120,4 +120,5 @@ MonoBehaviour:
   Ordo: {fileID: 32900000, guid: 94cd683032aeb404cb6d597ab324b449, type: 3}
   Artem: {fileID: 32900000, guid: a8cb29cfc0543af44b5edd377d545bc1, type: 3}
   Demo: {fileID: 32900000, guid: b81b62276375b924792e22a07e991441, type: 3}
+  End: {fileID: 32900000, guid: b81b62276375b924792e22a07e991441, type: 3}
   chatCanvas: {fileID: 0}
