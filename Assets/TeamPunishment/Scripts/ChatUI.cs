@@ -68,7 +68,7 @@ namespace TeamPunishment
         bool canActivateTimer = false;
         Coroutine TimerCoroutine = null;
 #if UNITY_EDITOR
-        const int MAX_PLAYERS = 2;
+        const int MAX_PLAYERS = 1;
 #else
         const int MAX_PLAYERS = 4; //NEVER CHANGE!
 #endif
@@ -117,6 +117,14 @@ namespace TeamPunishment
         public void Quit()
         {
             Debug.Log("[Quit]");
+            if (isServer)
+            {
+                NetworkManager.singleton.StopServer();
+            }
+            if (isClient)
+            {
+                NetworkManager.singleton.StopClient();
+            }
             Scenes.LoadMenu();
         }
 
