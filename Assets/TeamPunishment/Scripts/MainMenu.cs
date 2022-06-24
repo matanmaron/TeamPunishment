@@ -25,6 +25,11 @@ namespace TeamPunishment
 
         private void Start()
         {
+            if (Application.isBatchMode)
+            {
+                Scenes.LoadStandartGame();
+                return;
+            }
             btnStart.onClick.AddListener(OnMenuStart);
             btnOption.onClick.AddListener(OnMenuOption);
             btnCredits.onClick.AddListener(OnMenuCredits);
