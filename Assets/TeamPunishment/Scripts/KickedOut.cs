@@ -11,6 +11,11 @@ namespace TeamPunishment
         [SerializeField] Button button;
         void Start()
         {
+            if (Application.isBatchMode)
+            {
+                Scenes.LoadStandartGame();
+                return;
+            }
             button.onClick.AddListener(onButton);
         }
 
