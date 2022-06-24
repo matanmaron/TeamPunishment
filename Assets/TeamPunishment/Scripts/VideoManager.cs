@@ -36,7 +36,7 @@ namespace TeamPunishment
             {
                 if (videoName != "demo")
                 {
-                    GameManager.instance.SendAnalyticsEvent($"video-skip-{videoName}");
+                    GameManager.instance.SendAnalyticsEvent($"video-skip", "videoName", videoName);
                 }
                 OnVideoEnd(currentVideo.GetComponent<VideoPlayer>());
             }

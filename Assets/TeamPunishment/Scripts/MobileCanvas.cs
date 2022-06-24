@@ -36,6 +36,7 @@ namespace TeamPunishment
 
         private void StartGame()
         {
+            GameManager.instance.SendAnalyticsEvent("mobile-start");
             SetText();
             SetPlanets();
             KickUIPanel.SetActive(true);
@@ -61,11 +62,13 @@ namespace TeamPunishment
 
         private void OnAttack()
         {
+            GameManager.instance.SendAnalyticsEvent("mobile-attack");
             Scenes.LoadMobileGame();
         }
 
         private void OnNegotiate()
         {
+            GameManager.instance.SendAnalyticsEvent("mobile-negotiate");
             VideoManager.instance.PlayEnd(() => Scenes.LoadMenu());
         }
 

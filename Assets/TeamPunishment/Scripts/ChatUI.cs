@@ -91,7 +91,7 @@ namespace TeamPunishment
             if (GameObject.FindGameObjectsWithTag("Player").Length > MAX_PLAYERS)
             {
                 Debug.LogWarning("[HandleCommandMsg] - over 4 players. bye bye!");
-                Application.Quit();
+                Quit();
                 return;
             }
             StartCoroutine(Login(0.1f));
@@ -109,6 +109,7 @@ namespace TeamPunishment
         {
             if (Input.GetKeyUp(KeyCode.Escape))
             {
+                GameManager.instance.SendAnalyticsEvent($"quit");
                 Quit();
             }
         }
@@ -300,6 +301,7 @@ namespace TeamPunishment
         {
             ButtonHolder.gameObject.SetActive(false);
             gameState = GameState.End;
+            GameManager.instance.SendAnalyticsEvent($"game-end");
             VideoManager.instance.PlayEnd(Quit);
         }
 
@@ -316,6 +318,7 @@ namespace TeamPunishment
             if (starToKick.ToString() == localStarName)
             {
                 Debug.Log("sorry, youre out !");
+                GameManager.instance.SendAnalyticsEvent($"kicked-out");
                 Scenes.LoadKickedOut();
                 return;
             }

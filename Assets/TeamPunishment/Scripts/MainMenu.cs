@@ -62,7 +62,6 @@ namespace TeamPunishment
         {
             if (GameManager.instance.isAndroid)
             {
-                GameManager.instance.SendAnalyticsEvent("start mobile");
                 Scenes.LoadMobileInfo();
             }
             else
