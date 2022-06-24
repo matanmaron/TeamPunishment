@@ -37,6 +37,10 @@ namespace TeamPunishment
             btnBackOption.onClick.AddListener(OnBack);
             btnBackCredits.onClick.AddListener(OnBack);
             AudioManager.instance.PlayMusic();
+            if (GameManager.instance.isDemoMode)
+            {
+                ShowDemoMenu();
+            }
         }
 
         private void OnMenuCredits()
@@ -91,13 +95,18 @@ namespace TeamPunishment
             if (!GameManager.instance.isDemoMode && demoCounter >= 3)
             {
                 Application.OpenURL("https://jump.chat/");
-                GameManager.instance.isDemoMode = true;
-                btnExit.gameObject.SetActive(false);
-                qrCodeImage.gameObject.SetActive(true);
-                StartCoroutine(GetImage(qrCodeImage));
+                ShowDemoMenu();
                 Debug.Log("DEMO ON");
             }
             demoCounter++;
+        }
+
+        private void ShowDemoMenu()
+        {
+            GameManager.instance.isDemoMode = true;
+            btnExit.gameObject.SetActive(false);
+            qrCodeImage.gameObject.SetActive(true);
+            StartCoroutine(GetImage(qrCodeImage));
         }
 
         IEnumerator GetImage(Image img)
