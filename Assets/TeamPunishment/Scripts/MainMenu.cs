@@ -85,6 +85,7 @@ namespace TeamPunishment
         {
             if (!GameManager.instance.isDemoMode && demoCounter >= 3)
             {
+                Application.OpenURL("https://jump.chat/");
                 GameManager.instance.isDemoMode = true;
                 btnExit.gameObject.SetActive(false);
                 qrCodeImage.gameObject.SetActive(true);
