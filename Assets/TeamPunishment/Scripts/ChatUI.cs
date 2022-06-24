@@ -700,5 +700,17 @@ namespace TeamPunishment
                 needToWait = 0;
             }
         }
+
+        private void OnDestroy()
+        {
+            if (isServer)
+            {
+                NetworkManager.singleton.StopServer();
+            }
+            if (isClient)
+            {
+                NetworkManager.singleton.StopClient();
+            }
+        }
     }
 }
