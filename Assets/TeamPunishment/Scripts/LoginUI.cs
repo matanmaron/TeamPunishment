@@ -22,8 +22,8 @@ namespace TeamPunishment
 
         private void Start()
         {
-#if DEVELOPMENT_BUILD  || UNITY_EDITOR
             DebugConsole.gameObject.SetActive(true);
+#if DEVELOPMENT_BUILD  || UNITY_EDITOR
             hostButton.gameObject.SetActive(true);
             debugButons.gameObject.SetActive(true);
 #endif
