@@ -32,7 +32,7 @@ namespace TeamPunishment
         {
             if (Input.GetKeyUp(KeyCode.Escape))
             {
-                Application.Quit();
+                Scenes.LoadMenu();
             }
         }
          

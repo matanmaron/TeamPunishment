@@ -9,7 +9,6 @@ namespace TeamPunishment
 {
     public class GameManager : MonoBehaviour
     {
-
         public Texture2D crosshair;
         public bool isAndroid = false;
         public bool isDemoMode = false;
@@ -24,7 +23,14 @@ namespace TeamPunishment
 
         void Awake()
         {
-            instance = this;
+            if (instance != null && instance != this)
+            {
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                instance = this;
+            }
             DontDestroyOnLoad(gameObject);
         }
 
