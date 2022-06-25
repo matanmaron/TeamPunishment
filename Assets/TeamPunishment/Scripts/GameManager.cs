@@ -66,6 +66,11 @@ namespace TeamPunishment
                     if (DateTime.Now > lastClick.AddMinutes(MINUETS_TO_SHOW_DEMO))
                     {
                         Debug.Log("DEMO START");
+                        var chat = FindObjectOfType<ChatUI>();
+                        if (chat != null)
+                        {
+                            chat.Disconnect();
+                        }
                         Scenes.LoadDemo();
                         isDemoRunning = true;
                     }

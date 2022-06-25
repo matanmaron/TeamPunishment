@@ -68,7 +68,7 @@ namespace TeamPunishment
         bool canActivateTimer = false;
         Coroutine TimerCoroutine = null;
 #if UNITY_EDITOR
-        const int MAX_PLAYERS = 1;
+        const int MAX_PLAYERS = 4;
 #else
         const int MAX_PLAYERS = 4; //NEVER CHANGE!
 #endif
@@ -117,6 +117,12 @@ namespace TeamPunishment
         public void Quit()
         {
             Debug.Log("[Quit]");
+            Disconnect();
+            Scenes.LoadMenu();
+        }
+
+        public void Disconnect()
+        {
             if (isServer)
             {
                 NetworkManager.singleton.StopServer();
@@ -125,7 +131,6 @@ namespace TeamPunishment
             {
                 NetworkManager.singleton.StopClient();
             }
-            Scenes.LoadMenu();
         }
 
         [Command(requiresAuthority = false)]
@@ -327,14 +332,7 @@ namespace TeamPunishment
             {
                 Debug.Log("sorry, youre out !");
                 GameManager.instance.SendAnalyticsEvent($"kicked-out");
-                if (isServer)
-                {
-                    NetworkManager.singleton.StopServer();
-                }
-                if (isClient)
-                {
-                    NetworkManager.singleton.StopClient();
-                }
+                Disconnect();
                 Scenes.LoadKickedOut();
                 return;
             }
@@ -703,14 +701,7 @@ namespace TeamPunishment
 
         private void OnDestroy()
         {
-            if (isServer)
-            {
-                NetworkManager.singleton.StopServer();
-            }
-            if (isClient)
-            {
-                NetworkManager.singleton.StopClient();
-            }
+            Disconnect();
         }
     }
 }
