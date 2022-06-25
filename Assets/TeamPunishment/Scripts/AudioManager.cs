@@ -15,9 +15,6 @@ namespace TeamPunishment
 
         public static AudioManager instance;
 
-        const string ON = "on";
-        const string OFF = "off";
-
         void Awake()
         {
             instance = this;
@@ -25,12 +22,12 @@ namespace TeamPunishment
 
         private void Start()
         {
-            if (PlayerPrefs.GetInt("voiceOver", 1) == 0)
+            if (GameManager.instance.IsMuteVoice)
             {
                 SFX1.mute = true;
                 SFX2.mute = true;
             }
-            if (PlayerPrefs.GetInt("music", 1) == 0)
+            if (GameManager.instance.IsMuteMusic)
                 Music.mute = true;
             Music.Play();
             Music.Pause();
@@ -74,17 +71,15 @@ namespace TeamPunishment
             SFX2?.Stop();
         }
 
-        public void MuteVoiceOver(bool isOn)
+        public void MuteVoiceOver(bool state)
         {
-            Debug.Log($"voice is {(isOn ? OFF : ON)}");
-            SFX1.mute = !isOn;
-            SFX2.mute = !isOn;
+            SFX1.mute = !state;
+            SFX2.mute = !state;
         }
 
-        public void MuteMusic(bool isOn)
+        public void MuteMusic(bool state)
         {
-            Debug.Log($"music mute is {(isOn ? OFF : ON)}");
-            Music.mute = !isOn;
+            Music.mute = !state;
         }
     }
 }

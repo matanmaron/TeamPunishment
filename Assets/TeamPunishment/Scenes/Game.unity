@@ -7579,6 +7579,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 719572998}
+    - target: {fileID: 385425305189577596, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 76.528015
+      objectReference: {fileID: 0}
     - target: {fileID: 385425305391883561, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
       propertyPath: m_SizeDelta.x
       value: 431.53
@@ -7601,11 +7605,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 385425305663675546, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 385425305663675546, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 385425305663675546, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -188
+      value: 1732
       objectReference: {fileID: 0}
     - target: {fileID: 385425305663675546, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
       propertyPath: m_AnchoredPosition.x

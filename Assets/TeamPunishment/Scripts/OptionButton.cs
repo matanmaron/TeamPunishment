@@ -19,10 +19,14 @@ public class OptionButton : MonoBehaviour, IPointerClickHandler
 
     public event Action<bool> OnStateChanged;
 
-    internal void SetStartState(int value)
+    private void Awake()
     {
-        bool isOn = value == 0 ? false : true;
-        if (!isOn)
+        ChangeState();
+    }
+
+    internal void SetStartState(bool value)
+    {
+        if (currentState == value)
         {
             return;
         }

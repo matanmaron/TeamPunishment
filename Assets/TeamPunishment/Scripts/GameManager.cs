@@ -14,6 +14,9 @@ namespace TeamPunishment
         public bool isDemoMode = false;
         public bool isDemoRunning = false;
         DateTime lastClick = DateTime.Now;
+        public bool IsMuteMusic;
+        public bool IsMuteVoice;
+        public bool IsMuteLogs;
 #if UNITY_EDITOR
         double MINUETS_TO_SHOW_DEMO = 0.2;
 #else
@@ -21,10 +24,6 @@ namespace TeamPunishment
 #endif
 
         public static GameManager instance;
-        public bool LogRecords = true;
-
-        const string ON = "on";
-        const string OFF = "off";
 
         void Awake()
         {
@@ -48,8 +47,6 @@ namespace TeamPunishment
             isAndroid = true; //NEVER CHANGE!
 #endif
             Cursor.SetCursor(crosshair, Vector2.zero, CursorMode.Auto);
-            if (PlayerPrefs.GetInt("logRecords", 1) == 0)
-                LogRecords = false;
         }
 
         private void Update()
@@ -83,14 +80,17 @@ namespace TeamPunishment
             Scenes.LoadMenu();
         }
 
-        public void MuteLogRecords(bool isOn)
+        public void MuteLogRecords(bool state)
         {
-            Debug.Log($"log mute is {(isOn ? OFF : ON)}");
-            LogRecords = !isOn;
+            IsMuteLogs = !state;
         }
 
         public void SendAnalyticsEvent(string eName, string pKey, object pValue)
         {
+            if (IsMuteLogs)
+            {
+                return;
+            }
             AnalyticsResult res = Analytics.CustomEvent(eName, 
                 new Dictionary<string, object>
                 {
@@ -101,6 +101,10 @@ namespace TeamPunishment
 
         public void SendAnalyticsEvent(string eName)
         {
+            if (IsMuteLogs)
+            {
+                return;
+            }
             AnalyticsResult res = Analytics.CustomEvent(eName);
             Debug.Log($"[SendAnalyticsEvent] - {res} ({eName})");
         }
