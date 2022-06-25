@@ -31,6 +31,11 @@ namespace TeamPunishment
                 Scenes.LoadStandartGame();
                 return;
             }
+            if (GameManager.instance.isAndroid)
+            {
+                Camera.main.GetComponent<FlareLayer>().enabled = false;
+                Camera.main.GetComponent<RetroTVFX.CRTEffect>().enabled = false;
+            }
             btnStart.onClick.AddListener(OnMenuStart);
             btnOption.onClick.AddListener(OnMenuOption);
             btnCredits.onClick.AddListener(OnMenuCredits);
