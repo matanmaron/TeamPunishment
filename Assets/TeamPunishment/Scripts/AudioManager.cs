@@ -24,7 +24,6 @@ namespace TeamPunishment
         {
             if (GameManager.instance.IsMuteVoice)
             {
-                SFX1.mute = true;
                 SFX2.mute = true;
             }
             if (GameManager.instance.IsMuteMusic)
@@ -73,7 +72,6 @@ namespace TeamPunishment
 
         public void MuteVoiceOver(bool state)
         {
-            SFX1.mute = !state;
             SFX2.mute = !state;
         }
 
