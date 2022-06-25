@@ -48,12 +48,14 @@ namespace TeamPunishment
 
         private void OnButton()
         {
+            AudioManager.instance.StopVoiceOver();
             if (texts.Count == 1)
                 return;
 
             index++;
             if (index > texts.Count - 1)
             {
+                voiceOvers = new List<AudioClip>();
                 index = 0;
             }
             textElement.text = texts[index];
