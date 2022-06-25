@@ -28,5 +28,10 @@ namespace TeamPunishment
         {
             SceneManager.LoadScene(4);
         }
+
+        public static void LoadDemo()
+        {
+            SceneManager.LoadScene(5);
+        }
     }
 }

@@ -41,7 +41,7 @@ namespace TeamPunishment
         void Start()
         {
 #if UNITY_EDITOR
-            isAndroid = true;
+            isAndroid = false;
 #endif
 #if UNITY_IOS || UNITY_ANDROID
             isAndroid = true; //NEVER CHANGE!
@@ -66,18 +66,17 @@ namespace TeamPunishment
                     if (DateTime.Now > lastClick.AddMinutes(MINUETS_TO_SHOW_DEMO))
                     {
                         Debug.Log("DEMO START");
+                        Scenes.LoadDemo();
                         isDemoRunning = true;
-                        VideoManager.instance.PlayDemo(StopDemo);
                     }
                 }
             }
         }
 
-        internal void StopDemo()
+        public void StopDemo()
         {
             isDemoRunning = false;
             lastClick = DateTime.Now;
-            Scenes.LoadMenu();
         }
 
         public void MuteLogRecords(bool state)

@@ -21,7 +21,6 @@ namespace TeamPunishment
         [SerializeField] GameObject creditsPanel;
         [SerializeField] Image qrCodeImage;
 
-        int demoCounter = 0;
         int imgTry = 0;
         const string URL = @"https://drive.google.com/uc?export=download&id=18ftMMDTJjuZI4K8E3mmd55yXqCx7sV_-";
 
@@ -41,7 +40,11 @@ namespace TeamPunishment
             AudioManager.instance.PlayMusic();
             var path = Path.Combine(Application.streamingAssetsPath, "demo");
             Debug.Log(path);
+#if UNITY_EDITOR
+            if (true)
+#else
             if (Directory.Exists(path) || GameManager.instance.isDemoMode)
+#endif
             {
                 Debug.Log("demo detected");
                 ShowDemoMenu();
@@ -93,20 +96,6 @@ namespace TeamPunishment
             btnBackOption.onClick.RemoveAllListeners();
             btnBackCredits.onClick.RemoveAllListeners();
             btnCredits.onClick.RemoveAllListeners();
-        }
-
-        public void OnStarDemo()
-        {
-#if UNITY_IOS || UNITY_ANDROID
-            return;
-#endif
-            if (!GameManager.instance.isDemoMode && demoCounter >= 3)
-            {
-                Application.OpenURL("https://jump.chat/");
-                ShowDemoMenu();
-                Debug.Log("DEMO ON");
-            }
-            demoCounter++;
         }
 
         private void ShowDemoMenu()
