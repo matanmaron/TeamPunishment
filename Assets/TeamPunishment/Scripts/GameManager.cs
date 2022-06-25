@@ -53,6 +53,11 @@ namespace TeamPunishment
         {
             if (Input.GetKeyUp(KeyCode.Escape))
             {
+                var chat = FindObjectOfType<ChatUI>();
+                if (chat != null)
+                {
+                    chat.Disconnect();
+                }
                 Scenes.LoadMenu();
             }
             if (isDemoMode)
