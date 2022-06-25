@@ -18,7 +18,10 @@ namespace TeamPunishment
         void Awake()
         {
             instance = this;
+            Music.Play();
+            Music.Pause();
         }
+
 
         private void Start()
         {
@@ -28,8 +31,7 @@ namespace TeamPunishment
             }
             if (GameManager.instance.IsMuteMusic)
                 Music.mute = true;
-            Music.Play();
-            Music.Pause();
+
         }
 
         public void PlayMusic()
