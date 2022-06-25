@@ -68,7 +68,7 @@ namespace TeamPunishment
         bool canActivateTimer = false;
         Coroutine TimerCoroutine = null;
 #if UNITY_EDITOR
-        const int MAX_PLAYERS = 4;
+        const int MAX_PLAYERS = 2;
 #else
         const int MAX_PLAYERS = 4; //NEVER CHANGE!
 #endif
@@ -321,6 +321,7 @@ namespace TeamPunishment
             ButtonHolder.gameObject.SetActive(false);
             gameState = GameState.End;
             GameManager.instance.SendAnalyticsEvent($"game-end");
+            waitCallback = Quit;
             VideoManager.instance.PlayEnd(()=>CmdSend("@@@WAIT"));
         }
 
@@ -353,7 +354,6 @@ namespace TeamPunishment
                     EndDilema2();
                     break;
                 case GameState.End:
-                    Quit();
                     break;
                 default:
                     Debug.LogError($"[OnScoresClick] -{gameState}- How did you get here??");
