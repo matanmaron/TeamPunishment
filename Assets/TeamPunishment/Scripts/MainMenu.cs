@@ -1,4 +1,5 @@
 using System.Collections;
+using System.IO;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
@@ -38,8 +39,11 @@ namespace TeamPunishment
             btnBackOption.onClick.AddListener(OnBack);
             btnBackCredits.onClick.AddListener(OnBack);
             AudioManager.instance.PlayMusic();
-            if (GameManager.instance.isDemoMode)
+            var path = Path.Combine(Application.streamingAssetsPath, "demo");
+            Debug.Log(path);
+            if (Directory.Exists(path) || GameManager.instance.isDemoMode)
             {
+                Debug.Log("demo detected");
                 ShowDemoMenu();
             }
         }

@@ -6,6 +6,10 @@ namespace TeamPunishment
     {
         public static void LoadMenu()
         {
+            if (SceneManager.GetActiveScene().buildIndex == 0)
+            {
+                return;
+            }
             SceneManager.LoadScene(0);
         }
         public static void LoadStandartGame()
