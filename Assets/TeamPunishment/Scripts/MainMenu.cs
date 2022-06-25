@@ -93,6 +93,9 @@ namespace TeamPunishment
 
         public void OnStarDemo()
         {
+#if UNITY_IOS || UNITY_ANDROID
+            return;
+#endif
             if (!GameManager.instance.isDemoMode && demoCounter >= 3)
             {
                 Application.OpenURL("https://jump.chat/");
