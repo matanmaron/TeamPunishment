@@ -117,7 +117,13 @@ namespace TeamPunishment
         public void Quit()
         {
             Debug.Log("[Quit]");
+            StartCoroutine(MoveScene());
+        }
+
+        IEnumerator MoveScene()
+        {
             Disconnect();
+            yield return new WaitForSeconds(0.2f);
             Scenes.LoadMenu();
         }
 
@@ -315,7 +321,7 @@ namespace TeamPunishment
             ButtonHolder.gameObject.SetActive(false);
             gameState = GameState.End;
             GameManager.instance.SendAnalyticsEvent($"game-end");
-            VideoManager.instance.PlayEnd(Quit);
+            VideoManager.instance.PlayEnd(()=>CmdSend("@@@WAIT"));
         }
 
         public void OnScoresClick()
@@ -347,6 +353,8 @@ namespace TeamPunishment
                     EndDilema2();
                     break;
                 case GameState.End:
+                    Quit();
+                    break;
                 default:
                     Debug.LogError($"[OnScoresClick] -{gameState}- How did you get here??");
                     break;
@@ -686,7 +694,6 @@ namespace TeamPunishment
 
         private void OnWaitCMD()
         {
-
             needToWait++;
             int ps = GameObject.FindGameObjectsWithTag(PLAYER_TAG).Length;
             Loader.SetActive(true);
