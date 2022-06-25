@@ -30,6 +30,7 @@ namespace TeamPunishment
                 player.ShowEnd();
                 Destroy(gameObject);
             }
+            AudioManager.instance.PlayStarsExsplosion();
         }
     }
 }

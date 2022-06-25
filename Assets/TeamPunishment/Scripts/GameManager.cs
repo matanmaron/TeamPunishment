@@ -41,7 +41,7 @@ namespace TeamPunishment
         void Start()
         {
 #if UNITY_EDITOR
-            isAndroid = false;
+            isAndroid = true;
 #endif
 #if UNITY_IOS || UNITY_ANDROID
             isAndroid = true; //NEVER CHANGE!
