@@ -1,5 +1,6 @@
 using Mirror;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace TeamPunishment
 {
@@ -19,7 +20,7 @@ namespace TeamPunishment
 
         void OnPlayerNameChanged(string _, string newName)
         {
-            ChatUI.instance.localPlayerName = playerName;
+            //ChatUI.instance.localPlayerName = playerName;
         }
 
         public override void OnStartServer()

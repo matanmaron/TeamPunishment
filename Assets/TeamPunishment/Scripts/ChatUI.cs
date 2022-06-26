@@ -61,7 +61,7 @@ namespace TeamPunishment
         List<Player> allPlayers = new List<Player>();
         List<Stars> dilemaResults = new List<Stars>();
         public static ChatUI instance;
-        [SyncVar] private bool gamestarted = false;
+        [SyncVar] private bool gamestarted;
         private bool chatWindowHidden = true;
         const string ADMIN = "admin";
         const string PLAYER_TAG = "Player";
@@ -81,6 +81,8 @@ namespace TeamPunishment
         private void Start()
         {
             Debug.Log("[Start]");
+            localPlayerName = FindObjectsOfType<Player>().Where(x => x.isLocalPlayer).FirstOrDefault().playerName;
+            Debug.Log("my name is " + localPlayerName);
             if (localPlayerName == ADMIN)
             {
                 Debug.Log("[ADMIN JOINED]");
@@ -125,8 +127,9 @@ namespace TeamPunishment
             if (GameObject.FindGameObjectsWithTag(PLAYER_TAG).Length == 1)
             {
                 gameState = GameState.None;
-                gamestarted = false;
+                StopGameServer();
             }
+            gameObject.SetActive(true);
             StartCoroutine(MoveScene());
         }
 
@@ -250,6 +253,7 @@ namespace TeamPunishment
 
         private IEnumerator CheckIfSelectionEndedNOKICK()
         {
+            Debug.Log("CheckIfSelectionEndedNOKICK");
             int ps = GameObject.FindGameObjectsWithTag(PLAYER_TAG).Length;
             if (dilemaResults.Count == ps)
             {
@@ -274,6 +278,7 @@ namespace TeamPunishment
 
         private void CheckIfSelectionEnded()
         {
+            Debug.Log("CheckIfSelectionEnded");
             int ps = GameObject.FindGameObjectsWithTag(PLAYER_TAG).Length;
             if (dilemaResults.Count == ps)
             {
@@ -328,11 +333,11 @@ namespace TeamPunishment
 
         private void EndDilema2()
         {
+            Debug.Log("EndDilema2");
             ButtonHolder.gameObject.SetActive(false);
             gameState = GameState.End;
             GameManager.instance.SendAnalyticsEvent($"game-end");
-            waitCallback = Quit;
-            VideoManager.instance.PlayEnd(()=>CmdSend("@@@WAIT"));
+            VideoManager.instance.PlayEnd(Quit);
         }
 
         public void OnScoresClick()
@@ -345,6 +350,7 @@ namespace TeamPunishment
 
         private void AfterScores()
         {
+            Debug.Log("AfterScores");
             if (starToKick.ToString() == localStarName)
             {
                 Debug.Log("sorry, youre out !");
@@ -373,6 +379,7 @@ namespace TeamPunishment
 
         IEnumerator ShowScores(Dictionary<Stars, float> votes, Stars winner)
         {
+            Debug.Log("ShowScores");
             yield return new WaitForSeconds(5);
             dilemaResults = new List<Stars>();
             ButtonHolder.gameObject.SetActive(false);
@@ -383,6 +390,7 @@ namespace TeamPunishment
 
         private void EndDilema1()
         {
+            Debug.Log("EndDilema1");
             if (starToKick == Stars.None)
             {
                 MoveToDilema2a();
@@ -398,6 +406,7 @@ namespace TeamPunishment
         /// </summary>
         private void MoveToDilema2a()
         {
+            Debug.Log("MoveToDilema2a");
             SetupSecondDilemaNoKicked();
         }
 
@@ -406,6 +415,7 @@ namespace TeamPunishment
         /// </summary>
         private void MoveToDilema2b()
         {
+            Debug.Log("MoveToDilema2b");
             SetupSecondDilemaKicked();
         }
 
@@ -428,6 +438,11 @@ namespace TeamPunishment
             if (msg == "@@@LOGIN")
             {
                 Debug.Log($"{playerName} ha joined !");
+                if (gamestarted || gameState != GameState.None)
+                {
+                    CmdSend("@@@DIS" + playerName);
+                    return true;
+                }
                 int players = GameObject.FindGameObjectsWithTag(PLAYER_TAG).Length;
                 Loader.SetActive(true);
                 WaitingText.text = $"Waiting For {MAX_PLAYERS - players} More Player...!";
@@ -470,6 +485,15 @@ namespace TeamPunishment
             {
                 OnWaitCMD();
                 return true;
+            }
+            if (msg.StartsWith("@@@DIS"))
+            {
+                msg = msg.Remove(0, 6);
+                if (localPlayerName == msg)
+                {
+                    Debug.LogWarning("[Start] - game in progress");
+                    Quit();
+                }
             }
             return false;
         }
@@ -529,15 +553,26 @@ namespace TeamPunishment
             OnPlayerStarClick(0);
         }
 
+        [Command]
+        private void StartGameServer()
+        {
+            gamestarted = true;
+        }
+
+        [Command]
+        private void StopGameServer()
+        {
+            gamestarted = false;
+        }
+
         private void StartGame()
         {
             Debug.Log("[StartGame]");
             AudioManager.instance.PlayMusic();
             gameState = GameState.Dilema_A;
-            localPlayerName = LoginUI.localPlayerName;
             WaitingText.text = string.Empty;
             Loader.SetActive(false);
-            gamestarted = true;
+            StartGameServer();
             int index = 1;
             foreach (GameObject player in GameObject.FindGameObjectsWithTag(PLAYER_TAG).OrderBy(x => x.name))
             {
@@ -552,6 +587,7 @@ namespace TeamPunishment
 
         private void SetupSecondDilemaKicked()
         {
+            Debug.Log("SetupSecondDilemaKicked");
             canActivateTimer = true;
             gameState = GameState.Dilema_Kicked;
             Stars _starToKick = starToKick;
@@ -569,6 +605,7 @@ namespace TeamPunishment
 
         private void SetupSecondDilemaNoKicked()
         {
+            Debug.Log("SetupSecondDilemaNoKicked");
             canActivateTimer = true;
             gameState = GameState.Dilema_NoKicked;
             InitDilemaNOKICK();
@@ -584,6 +621,7 @@ namespace TeamPunishment
 
         private void SetupFirstDilema()
         {
+            Debug.Log("SetupFirstDilema");
             canActivateTimer = true;
             gameState = GameState.Dilema_A;
             InitDilema();
@@ -596,11 +634,11 @@ namespace TeamPunishment
             textboxElement.texts.Add(@"Eliminating one of the planets will be sufficient for surviving this trial, however all of the planet’s resources will be forever lost and the ability to face the additional trials....");
             textboxElement.texts.Add(@"What will you choose to do ? <size=55>If you choose to dismiss one of the planets please click on it until it will explode, if you wish to stay together and fight press Enter</size>");
             textboxElement.voiceOvers = VoiceDilema1;
-            textboxElement.Init();
         }
 
         private void InitDilema()
         {
+            Debug.Log("InitDilema");
             StarArtem.gameObject.SetActive(true);
             StarCibus.gameObject.SetActive(true);
             StarFerrum.gameObject.SetActive(true);
@@ -612,7 +650,8 @@ namespace TeamPunishment
         }
     
         private void InitDilemaNOKICK()
-        { 
+        {
+            Debug.Log("InitDilemaNOKICK");
             StarArtem.gameObject.SetActive(true);
             StarCibus.gameObject.SetActive(true);
             StarFerrum.gameObject.SetActive(true);
@@ -642,12 +681,14 @@ namespace TeamPunishment
 
         public void HurtPlanet(Stars planetToHurt)
         {
+            Debug.Log("HurtPlanet");
             var star = GetStar((int)planetToHurt);
             star.GetComponent<OnStarClick>().TakeDown(true);
         }
 
         private int GetMaxResidents()
         {
+            Debug.Log("GetMaxResidents");
             Enum.TryParse(localStarName, out Stars localStar);
             switch (localStar)
             {
@@ -669,11 +710,13 @@ namespace TeamPunishment
 
         private void PlayIntro()
         {
+            Debug.Log("PlayIntro");
             VideoManager.instance.PlayIntro(OnIntroEnd);
         }
 
         private void OnIntroEnd()
         {
+            Debug.Log("OnIntroEnd");
             Enum.TryParse(localStarName, out Stars myStar);
             switch (myStar)
             {
@@ -697,13 +740,19 @@ namespace TeamPunishment
 
         private void OnStarVideoEnd()
         {
-            waitCallback = () => ButtonHolder.gameObject.SetActive(true);
+            Debug.Log("OnStarVideoEnd");
+            waitCallback = () =>
+            {
+                ButtonHolder.gameObject.SetActive(true);
+                textboxElement.Init();
+            };
             CmdSend("@@@WAIT");
             SetupFirstDilema();
         }
 
         private void OnWaitCMD()
         {
+            Debug.Log("OnWaitCMD");
             needToWait++;
             int ps = GameObject.FindGameObjectsWithTag(PLAYER_TAG).Length;
             Loader.SetActive(true);
