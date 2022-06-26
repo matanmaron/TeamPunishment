@@ -61,7 +61,7 @@ namespace TeamPunishment
         List<Player> allPlayers = new List<Player>();
         List<Stars> dilemaResults = new List<Stars>();
         public static ChatUI instance;
-        private bool gamestarted = false;
+        [SyncVar] private bool gamestarted = false;
         private bool chatWindowHidden = true;
         const string ADMIN = "admin";
         const string PLAYER_TAG = "Player";
@@ -87,10 +87,15 @@ namespace TeamPunishment
                 CmdSend("@@@ADMIN");
                 return;
             }
-            gamestarted = false;
+            if (gamestarted)
+            {
+                Debug.LogWarning("[Start] - game in progress");
+                Quit();
+                return;
+            }
             if (GameObject.FindGameObjectsWithTag("Player").Length > MAX_PLAYERS)
             {
-                Debug.LogWarning("[HandleCommandMsg] - over 4 players. bye bye!");
+                Debug.LogWarning("[Start] - over 4 players. bye bye!");
                 Quit();
                 return;
             }
