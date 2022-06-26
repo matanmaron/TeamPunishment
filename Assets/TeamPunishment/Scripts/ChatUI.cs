@@ -34,7 +34,7 @@ namespace TeamPunishment
         public ScoresPanel ScoresPanel;
         public Text TimerText;
         Stars starToKick = Stars.None;
-        private GameState _gameState;
+        [SyncVar] private GameState _gameState;
         public GameState gameState
         {
             get { return _gameState; }
@@ -87,7 +87,7 @@ namespace TeamPunishment
                 CmdSend("@@@ADMIN");
                 return;
             }
-            if (gamestarted)
+            if (gamestarted || gameState != GameState.None)
             {
                 Debug.LogWarning("[Start] - game in progress");
                 Quit();
@@ -122,6 +122,11 @@ namespace TeamPunishment
         public void Quit()
         {
             Debug.Log("[Quit]");
+            if (GameObject.FindGameObjectsWithTag(PLAYER_TAG).Length == 1)
+            {
+                gameState = GameState.None;
+                gamestarted = false;
+            }
             StartCoroutine(MoveScene());
         }
 
