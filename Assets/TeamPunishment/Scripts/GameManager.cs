@@ -35,17 +35,18 @@ namespace TeamPunishment
             {
                 instance = this;
             }
-            DontDestroyOnLoad(gameObject);
-        }
-
-        void Start()
-        {
 #if UNITY_EDITOR
             isAndroid = false;
 #endif
 #if UNITY_IOS || UNITY_ANDROID
             isAndroid = true; //NEVER CHANGE!
 #endif
+            DontDestroyOnLoad(gameObject);
+        }
+
+        void Start()
+        {
+
             Cursor.SetCursor(crosshair, Vector2.zero, CursorMode.Auto);
         }
 
