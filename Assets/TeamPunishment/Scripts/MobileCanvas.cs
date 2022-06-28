@@ -16,6 +16,7 @@ namespace TeamPunishment
         public Text TextStarNone;
 
         public GameObject KickUIPanel;
+        public GameObject Black;
 
         void Start()
         {
@@ -68,7 +69,7 @@ namespace TeamPunishment
 
         private void OnNegotiate()
         {
-            KickUIPanel.SetActive(false);
+            Black.SetActive(true);
             GameManager.instance.SendAnalyticsEvent("mobile-negotiate");
             VideoManager.instance.PlayEnd(() => Scenes.LoadMenu());
         }

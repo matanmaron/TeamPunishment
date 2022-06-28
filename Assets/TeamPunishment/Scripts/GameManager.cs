@@ -36,7 +36,7 @@ namespace TeamPunishment
                 instance = this;
             }
 #if UNITY_EDITOR
-            isAndroid = false;
+            isAndroid = true;
 #endif
 #if UNITY_IOS || UNITY_ANDROID
             isAndroid = true; //NEVER CHANGE!
