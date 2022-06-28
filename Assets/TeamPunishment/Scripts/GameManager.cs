@@ -46,7 +46,6 @@ namespace TeamPunishment
 
         void Start()
         {
-
             Cursor.SetCursor(crosshair, Vector2.zero, CursorMode.Auto);
         }
 
@@ -54,6 +53,10 @@ namespace TeamPunishment
         {
             if (Input.GetKeyUp(KeyCode.Escape))
             {
+                if (VideoManager.instance != null && VideoManager.instance.IsVideoPlaying())
+                {
+                    return;
+                }
                 var chat = FindObjectOfType<ChatUI>();
                 if (chat != null)
                 {

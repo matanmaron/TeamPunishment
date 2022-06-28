@@ -121,5 +121,10 @@ namespace TeamPunishment
             videoName = "end";
             PlayVideo(onEndVideoEnd, End);
         }
+
+        public bool IsVideoPlaying()
+        {
+            return currentVideo != null;
+        }
     }
 }

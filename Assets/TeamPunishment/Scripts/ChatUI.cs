@@ -81,7 +81,7 @@ namespace TeamPunishment
         private void Start()
         {
             Debug.Log("[Start]");
-            localPlayerName = FindObjectsOfType<Player>().Where(x => x.isLocalPlayer).FirstOrDefault().playerName;
+            localPlayerName = FindObjectsOfType<Player>().Where(x => x.isLocalPlayer).FirstOrDefault()?.playerName;
             Debug.Log("my name is " + localPlayerName);
             if (localPlayerName == ADMIN)
             {
