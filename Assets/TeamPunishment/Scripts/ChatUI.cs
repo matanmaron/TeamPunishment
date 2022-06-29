@@ -397,7 +397,16 @@ namespace TeamPunishment
             }
             else
             {
-                MoveToDilema2b();
+                VideoManager.instance.PlayTransition(() =>
+                {
+                    ButtonHolder.gameObject.SetActive(false);
+                    waitCallback = () =>
+                    {
+                        MoveToDilema2b();
+                        ButtonHolder.gameObject.SetActive(true);
+                    };
+                    CmdSend("@@@WAIT");
+                });
             }
         }
 

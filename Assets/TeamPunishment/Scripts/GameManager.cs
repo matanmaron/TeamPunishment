@@ -18,7 +18,7 @@ namespace TeamPunishment
         public bool IsMuteVoice;
         public bool IsMuteLogs;
 #if UNITY_EDITOR
-        double MINUETS_TO_SHOW_DEMO = 3;
+        double MINUETS_TO_SHOW_DEMO = 1;
 #else
         double MINUETS_TO_SHOW_DEMO = 3;
 #endif
@@ -36,7 +36,7 @@ namespace TeamPunishment
                 instance = this;
             }
 #if UNITY_EDITOR
-            isAndroid = true;
+            isAndroid = false;
 #endif
 #if UNITY_IOS || UNITY_ANDROID
             isAndroid = true; //NEVER CHANGE!

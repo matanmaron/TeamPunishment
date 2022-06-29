@@ -16,6 +16,7 @@ namespace TeamPunishment
         [SerializeField] VideoClip Ordo;
         [SerializeField] VideoClip Artem;
         [SerializeField] VideoClip End;
+        [SerializeField] VideoClip Transition;
         [SerializeField] GameObject chatCanvas;
 
         public static VideoManager instance;
@@ -120,6 +121,13 @@ namespace TeamPunishment
             Debug.Log($"[PlayEnd]");
             videoName = "end";
             PlayVideo(onEndVideoEnd, End);
+        }
+
+        public void PlayTransition(Action onPlayTransitionEnd)
+        {
+            Debug.Log($"[PlayTransition]");
+            videoName = "transition";
+            PlayVideo(onPlayTransitionEnd, Transition);
         }
 
         public bool IsVideoPlaying()

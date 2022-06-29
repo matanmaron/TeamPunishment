@@ -119,6 +119,6 @@ MonoBehaviour:
   Cibus: {fileID: 32900000, guid: 958cbb6c8cf2df142834121b5b2f6d1f, type: 3}
   Ordo: {fileID: 32900000, guid: 94cd683032aeb404cb6d597ab324b449, type: 3}
   Artem: {fileID: 32900000, guid: a8cb29cfc0543af44b5edd377d545bc1, type: 3}
-  Demo: {fileID: 32900000, guid: b81b62276375b924792e22a07e991441, type: 3}
   End: {fileID: 32900000, guid: b81b62276375b924792e22a07e991441, type: 3}
+  Transition: {fileID: 32900000, guid: f9d8ec0a8fdd7bc42b26fabe2c282d44, type: 3}
   chatCanvas: {fileID: 0}
