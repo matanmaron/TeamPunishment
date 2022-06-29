@@ -18,9 +18,9 @@ namespace TeamPunishment
         public bool IsMuteVoice;
         public bool IsMuteLogs;
 #if UNITY_EDITOR
-        double MINUETS_TO_SHOW_DEMO = 1;
+        double MINUETS_TO_SHOW_DEMO = 10;
 #else
-        double MINUETS_TO_SHOW_DEMO = 3;
+        double MINUETS_TO_SHOW_DEMO = 10;
 #endif
 
         public static GameManager instance;
