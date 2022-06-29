@@ -83,7 +83,7 @@ namespace TeamPunishment
         {
             yield return new WaitForSeconds(3);
             GetComponent<SpriteRenderer>().enabled = false;
-            VideoManager.instance.PlayEnd(() => Scenes.LoadMenu());
+            Scenes.LoadAttack();
         }
     }
 }

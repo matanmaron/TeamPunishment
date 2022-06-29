@@ -71,7 +71,7 @@ namespace TeamPunishment
         {
             Black.SetActive(true);
             GameManager.instance.SendAnalyticsEvent("mobile-negotiate");
-            VideoManager.instance.PlayEnd(() => Scenes.LoadMenu());
+            Scenes.LoadNegotiate();
         }
 
         private void OnDestroy()

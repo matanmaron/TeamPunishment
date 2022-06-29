@@ -33,5 +33,15 @@ namespace TeamPunishment
         {
             SceneManager.LoadScene(5);
         }
+
+        public static void LoadNegotiate()
+        {
+            SceneManager.LoadScene(6);
+        }
+
+        public static void LoadAttack()
+        {
+            SceneManager.LoadScene(7);
+        }
     }
 }
