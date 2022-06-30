@@ -17,6 +17,7 @@ namespace TeamPunishment
         public bool IsMuteMusic;
         public bool IsMuteVoice;
         public bool IsMuteLogs;
+        public bool CanEsc = true;
 #if UNITY_EDITOR
         double MINUETS_TO_SHOW_DEMO = 10;
 #else
@@ -51,12 +52,9 @@ namespace TeamPunishment
 
         private void Update()
         {
-            if (Input.GetKeyUp(KeyCode.Escape))
+            if (Input.GetKeyUp(KeyCode.Escape) && CanEsc)
             {
-                if (VideoManager.instance != null && VideoManager.instance.IsVideoPlaying())
-                {
-                    return;
-                }
+                SendAnalyticsEvent($"quit");
                 var chat = FindObjectOfType<ChatUI>();
                 if (chat != null)
                 {

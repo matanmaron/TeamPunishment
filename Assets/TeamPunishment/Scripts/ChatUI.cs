@@ -108,17 +108,9 @@ namespace TeamPunishment
 
         IEnumerator Login(float time)
         {
+            GameManager.instance.CanEsc = false;
             yield return new WaitForSeconds(time);
             CmdSend("@@@LOGIN");
-        }
-
-        private void Update()
-        {
-            if (Input.GetKeyUp(KeyCode.Escape))
-            {
-                GameManager.instance.SendAnalyticsEvent($"quit");
-                Quit();
-            }
         }
 
         public void Quit()
@@ -577,6 +569,7 @@ namespace TeamPunishment
         private void StartGame()
         {
             Debug.Log("[StartGame]");
+            GameManager.instance.CanEsc = true;
             AudioManager.instance.PlayMusic();
             gameState = GameState.Dilema_A;
             WaitingText.text = string.Empty;
@@ -761,6 +754,7 @@ namespace TeamPunishment
 
         private void OnWaitCMD()
         {
+            GameManager.instance.CanEsc = false;
             Debug.Log("OnWaitCMD");
             needToWait++;
             int ps = GameObject.FindGameObjectsWithTag(PLAYER_TAG).Length;
@@ -771,6 +765,7 @@ namespace TeamPunishment
                 waitCallback?.Invoke();
                 waitCallback = null;
                 needToWait = 0;
+                GameManager.instance.CanEsc = true;
             }
         }
 
