@@ -43,11 +43,12 @@ namespace TeamPunishment
 #if UNITY_IOS || UNITY_ANDROID
             isAndroid = true; //NEVER CHANGE!
 #endif
-            DontDestroyOnLoad(gameObject);
+            CheckDemoMode();
         }
 
-        void Start()
+        private void CheckDemoMode()
         {
+            DontDestroyOnLoad(gameObject);
             var path = Path.Combine(Application.streamingAssetsPath, "demo");
             Debug.Log(path);
             if (Directory.Exists(path))
@@ -57,6 +58,10 @@ namespace TeamPunishment
 #if UNITY_EDITOR
             isDemoMode = true;
 #endif
+        }
+
+        void Start()
+        {
             Cursor.SetCursor(crosshair, Vector2.zero, CursorMode.Auto);
         }
 

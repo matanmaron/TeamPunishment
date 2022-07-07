@@ -98,7 +98,6 @@ namespace TeamPunishment
 
         private void ShowDemoMenu()
         {
-            GameManager.instance.isDemoMode = true;
             btnExit.gameObject.SetActive(false);
         }
     }
