@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -69,7 +70,14 @@ namespace TeamPunishment
 
         public void StopVoiceOver()
         {
-            SFX2?.Stop();
+            try
+            {
+                SFX2?.Stop();
+            }
+            catch(Exception ex)
+            {
+
+            }
         }
 
         public void MuteVoiceOver(bool state)

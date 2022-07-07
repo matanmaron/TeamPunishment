@@ -119,6 +119,12 @@ namespace TeamPunishment
             AnalyticsResult res = Analytics.CustomEvent(eName);
             Debug.Log($"[SendAnalyticsEvent] - {res} ({eName})");
         }
+
+        public void RemoveCRTEffect()
+        {
+            Camera.main.GetComponent<FlareLayer>().enabled = false;
+            Camera.main.GetComponent<RetroTVFX.CRTEffect>().enabled = false;
+        }
     }
 
 }

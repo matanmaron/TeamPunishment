@@ -11,6 +11,10 @@ namespace TeamPunishment
 
         void Start()
         {
+            if (GameManager.instance.isAndroid)
+            {
+                GameManager.instance.RemoveCRTEffect();
+            }
             if (Random.Range(0, 2) == 0)
             {
                 endText.text = @"Both of you have chosen peace and decided to negotiate. 

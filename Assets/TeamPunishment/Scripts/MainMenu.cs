@@ -10,7 +10,8 @@ namespace TeamPunishment
 {
     public class MainMenu : MonoBehaviour
     {
-        [SerializeField] Button btnStart;
+        [SerializeField] Button btnStart1;
+        [SerializeField] Button btnStart4;
         [SerializeField] Button btnOption;
         [SerializeField] Button btnCredits;
         [SerializeField] Button btnExit;
@@ -35,8 +36,10 @@ namespace TeamPunishment
             {
                 Camera.main.GetComponent<FlareLayer>().enabled = false;
                 Camera.main.GetComponent<RetroTVFX.CRTEffect>().enabled = false;
+                btnStart4.gameObject.SetActive(false);
             }
-            btnStart.onClick.AddListener(OnMenuStart);
+            btnStart1.onClick.AddListener(OnMenu1Player);
+            btnStart4.onClick.AddListener(OnMenu4Player);
             btnOption.onClick.AddListener(OnMenuOption);
             btnCredits.onClick.AddListener(OnMenuCredits);
             btnExit.onClick.AddListener(OnMenuExit);
@@ -80,22 +83,22 @@ namespace TeamPunishment
             optionPanel.SetActive(true);
         }
 
-        private void OnMenuStart()
+        private void OnMenu1Player()
         {
-            if (GameManager.instance.isAndroid)
-            {
-                Scenes.LoadMobileInfo();
-            }
-            else
-            {
-                GameManager.instance.SendAnalyticsEvent("start");
-                Scenes.LoadStandartGame();
-            }
+            GameManager.instance.SendAnalyticsEvent("start1");
+            Scenes.LoadMobileInfo();
+        }
+
+        private void OnMenu4Player()
+        {
+            GameManager.instance.SendAnalyticsEvent("start4");
+            Scenes.LoadStandartGame();
         }
 
         private void OnDestroy()
         {
-            btnStart.onClick.RemoveAllListeners();
+            btnStart1.onClick.RemoveAllListeners();
+            btnStart4.onClick.RemoveAllListeners();
             btnOption.onClick.RemoveAllListeners();
             btnExit.onClick.RemoveAllListeners();
             btnBackOption.onClick.RemoveAllListeners();

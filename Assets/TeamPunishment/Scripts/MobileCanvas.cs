@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace TeamPunishment
@@ -20,6 +18,10 @@ namespace TeamPunishment
 
         void Start()
         {
+            if (GameManager.instance.isAndroid)
+            {
+                GameManager.instance.RemoveCRTEffect();
+            }
             localStarName = Stars.Ordo.ToString();
             VideoManager.instance.PlayIntro(OnIntroEnd);
             
