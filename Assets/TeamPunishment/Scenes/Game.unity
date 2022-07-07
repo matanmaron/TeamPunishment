@@ -4869,11 +4869,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9162488267718081432, guid: a5b7cd79555cbaa4da8352691318257a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 286.5081
+      value: 286.50806
       objectReference: {fileID: 0}
     - target: {fileID: 9162488267718081432, guid: a5b7cd79555cbaa4da8352691318257a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 267.0081
+      value: 267.00806
       objectReference: {fileID: 0}
     - target: {fileID: 9162488267718081432, guid: a5b7cd79555cbaa4da8352691318257a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6393,7 +6393,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 385425303549721976, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
   m_PrefabInstance: {fileID: 385425305382612546}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 385425305382612547}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
@@ -7502,9 +7502,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 719573003}
     m_Modifications:
+    - target: {fileID: 385425303549721976, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 385425303549721976, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
+      propertyPath: m_Color.b
+      value: 0.76470596
+      objectReference: {fileID: 0}
+    - target: {fileID: 385425303549721976, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
+      propertyPath: m_Color.g
+      value: 0.89019614
+      objectReference: {fileID: 0}
+    - target: {fileID: 385425303549721976, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 385425303549721976, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 385425303549721976, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 385425303549721979, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 422.782
+      objectReference: {fileID: 0}
+    - target: {fileID: 385425303549721979, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 288.004
+      objectReference: {fileID: 0}
     - target: {fileID: 385425303549721979, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -164.4961
+      value: -211.391
+      objectReference: {fileID: 0}
+    - target: {fileID: 385425303549721979, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -189.043
       objectReference: {fileID: 0}
     - target: {fileID: 385425303908847406, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
       propertyPath: m_Name
@@ -7828,6 +7864,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
+--- !u!1 &385425305382612547 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 385425303549721978, guid: 47dd61c0b54f94346a949eba826d2fd0, type: 3}
+  m_PrefabInstance: {fileID: 385425305382612546}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &385425305382612548
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385425305382612547}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 964d868c5b4397f4b9719483615358e8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1030710250745811038
 PrefabInstance:
   m_ObjectHideFlags: 0
