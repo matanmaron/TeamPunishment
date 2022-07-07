@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Analytics;
+using System.IO;
 
 namespace TeamPunishment
 {
@@ -47,6 +48,15 @@ namespace TeamPunishment
 
         void Start()
         {
+            var path = Path.Combine(Application.streamingAssetsPath, "demo");
+            Debug.Log(path);
+            if (Directory.Exists(path))
+            {
+                isDemoMode = true;
+            }
+#if UNITY_EDITOR
+            isDemoMode = true;
+#endif
             Cursor.SetCursor(crosshair, Vector2.zero, CursorMode.Auto);
         }
 

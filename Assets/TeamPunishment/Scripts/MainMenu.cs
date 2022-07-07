@@ -20,10 +20,6 @@ namespace TeamPunishment
         [SerializeField] GameObject menuPanel;
         [SerializeField] GameObject optionPanel;
         [SerializeField] GameObject creditsPanel;
-        [SerializeField] Image qrCodeImage;
-
-        int imgTry = 0;
-        const string URL = @"https://drive.google.com/uc?export=download&id=18ftMMDTJjuZI4K8E3mmd55yXqCx7sV_-";
 
         private void Start()
         {
@@ -46,13 +42,7 @@ namespace TeamPunishment
             btnBackOption.onClick.AddListener(OnBack);
             btnBackCredits.onClick.AddListener(OnBack);
             AudioManager.instance.PlayMusic();
-            var path = Path.Combine(Application.streamingAssetsPath, "demo");
-            Debug.Log(path);
-#if UNITY_EDITOR
-            if (true)
-#else
-            if (Directory.Exists(path) || GameManager.instance.isDemoMode)
-#endif
+            if (GameManager.instance.isDemoMode)
             {
                 Debug.Log("demo detected");
                 ShowDemoMenu();
@@ -110,37 +100,6 @@ namespace TeamPunishment
         {
             GameManager.instance.isDemoMode = true;
             btnExit.gameObject.SetActive(false);
-            qrCodeImage.gameObject.SetActive(true);
-            StartCoroutine(GetImage(qrCodeImage));
-        }
-
-        IEnumerator GetImage(Image img)
-        {
-            Debug.Log("GetImage");
-            using (UnityWebRequest uwr = UnityWebRequestTexture.GetTexture(URL))
-            {
-                yield return uwr.SendWebRequest();
-                if (uwr.result == UnityWebRequest.Result.ConnectionError || uwr.result == UnityWebRequest.Result.ProtocolError)
-                {
-                    Debug.Log($"GetImage ERROR {imgTry}");
-                    imgTry++;
-                    if (imgTry > 3)
-                    {
-                        Debug.Log("GetImage FINAL ERROR");
-                        qrCodeImage.gameObject.SetActive(false);
-                        yield break;
-                    }
-                    StartCoroutine(GetImage(qrCodeImage));
-                }
-                else
-                {
-                    Texture2D texture = DownloadHandlerTexture.GetContent(uwr);
-                    var bytes = texture.EncodeToPNG();
-                    Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(texture.width / 2, texture.height / 2));
-                    img.overrideSprite = sprite;
-                    Debug.Log("GetImage OK");
-                }
-            }
         }
     }
 }
