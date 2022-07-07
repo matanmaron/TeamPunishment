@@ -98,6 +98,9 @@ namespace TeamPunishment
 
         public void SendAnalyticsEvent(string eName, string pKey, object pValue)
         {
+#if UNITY_EDITOR
+            return;
+#endif
             if (IsMuteLogs)
             {
                 return;
@@ -112,6 +115,9 @@ namespace TeamPunishment
 
         public void SendAnalyticsEvent(string eName)
         {
+#if UNITY_EDITOR
+            return;
+#endif
             if (IsMuteLogs)
             {
                 return;

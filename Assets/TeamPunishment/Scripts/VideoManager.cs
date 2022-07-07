@@ -57,6 +57,12 @@ namespace TeamPunishment
             Debug.Log($"[PlayVideo]");
             currentVideo = Instantiate(VideoPrefab, transform);
             currentVideo.GetComponentInChildren<Button>().onClick.AddListener(OnEnterClick);
+#if !UNITY_EDITOR
+            if (GameManager.instance.isDemoMode)
+            {
+                currentVideo.GetComponentInChildren<Button>().gameObject.SetActive(false);
+            }
+#endif
             VideoPlayer vid = currentVideo.GetComponent<VideoPlayer>();
             vid.clip = clip;
             vid.aspectRatio = VideoAspectRatio.FitInside;
