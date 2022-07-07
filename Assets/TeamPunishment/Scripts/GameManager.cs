@@ -62,7 +62,7 @@ namespace TeamPunishment
 
         private void Update()
         {
-            if (Input.GetKeyUp(KeyCode.Escape) && CanEsc)
+            if (CanEsc && Input.GetKeyUp(KeyCode.Escape))
             {
                 SendAnalyticsEvent($"quit");
                 var chat = FindObjectOfType<ChatUI>();

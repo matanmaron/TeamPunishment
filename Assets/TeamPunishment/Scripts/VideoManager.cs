@@ -44,7 +44,6 @@ namespace TeamPunishment
 
         private void PlayVideo(Action callback, VideoClip clip)
         {
-            GameManager.instance.CanEsc = false;
             StartCoroutine(PlayVideoDelayed(callback, clip));
         }
 
@@ -85,7 +84,6 @@ namespace TeamPunishment
             Destroy(currentVideo);
             currentVideo = null;
             videoName = string.Empty;
-            GameManager.instance.CanEsc = true;
             chatCanvas.SetActive(true);
             if (onVideoEndCallback.Count > 0)
             {

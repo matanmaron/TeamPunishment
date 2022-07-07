@@ -11,13 +11,5 @@ namespace TeamPunishment
                 GameManager.instance.RemoveCRTEffect();
             }
         }
-
-        void Update()
-        {
-            if (Input.GetKeyUp(KeyCode.Escape))
-            {
-                Scenes.LoadMenu();
-            }
-        }
     }
 }

@@ -28,13 +28,6 @@ namespace TeamPunishment
             debugButons.gameObject.SetActive(true);
 #endif
         }
-        private void Update()
-        {
-            if (Input.GetKeyUp(KeyCode.Escape))
-            {
-                Scenes.LoadMenu();
-            }
-        }
          
         // Called by UI element UsernameInput.OnValueChanged
         public void ToggleButtons(string username)
