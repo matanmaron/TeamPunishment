@@ -15,9 +15,10 @@ namespace TeamPunishment
         void Start()
         {
             qrCodeImage = GetComponent<Image>();
-            if (GameManager.instance.isDemoMode)
+            if (!GameManager.instance.isDemoMode)
             {
                 gameObject.SetActive(false);
+                return;
             }
             Debug.Log("qr on");
             qrCodeImage.gameObject.SetActive(true);
