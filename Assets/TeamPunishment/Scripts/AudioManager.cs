@@ -31,8 +31,11 @@ namespace TeamPunishment
                 SFX2.mute = true;
             }
             if (GameManager.instance.IsMuteMusic)
+            {
                 Music.mute = true;
-
+            }
+            SFX1.volume = GameManager.instance.VolumeMargin;
+            SFX2.volume = GameManager.instance.VolumeMargin;
         }
 
         public void PlayMusic()
@@ -88,6 +91,12 @@ namespace TeamPunishment
         public void MuteMusic(bool state)
         {
             Music.mute = !state;
+        }
+
+        public void SetVolumeMargin(float margin)
+        {
+            SFX1.volume = margin;
+            SFX2.volume = margin;
         }
     }
 }

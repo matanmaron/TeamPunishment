@@ -5,11 +5,19 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Analytics;
 using System.IO;
+using UnityEngine.UI;
 
 namespace TeamPunishment
 {
     public class GameManager : MonoBehaviour
     {
+        public GameObject volumeCanvas;
+        public Button volumeUp;
+        public Button volumeDown;
+        public float VolumeMargin = 0;
+        public Text VolumeText;
+        private Coroutine textCoroutine = null;
+
         public Texture2D crosshair;
         public bool isAndroid = false;
         public bool isDemoMode = false;
@@ -20,9 +28,9 @@ namespace TeamPunishment
         public bool IsMuteLogs;
         public bool CanEsc = true;
 #if UNITY_EDITOR
-        double MINUETS_TO_SHOW_DEMO = 10;
+        double MINUETS_TO_SHOW_DEMO = 1;
 #else
-        double MINUETS_TO_SHOW_DEMO = 10;
+        double MINUETS_TO_SHOW_DEMO = 10; //DO NOT CHANGE !
 #endif
 
         public static GameManager instance;
@@ -63,6 +71,12 @@ namespace TeamPunishment
         void Start()
         {
             Cursor.SetCursor(crosshair, Vector2.zero, CursorMode.Auto);
+            if (!isDemoMode)
+            {
+                volumeCanvas.SetActive(false);
+            }
+            volumeUp.onClick.AddListener(VolumeUp);
+            volumeDown.onClick.AddListener(VolumeDown);
         }
 
         private void Update()
@@ -88,6 +102,7 @@ namespace TeamPunishment
                     if (DateTime.Now > lastClick.AddMinutes(MINUETS_TO_SHOW_DEMO))
                     {
                         Debug.Log("DEMO START");
+                        volumeCanvas.SetActive(false);
                         var chat = FindObjectOfType<ChatUI>();
                         if (chat != null)
                         {
@@ -102,6 +117,8 @@ namespace TeamPunishment
 
         public void StopDemo()
         {
+            volumeCanvas.SetActive(true);
+            VolumeMargin = 0.5f;
             isDemoRunning = false;
             lastClick = DateTime.Now;
         }
@@ -145,6 +162,47 @@ namespace TeamPunishment
         {
             Camera.main.GetComponent<FlareLayer>().enabled = false;
             Camera.main.GetComponent<RetroTVFX.CRTEffect>().enabled = false;
+        }
+
+        private void VolumeUp()
+        {
+            if (VolumeMargin < 1)
+            {
+                VolumeMargin += 0.1f;
+                VolumeMargin = (float)Math.Round(VolumeMargin, 1);
+                AudioManager.instance.SetVolumeMargin(VolumeMargin);
+                VideoManager.instance.SetVolumeMargin(VolumeMargin);
+            }
+            ShowText();
+        }
+
+        private void VolumeDown()
+        {
+            if (VolumeMargin > 0.1f)
+            {
+                VolumeMargin -= 0.1f;
+                VolumeMargin = (float)Math.Round(VolumeMargin, 1);
+                AudioManager.instance.SetVolumeMargin(VolumeMargin);
+                VideoManager.instance.SetVolumeMargin(VolumeMargin);
+            }
+            ShowText();
+        }
+
+        IEnumerator RemoveText()
+        {
+            yield return new WaitForSeconds(1);
+            VolumeText.text = string.Empty;
+        }
+
+        private void ShowText()
+        {
+            Debug.Log($"Volume Margin: {VolumeMargin}");
+            VolumeText.text = $"Volume: {Mathf.RoundToInt(VolumeMargin*10)}/10";
+            if (textCoroutine != null)
+            {
+                StopCoroutine(textCoroutine);
+            }
+            textCoroutine = StartCoroutine(RemoveText());
         }
     }
 

@@ -63,6 +63,7 @@ namespace TeamPunishment
             }
 #endif
             VideoPlayer vid = currentVideo.GetComponent<VideoPlayer>();
+            vid.SetDirectAudioVolume(0,GameManager.instance.VolumeMargin);
             vid.clip = clip;
             vid.aspectRatio = VideoAspectRatio.FitInside;
             vid.targetCamera = Camera.main;
@@ -139,6 +140,14 @@ namespace TeamPunishment
         public bool IsVideoPlaying()
         {
             return currentVideo != null;
+        }
+
+        public void SetVolumeMargin(float margin)
+        {
+            if (currentVideo != null)
+            {
+                currentVideo.GetComponent<VideoPlayer>().SetDirectAudioVolume(0, margin);
+            }
         }
     }
 }
