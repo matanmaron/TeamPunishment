@@ -48,7 +48,7 @@ namespace TeamPunishment
 #if UNITY_EDITOR
             isAndroid = false;
 #endif
-#if UNITY_IOS || UNITY_ANDROID
+#if UNITY_IOS || UNITY_ANDROID || UNITY_WEBGL
             isAndroid = true; //NEVER CHANGE!
 #endif
             CheckDemoMode();
