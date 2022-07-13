@@ -10,13 +10,13 @@ namespace TeamPunishment
     public class VideoManager : MonoBehaviour
     {
         [SerializeField] GameObject VideoPrefab;
-        [SerializeField] VideoClip Intro;
-        [SerializeField] VideoClip Ferrum;
-        [SerializeField] VideoClip Cibus;
-        [SerializeField] VideoClip Ordo;
-        [SerializeField] VideoClip Artem;
-        [SerializeField] VideoClip End;
-        [SerializeField] VideoClip Transition;
+        string Intro = "Intro.mp4";
+        string Ferrum = "Ferrum Stage.mp4";
+        string Cibus = "Cibus Stage.mp4";
+        string Ordo = "OrdoStage.mp4";
+        string Artem = "Artheem Stage.mp4";
+        string End = "EndGame.mp4";
+        string Transition = "Transition.mp4";
         [SerializeField] GameObject chatCanvas;
 
         public static VideoManager instance;
@@ -42,12 +42,12 @@ namespace TeamPunishment
             }
         }
 
-        private void PlayVideo(Action callback, VideoClip clip)
+        private void PlayVideo(Action callback, string clip)
         {
             StartCoroutine(PlayVideoDelayed(callback, clip));
         }
 
-        IEnumerator PlayVideoDelayed(Action callback, VideoClip clip)
+        IEnumerator PlayVideoDelayed(Action callback, string clip)
         {
             yield return new WaitForSeconds(0.01f);
             AudioManager.instance.StopMusic();
@@ -64,7 +64,11 @@ namespace TeamPunishment
 #endif
             VideoPlayer vid = currentVideo.GetComponent<VideoPlayer>();
             vid.SetDirectAudioVolume(0,GameManager.instance.VolumeMargin);
-            vid.clip = clip;
+           
+            string filePath = System.IO.Path.Combine(Application.streamingAssetsPath, clip);
+            vid.source = VideoSource.Url;
+            vid.url = filePath;
+
             vid.aspectRatio = VideoAspectRatio.FitInside;
             vid.targetCamera = Camera.main;
             vid.Play();
